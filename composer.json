@@ -1,0 +1,7 @@
+{
+  "require": {
+    "erusev/parsedown": "^1.6",
+    "nesbot/carbon": "~1.21",
+    "overtrue/socialite": "~1.0"
+  }
+}

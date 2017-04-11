@@ -176,7 +176,7 @@ class TopicsController extends ControllerBase
         } else {
             array_pop($randomTopicsId);
         }
-
+        var_dump($randomTopicsId);die;
         $randomExcellentTopics = Topics::find(
             [
                 'id IN ({randomTopicsId:array})',

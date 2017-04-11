@@ -339,9 +339,6 @@
             <h3 class="panel-title">友情社区</h3>
         </div>
         <div class="panel-body text-center" style="padding-top: 5px;">
-            <a href="https://laravel-china.org/" target="_blank" rel="nofollow" title="Laravel China" style="padding: 3px;">
-                <img src="https://dn-phphub.qbox.me/assets/images/logo4.png" style="width:150px; margin: 3px 0;">
-            </a>
             <a href="http://golangtc.com/" target="_blank" rel="nofollow" title="Golang 中国" style="padding: 3px;">
                 <img src="/img/friends/golangcn.png" style="width:150px; margin: 3px 0;">
             </a>
@@ -350,6 +347,9 @@
             </a>
             <a href="https://segmentfault.com/" target="_blank" rel="nofollow" title="segmentfault" style="padding: 3px;">
                 <img src="https://static.segmentfault.com/v-58ec5a0e/global/img/logo-b.svg" style="width:150px; margin: 3px 0;">
+            </a>
+            <a href="https://laravel-china.org/" target="_blank" rel="nofollow" title="Laravel China" style="padding: 3px;">
+                <img src="https://dn-phphub.qbox.me/assets/images/logo4.png" style="width:150px; margin: 3px 0;">
             </a>
         </div>
     </div>

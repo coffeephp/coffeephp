@@ -59,11 +59,11 @@
 
                 <div class="follow-info row">
                     <div class="col-xs-6">
-                        <a class="counter" href="javascript:;">1</a>
+                        <a class="counter" href="javascript:;">{{ topics.count() }}</a>
                         <a class="text" href="javascript:;">话题</a>
                     </div>
                     <div class="col-xs-6">
-                        <a class="counter" href="javascript:;">5</a>
+                        <a class="counter" href="javascript:;">{{ replies.count() }}</a>
                         <a class="text" href="javascript:;">评论</a>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
             </div>
 
             <div class="panel-body">
-                {% if topics %}
+                {% if topics.count() %}
                     {{ partial("users/partials/topics") }}
                 {% else %}
                     <div class="empty-block">还没有发表话题呢~~</div>
@@ -206,7 +206,7 @@
             </div>
 
             <div class="panel-body">
-                {% if replies %}
+                {% if replies.count() %}
                     {{ partial("users/partials/replies") }}
                 {% else %}
                     <div class="empty-block">还没有评论过呢~~</div>

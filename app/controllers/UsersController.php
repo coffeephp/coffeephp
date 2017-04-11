@@ -93,7 +93,7 @@ class UsersController extends ControllerBase
 
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
-                $users = Users::findFirst(1);
+                $users = Users::findFirst($id);
                 $users->last_actived_at = date('Y-m-d H:i:s', time());
                 $users->update($_POST);
                 $this->flashSession->success("操作成功!");

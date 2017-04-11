@@ -9,7 +9,7 @@
         {{ partial("topics/partials/topic_author_box") }}
     </div>
 
-    {% if count(userTopics) %}
+    {% if userTopics %}
     <div class="panel panel-default corner-radius">
         <div class="panel-heading text-center">
             <h3 class="panel-title">{{ topic.users.name }} 的其他话题</h3>

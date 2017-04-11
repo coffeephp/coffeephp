@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" href="/img/favicon.png">
         <script>
             Config = {
-                'cdnDomain': 'https://dn-phphub.qbox.me/',
+                'cdnDomain': 'http://www.coffeephp.com/',
                 'user_id': 1,
                 'user_avatar': "https://dn-phphub.qbox.me/uploads/avatars/4330_1462204218.jpeg?imageView2/1/w/100/h/100",
                 'user_link': "http://www.coffeephp.com/users/1",

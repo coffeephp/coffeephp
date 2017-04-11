@@ -168,7 +168,7 @@ class TopicsController extends ControllerBase
         shuffle($randArray); //调用现成的数组随机排列函数
         $randomTopicsId =  array_slice($randArray, 0, 6); //截取前$limit个
         //排除掉当前话题
-        if ($searchKey = array_search($topic->id, $randomTopicsId)) {
+        if ($searchKey = array_search($topic->id, $randomTopicsId) !== false) {
             if (count($randomTopicsId) > 1) {
                 unset($randomTopicsId[$searchKey]);
             }
@@ -176,7 +176,7 @@ class TopicsController extends ControllerBase
         } else {
             array_pop($randomTopicsId);
         }
-        var_dump($randomTopicsId);die;
+
         $randomExcellentTopics = Topics::find(
             [
                 'id IN ({randomTopicsId:array})',

@@ -169,7 +169,7 @@
     <!-- Reply List -->
     <div class="replies panel panel-default list-panel replies-index">
         <div class="panel-heading">
-            <div class="total">回复数量: <b>12</b> </div>
+            <div class="total">回复数量: <b>{{ topic.number_replies }}</b> </div>
         </div>
 
         <div class="panel-body">

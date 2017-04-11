@@ -28,7 +28,7 @@
     </div>
     {% endif %}
 
-    {% if count(categoryTopics) %}
+    {% if categoryTopics %}
     <div class="panel panel-default corner-radius">
         <div class="panel-heading text-center">
             <h3 class="panel-title">分类下其他主题</h3>
@@ -117,7 +117,7 @@
     {#</div>#}
 
 
-    {% if count(randomExcellentTopics) %}
+    {% if randomExcellentTopics %}
     <div class="panel panel-default corner-radius panel-hot-topics">
         <div class="panel-heading text-center">
             <h3 class="panel-title">随机推荐话题</h3>

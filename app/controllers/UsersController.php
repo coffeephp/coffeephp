@@ -28,8 +28,7 @@ class UsersController extends ControllerBase
                 "order" => "id desc",
                 "bind" => [
                     'users_id' => $id
-                ],
-                "limit" => "20"
+                ]
             ]
         );
 
@@ -39,8 +38,7 @@ class UsersController extends ControllerBase
                 "order" => "id desc",
                 "bind" => [
                     'users_id' => $id
-                ],
-                "limit" => "20"
+                ]
             ]
         );
 

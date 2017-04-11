@@ -94,7 +94,7 @@ class TopicsController extends ControllerBase
                     'body'          => $body,
                 ]);
 
-                $res = $topics->update();
+                $res = $topics->create();
 
                 if ($res === false) {
                     $messages = $topics->getMessages();

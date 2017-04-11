@@ -11,7 +11,7 @@ return new \Phalcon\Config([
         'adapter'     => 'Mysql',
         'host'        => 'localhost',
         'username'    => 'root',
-        'password'    => '104e38048e',
+        'password'    => '154e38048e',
         'dbname'      => 'coffeephp',
         'charset'     => 'utf8',
     ],

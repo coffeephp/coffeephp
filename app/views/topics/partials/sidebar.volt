@@ -9,7 +9,7 @@
         {{ partial("topics/partials/topic_author_box") }}
     </div>
 
-    {% if userTopics %}
+    {% if count(userTopics) %}
     <div class="panel panel-default corner-radius">
         <div class="panel-heading text-center">
             <h3 class="panel-title">{{ topic.users.name }} 的其他话题</h3>
@@ -28,7 +28,7 @@
     </div>
     {% endif %}
 
-    {% if categoryTopics %}
+    {% if count(categoryTopics) %}
     <div class="panel panel-default corner-radius">
         <div class="panel-heading text-center">
             <h3 class="panel-title">分类下其他主题</h3>
@@ -117,7 +117,7 @@
     {#</div>#}
 
 
-    {% if randomExcellentTopics %}
+    {% if count(randomExcellentTopics) %}
     <div class="panel panel-default corner-radius panel-hot-topics">
         <div class="panel-heading text-center">
             <h3 class="panel-title">随机推荐话题</h3>

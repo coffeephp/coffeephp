@@ -169,11 +169,14 @@ class TopicsController extends ControllerBase
         $randomTopicsId =  array_slice($randArray, 0, 6); //截取前$limit个
         //排除掉当前话题
         if ($searchKey = array_search($topic->id, $randomTopicsId)) {
-            unset($randomTopicsId[$searchKey]);
+            if (count($randomTopicsId) > 1) {
+                unset($randomTopicsId[$searchKey]);
+            }
             $randomTopicsId = array_values($randomTopicsId);
         } else {
             array_pop($randomTopicsId);
         }
+
         $randomExcellentTopics = Topics::find(
             [
                 'id IN ({randomTopicsId:array})',

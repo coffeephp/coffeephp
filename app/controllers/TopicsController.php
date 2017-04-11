@@ -73,7 +73,7 @@ class TopicsController extends ControllerBase
      */
     public function storeAction()
     {
-        if (!$this->session->get('auth')) {
+        if (!$auth = $this->session->get('auth')) {
             $this->flashSession->error('You must be logged first');
             $this->response->redirect();
             return;
@@ -81,7 +81,7 @@ class TopicsController extends ControllerBase
 
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
-                $usersId = 1;
+                $usersId = $auth['id'];
 
                 $parsedown = new Parsedown();
                 $body = $parsedown->text($this->request->getPost('body'));
@@ -94,7 +94,18 @@ class TopicsController extends ControllerBase
                     'body'          => $body,
                 ]);
 
-                $topics->update();
+                $res = $topics->update();
+
+                if ($res === false) {
+                    $messages = $topics->getMessages();
+
+                    foreach ($messages as $message) {
+                        echo $message, "\n";
+                    }
+
+                    exit();
+                }
+
 
                 $this->response->redirect("topics/{$topics->id}");
                 return;

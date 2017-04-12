@@ -245,11 +245,9 @@
             <input type="hidden" name="topics_id" value="{{ topic.id }}">
             <div id="reply_notice" class="box">
                 <ul class="helpblock list">
-                    <li>请注意单词拼写，以及中英文排版，<a href="https://github.com/sparanoid/chinese-copywriting-guidelines">参考此页</a>
-                    </li>
-                    <li>支持 Markdown 格式, <strong>**粗体**</strong>、~~删除线~~、<code>`单行代码`</code>, 更多语法请见这里 <a href="https://github.com/riku/Markdown-Syntax-CN/blob/master/syntax.md">Markdown 语法</a>
-                    </li>
-                    <li>支持表情，使用方法请见 <a href="https://laravel-china.org/topics/45" target="_blank">Emoji 自动补全来咯</a>，可用的 Emoji 请见 <img title=":metal:" alt=":metal:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/metal.png" align="absmiddle"></img> <img title=":point_right:" alt=":point_right:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/point_right.png" align="absmiddle"></img> <a href="https://laravel-china.org/ecc/index.html" target="_blank" rel="nofollow"> Emoji 列表 </a> <img title=":star:" alt=":star:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/star.png" align="absmiddle"></img> <img title=":sparkles:" alt=":sparkles:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/sparkles.png" align="absmiddle"></img> </li>
+                    <li>请注意单词拼写，以及中英文排版</li>
+                    <li>支持 Markdown 格式, <strong>**粗体**</strong>、~~删除线~~、<code>`单行代码`</code>, 更多语法请见这里 <a href="https://github.com/riku/Markdown-Syntax-CN/blob/master/syntax.md">Markdown 语法</a></li>
+                    <li>支持Emoji表情</li>
                     <li>上传图片, 支持拖拽和剪切板黏贴上传, 格式限制 - jpg, png, gif</li>
                     <li>发布框支持本地存储功能，会在内容变更时保存，「提交」按钮点击时清空</li>
                 </ul>

@@ -13,14 +13,13 @@
         <script>
             Config = {
                 'cdnDomain': 'http://www.coffeephp.com/',
-                'user_id': 1,
-                'user_avatar': "https://dn-phphub.qbox.me/uploads/avatars/4330_1462204218.jpeg?imageView2/1/w/100/h/100",
-                'user_link': "http://www.coffeephp.com/users/1",
+                'user_id': {% if session.auth %}{{ session.auth['id'] }}{% else %}0{% endif %},
+                'user_avatar': "{% if session.auth %}{{ session.auth['avatar'] }}{% endif %}",
+                'user_link': "{% if session.auth %}http://www.coffeephp.com/users/{{ session.auth['id'] }}{% endif %}",
                 'routes': {
                     'notificationsCount' : 'http://www.coffeephp.com/notifications/count',
                     'upload_image' : 'http://www.coffeephp.com/upload_image'
                 },
-                'token': 'EpU61sAkaBvgTC15mD6K1mK4fThIu4KThvUUiKAY',
                 'environment': 'production',
                 'following_users': []
             };

@@ -345,12 +345,6 @@
             <a href="http://cnodejs.org/" target="_blank" rel="nofollow" title="CNode：Node.js 中文社区" style="padding: 3px;">
                 <img src="/img/friends/cnodejs.png" style="width:150px; margin: 3px 0;">
             </a>
-            <a href="https://segmentfault.com/" target="_blank" rel="nofollow" title="segmentfault" style="padding: 3px;">
-                <img src="https://static.segmentfault.com/v-58ec5a0e/global/img/logo-b.svg" style="width:150px; margin: 3px 0;">
-            </a>
-            <a href="https://laravel-china.org/" target="_blank" rel="nofollow" title="Laravel China" style="padding: 3px;">
-                <img src="https://dn-phphub.qbox.me/assets/images/logo4.png" style="width:150px; margin: 3px 0;">
-            </a>
         </div>
     </div>
 

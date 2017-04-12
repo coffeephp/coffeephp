@@ -138,7 +138,7 @@ class TopicsController extends ControllerBase
         $topic->update();
 
         //获取该话题的所有回复数据
-        $replies = $topic->getReplies(["order" => "id DESC"]);
+        $replies = $topic->getReplies();
 
         //当前作者的其他话题
         $userTopics = Topics::find([

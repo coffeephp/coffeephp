@@ -30,7 +30,7 @@ return new \Phalcon\Config([
         'github' => [
             'client_id' => '50fc46901da900ce5361',
             'client_secret' => '8a7fa5a5ae5c368872b60f0b077039d729d424ce',
-            'redirect' => 'http://www.coffeephp.com/auth/github/callback',
+            'redirect' => 'http://coffeephp.com/auth/github/callback',
         ],
     ]
 ]);

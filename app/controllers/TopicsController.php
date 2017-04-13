@@ -242,7 +242,7 @@ class TopicsController extends ControllerBase
                 $file->moveTo(
                     "files/" . $filename
                 );
-                $data['filename'] = 'http://www.coffeephp.com/files/' . $filename;
+                $data['filename'] = '/files/' . $filename;
             }
         } else {
             $data['error'] = 'Error while uploading file';

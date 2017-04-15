@@ -1,5 +1,6 @@
 <?php
 use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
+use Phalcon\Http\Response;
 
 /**
  * 话题控制器
@@ -128,6 +129,9 @@ class TopicsController extends ControllerBase
         $topicsViews->topics_id = $id;
         $topicsViews->ip_address = get_client_ip();
         $topicsViews->user_agent = $_SERVER['HTTP_USER_AGENT'];
+        if($auth = $this->session->get('auth')) {
+            $topicsViews->users_id = $auth['id'];
+        }
         $topicsViews->create();
 
         //取出当前话题数据
@@ -140,22 +144,44 @@ class TopicsController extends ControllerBase
         //获取该话题的所有回复数据
         $replies = $topic->getReplies();
 
+        //获取当前话题下的赞
+        $votes = $topic->getVotes([
+            'status = :status:',
+            'bind'     => [
+                'status' => 1
+            ]
+        ]);
+        $isVoted = 0;
+        if ($auth) {
+            $isVoted = $topic->getVotes([
+                'status = :status: AND users_id = :users_id:',
+                'bind'     => [
+                    'status' => 1,
+                    'users_id' => $auth['id']
+                    ]
+                ])->count() ? 1 :0;
+        }
+
         //当前作者的其他话题
         $userTopics = Topics::find([
-            'users_id' => $topic->users_id,
-            'conditions' => 'id != :topics_id:',
+            'conditions' => 'users_id = :users_id: AND id != :topics_id:',
             'order'    => "id DESC",
             'limit'    => 3,
-            'bind'     => ['topics_id' => $topic->id],
+            'bind'     => [
+                'users_id' => $topic->users_id,
+                'topics_id' => $topic->id
+            ],
         ]);
 
         //分类下其他话题
         $categoryTopics = Topics::find([
-            'categories_id' => $topic->categories_id,
-            'conditions' => 'id != :topics_id:',
+            'conditions' => 'categories_id = :categories_id: AND id != :topics_id:',
             'order'    => "id DESC",
             'limit'    => 3,
-            'bind'     => ['topics_id' => $topic->id],
+            'bind'     => [
+                'categories_id' => $topic->categories_id,
+                'topics_id' => $topic->id
+            ]
         ]);
 
         //随机推荐话题
@@ -188,6 +214,8 @@ class TopicsController extends ControllerBase
 
         $this->view->setVar("topic", $topic);
         $this->view->setVar("replies", $replies);
+        $this->view->setVar("votes", $votes);
+        $this->view->setVar("isVoted", $isVoted);
         $this->view->setVar("userTopics", $userTopics);
         $this->view->setVar("categoryTopics", $categoryTopics);
         $this->view->setVar("randomExcellentTopics", $randomExcellentTopics);
@@ -250,6 +278,62 @@ class TopicsController extends ControllerBase
 
         echo json_encode($data);
         die;
+    }
+
+    /**
+     * 话题投票控制器
+     * @param $id
+     * @return Response
+     * @auhor jsyzchenchen@gmail.com
+     * @date 2017/04/14
+     */
+    public function upvoteAction($id)
+    {
+        $auth = $this->session->get('auth');
+        $users_id = $auth['id'];
+
+        //取出当前话题数据
+        $topic = Topics::findFirst($id);
+
+        $votes = Votes::findFirst([
+            "topics_id = :topics_id: AND users_id = :users_id:",
+            "bind" => [
+                'topics_id' => $id,
+                'users_id' => $users_id
+            ]
+        ]);
+
+        if ($votes) {
+            if ($votes->status == 1) {
+                $votes->status = 0;
+                //点赞数-1
+                $topic->votes_up = $topic->votes_up - 1;
+            } elseif ($votes->status == 0) {
+                $votes->status = 1;
+                //点赞数+1
+                $topic->votes_up = $topic->votes_up + 1;
+            }
+            $votes->save();
+            $topic->update();
+        } else {
+            //更新投票表
+            $votes = new Votes();
+            $votes->topics_id = $id;
+            $votes->users_id = $users_id;
+            $votes->type = 1;
+            $votes->save();
+
+            //点赞数+1
+            $topic->votes_up = $topic->votes_up + 1;
+            $topic->update();
+        }
+
+        // Getting a response instance
+        $response = new Response();
+        // Setting a raw header
+        $response->setRawHeader("HTTP/1.1 200 OK");
+        // Return the response
+        return $response;
     }
 }
 

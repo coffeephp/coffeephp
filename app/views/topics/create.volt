@@ -52,18 +52,15 @@
                 <div class="form-group">
                     <select class="selectpicker form-control" name="category_id" id="category-select"><option value="" disabled="" selected="">请选择分类</option>
                         {% for category in categories %}
-                            {% if category.name != '公告' %}
+                            {% if session.auth['id'] == 1 %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% elseif category.name != '公告' %}
                                 <option value="{{ category.id }}">{{ category.name }}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
                 </div>
 
-
-                {#<div class="category-hint alert alert-warning category-1 ">#}
-                    {#Laravel China 是国内最大的 PHP &amp; Laravel 社区，招聘、求职、外包等相关的话题，都可以在此主题下发布。<br>请遵照 <a href="https://laravel-china.org/topics/817">PHPHub 招聘贴发布规范</a>，不遵循规范，会被视为对用户的不尊重，管理员会做沉贴操作，沉贴后用户基本上看不到帖子。符合规范，我们会为话题加精并推荐到网站首页、手机端首页、精华帖周报邮件、<a href="http://weibo.com/phphub">微博官方账#}
-                    {#</a>#}
-                {#</div>#}
                 <div class="category-hint alert alert-warning category-3 " style="display:none">
                     社区公告，小朋友不要做坏事哦。
                 </div>

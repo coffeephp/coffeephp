@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ed0234a-d82e-4c95-a2b7-d2c20908e200" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/TopicsController.php" afterPath="$PROJECT_DIR$/app/controllers/TopicsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/index.volt" afterPath="$PROJECT_DIR$/app/views/topics/index.volt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database.sql" afterPath="$PROJECT_DIR$/database.sql" />
     </list>
     <ignored path="coffeephp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -142,8 +140,8 @@
       <file leaf-file-name="TopicsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/TopicsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+            <state relative-caret-position="253">
+              <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
               <folding>
                 <element signature="e#6#74#0#PHP" expanded="true" />
               </folding>
@@ -623,12 +621,12 @@
       <workItem from="1492156978590" duration="701000" />
       <workItem from="1492159719020" duration="151000" />
       <workItem from="1492161370924" duration="2194000" />
-      <workItem from="1492164471635" duration="6668000" />
+      <workItem from="1492164471635" duration="6716000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204903000" />
+    <option name="totallyTimeSpent" value="204951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1006,8 +1004,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/TopicsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        <state relative-caret-position="253">
+          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
           <folding>
             <element signature="e#6#74#0#PHP" expanded="true" />
           </folding>

@@ -185,7 +185,7 @@
                         <div class="infos">
 
                             <div class="media-heading">
-                                {% if item.order > 0 %}
+                                {% if item.sticked == 1 %}
                                 <span class="hidden-xs label label-warning">置顶</span>
                                 {% else %}
                                 <span class="hidden-xs label label-default">{{ item.categories.name }}</span>

@@ -20,7 +20,7 @@ class TopicsController extends ControllerBase
 
         $builder = $this->modelsManager->createBuilder()
             ->from("Topics")
-            ->orderBy("id DESC");
+            ->orderBy("sticked desc, id desc");
 
         $paginator = new PaginatorQueryBuilder(
             [

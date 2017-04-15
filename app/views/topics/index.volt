@@ -185,8 +185,11 @@
                         <div class="infos">
 
                             <div class="media-heading">
-
+                                {% if item.order > 0 %}
+                                <span class="hidden-xs label label-warning">置顶</span>
+                                {% else %}
                                 <span class="hidden-xs label label-default">{{ item.categories.name }}</span>
+                                {% endif %}
                                 <a href="{{ url("topics/" ~ item.id) }}" title="{{ item.title }}">
                                     {{ item.title }}
                                 </a>

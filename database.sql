@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `topics`(
   `excerpt` text COMMENT '摘要',
   `users_id` int unsigned NOT NULL COMMENT '用户id',
   `categories_id` int unsigned NOT NULL COMMENT '分类id',
+  `order` int NOT NULL DEFAULT 0 COMMENT '排序',
   `number_replies` int unsigned NOT NULL DEFAULT 0 COMMENT '回复数',
   `number_views` int unsigned NOT NULL DEFAULT 0 COMMENT '浏览数',
   `votes_up` int unsigned NOT NULL DEFAULT 0 COMMENT 'up投票数',
@@ -44,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `topics`(
   KEY (`categories_id`),
   KEY (`users_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '主题表';
+ALTER TABLE `topics` ADD `order` int NOT NULL DEFAULT 0 COMMENT '排序' AFTER `categories_id`;
 
 DROP TABLE IF EXISTS `replies`;
 CREATE TABLE IF NOT EXISTS `replies` (

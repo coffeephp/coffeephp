@@ -154,7 +154,7 @@
             <div class="voted-users">
                 <div class="user-lists">
                     {% for vote in votes %}
-                    <a href="{{ url('users/') ~ vote.users.id ~ '/edit' }}" data-userid="{{ vote.users.id }}">
+                    <a href="{{ url('users/') ~ vote.users.id }}" data-userid="{{ vote.users.id }}">
                         <img class="img-thumbnail avatar avatar-middle" src="{{ vote.users.avatar }}" style="width:48px;height:48px;">
                     </a>
                     {% endfor %}

@@ -1,0 +1,8 @@
+composer.json
+composer.lock
+database.sql
+cache/
+public/files/
+.idea/
+.DS_Store
+*/.DS_Store

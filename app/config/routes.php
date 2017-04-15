@@ -22,6 +22,15 @@ $router->add(
     ]
 );
 
+//用户登录
+$router->add(
+    '/login',
+    [
+        'controller' => 'auth',
+        'action'     => 'githubAuthorize'
+    ]
+);
+
 //用户退出
 $router->add(
     '/logout',
@@ -55,6 +64,15 @@ $router->addPost(
     [
         'controller' => 'topics',
         'action'     => 'store'
+    ]
+);
+
+//话题点赞
+$router->addPost(
+    '/topics/{id:[0-9]+}/upvote',
+    [
+        'controller' => 'topics',
+        'action'     => 'upvote'
     ]
 );
 

@@ -52,7 +52,9 @@
                 <div class="form-group">
                     <select class="selectpicker form-control" name="category_id" id="category-select"><option value="" disabled="" selected="">请选择分类</option>
                         {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% if category.name != '公告' %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>

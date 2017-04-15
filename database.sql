@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_actived_at` DATETIME,
   `created_at` DATETIME,
   `updated_at` DATETIME,
-  `deleted_at` DATETIME,
   PRIMARY KEY (`id`),
   KEY (`github_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '用户表';
@@ -38,9 +37,9 @@ CREATE TABLE IF NOT EXISTS `topics`(
   `votes_up` int unsigned NOT NULL DEFAULT 0 COMMENT 'up投票数',
   `votes_down` int unsigned NOT NULL DEFAULT 0 COMMENT 'down投票数',
   `last_replies_id` int unsigned NOT NULL DEFAULT 0 COMMENT '最后回复id',
+  `status` int unsigned NOT NULL DEFAULT 1 COMMENT '状态',
   `created_at` DATETIME,
   `updated_at` DATETIME,
-  `deleted_at` DATETIME,
   PRIMARY KEY (`id`),
   KEY (`categories_id`),
   KEY (`users_id`)
@@ -56,9 +55,9 @@ CREATE TABLE IF NOT EXISTS `replies` (
   `in_reply_to_id` int NOT NULL DEFAULT 0 COMMENT '答复的回复id',
   `votes_up` int unsigned NOT NULL DEFAULT 0 COMMENT 'up投票数',
   `votes_down` int unsigned NOT NULL DEFAULT 0 COMMENT 'down投票数',
+  `status` int unsigned NOT NULL DEFAULT 1 COMMENT '状态',
   `created_at` DATETIME,
   `updated_at` DATETIME,
-  `deleted_at` DATETIME,
   PRIMARY KEY (`id`),
   KEY (`users_id`),
   KEY (`topics_id`)
@@ -70,7 +69,6 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` VARCHAR(255) NOT NULL,
   `created_at` DATETIME,
   `updated_at` DATETIME,
-  `deleted_at` DATETIME,
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '分类表';
 
@@ -80,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `name` varchar(255) UNIQUE NOT NULL COMMENT '标签名称',
   `created_at` DATETIME,
   `updated_at` DATETIME,
-  `deleted_at` DATETIME,
   PRIMARY KEY (`id`),
   KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '标签表';
@@ -90,9 +87,10 @@ CREATE TABLE IF NOT EXISTS `votes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `users_id` int unsigned NOT NULL COMMENT '用户id',
   `topics_id` int unsigned NOT NULL COMMENT '主题id',
+  `type` int unsigned NOT NULL DEFAULT 1 COMMENT '投票类型,1up,2down',
+  `status` int unsigned NOT NULL DEFAULT 1 COMMENT '状态',
   `created_at` DATETIME,
   `updated_at` DATETIME,
-  `deleted_at` DATETIME,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '投票表';
 

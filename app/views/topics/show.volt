@@ -47,7 +47,7 @@
                 于 <abbr title="{{ topic.created_at }}" class="timeago">{{ topic.created_at }}</abbr>
                 ⋅
 
-                {% if replies %}
+                {% if replies.count() %}
                     {% for reply in replies %}
                         最后回复由
                         <a href="{{ url('users/') ~  reply.users.id}}">

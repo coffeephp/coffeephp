@@ -8235,7 +8235,7 @@ var QRCode;!function(){function t(t){this.mode=l.MODE_8BIT_BYTE,this.data=t,this
                         confirmButtonText: "前往登录"
                     }).then(function(){
 
-                        location.href = '/login-required';
+                        location.href = '/login';
 
                     }).catch(swal.noop);
                 }

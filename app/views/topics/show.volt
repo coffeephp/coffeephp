@@ -139,32 +139,32 @@
     </div>
 
 
-    {#<div class="votes-container panel panel-default padding-md">#}
+    <div class="votes-container panel panel-default padding-md">
+        <div class="panel-body vote-box text-center">
+            <div class="btn-group">
+                <a data-ajax="post" href="javascript:void(0);" data-url="/topics/{{ topic.id }}/upvote" id="up-vote" class="vote btn btn-primary btn-inverted {% if isVoted %}active{% endif %}" data-original-title="Up Vote">
+                    {% if isVoted %}
+                        已赞过
+                    {% else %}
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>点赞
+                    {% endif %}
+                </a>
+            </div>
 
-        {#<div class="panel-body vote-box text-center">#}
-
-            {#<div class="btn-group">#}
-
-                {#<a data-ajax="post" href="javascript:void(0);" data-url="https://laravel-china.org/topics/2100/upvote" title="" data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看" id="up-vote" class="vote btn btn-primary btn-inverted popover-with-html " data-original-title="Up Vote">#}
-                    {#<i class="fa fa-thumbs-up" aria-hidden="true"></i>#}
-                    {#点赞#}
-                {#</a>#}
-
-            {#</div>#}
-
-            {#<div class="voted-users">#}
-
-                {#<div class="user-lists">#}
-                    {#<a href="https://laravel-china.org/users/3803" data-userid="3803">#}
-                        {#<img class="img-thumbnail avatar avatar-middle" src="https://dn-phphub.qbox.me/uploads/avatars/3803_1457114834.png?imageView2/1/w/100/h/100" style="width:48px;height:48px;"></a>#}
-                {#</div>#}
-
-                {#<a class="voted-template" href="" data-userid="" style="display:none">#}
-                    {#<img class="img-thumbnail avatar avatar-middle" src="" style="width:48px;height:48px;"></a>#}
-            {#</div>#}
-
-        {#</div>#}
-    {#</div>#}
+            <div class="voted-users">
+                <div class="user-lists">
+                    {% for vote in votes %}
+                    <a href="{{ url('users/') ~ vote.users.id ~ '/edit' }}" data-userid="{{ vote.users.id }}">
+                        <img class="img-thumbnail avatar avatar-middle" src="{{ vote.users.avatar }}" style="width:48px;height:48px;">
+                    </a>
+                    {% endfor %}
+                </div>
+                <a class="voted-template" href="" data-userid="" style="display:none">
+                    <img class="img-thumbnail avatar avatar-middle" src="" style="width:48px;height:48px;">
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Reply List -->
     <div class="replies panel panel-default list-panel replies-index">
@@ -238,8 +238,6 @@
 
     <!-- Reply Box -->
     <div class="reply-box form box-block">
-
-
         <form method="POST" action="{{ url('replies') }}" accept-charset="UTF-8" id="reply-form">
             <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>
             <input type="hidden" name="topics_id" value="{{ topic.id }}">

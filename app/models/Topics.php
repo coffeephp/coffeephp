@@ -1,32 +1,23 @@
 <?php
-use Phalcon\Mvc\Model;
-use Phalcon\Mvc\Model\Behavior\SoftDelete;
-
 /**
  * 话题模型
  * @author jsyzchenchen@gmail.com
  * @date 2016/12/3
  */
-class Topics extends Model
+class Topics extends ModelBase
 {
     /** @var int 浏览数 */
     public $number_views;
     /** @var int 回复数 */
     public $number_replies;
+    public $votes_up;
     public $id;
     public $users_id;
     public $categories_id;
 
     public function initialize()
     {
-        $this->addBehavior(
-            new SoftDelete(
-                [
-                    "field" => "deleted_at",
-                    "value" => date("Y-m-d H:i:s"),
-                ]
-            )
-        );
+        parent::initialize();
 
         $this->belongsTo(
             "users_id",
@@ -53,6 +44,12 @@ class Topics extends Model
             "categories_id",
             "Categories",
             "id"
+        );
+
+        $this->hasMany(
+            "id",
+            "Votes",
+            "topics_id"
         );
     }
 

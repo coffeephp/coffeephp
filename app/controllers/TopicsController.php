@@ -295,7 +295,7 @@ class TopicsController extends ControllerBase
             $this->response->redirect();
             return;
         }
-        
+
         $users_id = $auth['id'];
 
         //取出当前话题数据

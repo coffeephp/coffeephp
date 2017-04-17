@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ed0234a-d82e-4c95-a2b7-d2c20908e200" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/index.volt" afterPath="$PROJECT_DIR$/app/views/topics/index.volt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database.sql" afterPath="$PROJECT_DIR$/database.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/show.volt" afterPath="$PROJECT_DIR$/app/views/topics/show.volt" />
     </list>
     <ignored path="coffeephp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,21 +74,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.volt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.volt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/topics/index.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="194" column="36" lean-forward="true" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
+            <state relative-caret-position="582">
+              <caret line="190" column="84" lean-forward="false" selection-start-line="190" selection-start-column="72" selection-end-line="190" selection-end-column="84" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.volt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show.volt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+            <state relative-caret-position="436">
+              <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -227,7 +225,6 @@
         <option value="$PROJECT_DIR$/app/views/users/show.volt" />
         <option value="$PROJECT_DIR$/app/models/Votes.php" />
         <option value="$PROJECT_DIR$/app/views/topics/create.volt" />
-        <option value="$PROJECT_DIR$/app/views/topics/show.volt" />
         <option value="$PROJECT_DIR$/app/controllers/TopicsController.php" />
         <option value="$PROJECT_DIR$/app/models/Topics.php" />
         <option value="$PROJECT_DIR$/app/controllers/ControllerBase.php" />
@@ -236,6 +233,7 @@
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/database.sql" />
         <option value="$PROJECT_DIR$/app/views/topics/index.volt" />
+        <option value="$PROJECT_DIR$/app/views/topics/show.volt" />
       </list>
     </option>
   </component>
@@ -593,12 +591,12 @@
       <workItem from="1492161370924" duration="2194000" />
       <workItem from="1492164471635" duration="8294000" />
       <workItem from="1492397460121" duration="430000" />
-      <workItem from="1492426265317" duration="3065000" />
+      <workItem from="1492426265317" duration="3309000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210024000" />
+    <option name="totallyTimeSpent" value="210268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1920" height="1080" extended-state="0" />
@@ -956,18 +954,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
+    <entry file="file://$PROJECT_DIR$/app/views/topics/index.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="582">
+          <caret line="190" column="84" lean-forward="false" selection-start-line="190" selection-start-column="72" selection-end-line="190" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/topics/index.volt">
+    <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="194" column="36" lean-forward="true" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
+        <state relative-caret-position="436">
+          <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
           <folding />
         </state>
       </provider>

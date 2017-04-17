@@ -67,15 +67,15 @@
             <div class="markdown-body" id="emojify">
                 {{ topic.body }}
             </div>
-
-            {#<div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">#}
-                {#<div class="ribbon">#}
-                    {#<div class="ribbon-excellent">#}
-                        {#<i class="fa fa-trophy"></i> 本帖已被设为精华帖！#}
-                    {#</div>#}
-                {#</div>#}
-
-            {#</div>#}
+            {% if item.is_excellent %}
+            <div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">
+                <div class="ribbon">
+                    <div class="ribbon-excellent">
+                        <i class="fa fa-trophy"></i> 本帖已被设为精华帖！
+                    </div>
+                </div>
+            </div>
+            {% endif %}
         </div>
         <div class="appends-container" data-lang-append="附言">
         </div>

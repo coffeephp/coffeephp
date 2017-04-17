@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" href="/img/favicon.png">
         <script>
             Config = {
-                'cdnDomain': '/',
+                'cdnDomain': 'http://oojwdbogh.bkt.clouddn.com/',
                 'user_id': {% if session.auth %}{{ session.auth['id'] }}{% else %}0{% endif %},
                 'user_avatar': "{% if session.auth %}{{ session.auth['avatar'] }}{% endif %}",
                 'user_link': "{% if session.auth %}/users/{{ session.auth['id'] }}{% endif %}",

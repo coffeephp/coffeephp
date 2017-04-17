@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `topics`(
   `excerpt` text COMMENT '摘要',
   `users_id` int unsigned NOT NULL COMMENT '用户id',
   `categories_id` int unsigned NOT NULL COMMENT '分类id',
-  `is_excellent` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '是否是精华话题',
+  `is_excellent` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '是否是精华帖',
   `sticked` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '置顶',
   `number_replies` int unsigned NOT NULL DEFAULT 0 COMMENT '回复数',
   `number_views` int unsigned NOT NULL DEFAULT 0 COMMENT '浏览数',
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `topics`(
   KEY (`categories_id`),
   KEY (`users_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '话题表';
-#ALTER TABLE `topics` ADD `is_excellent` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '是否是精华话题' AFTER `categories_id`;
+#ALTER TABLE `topics` ADD `is_excellent` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '是否是精华帖' AFTER `categories_id`;
 #ALTER TABLE `topics` ADD `sticked` int unsigned NOT NULL DEFAULT 0 COMMENT '置顶' AFTER `is_excellent`;
 
 DROP TABLE IF EXISTS `replies`;

@@ -290,7 +290,12 @@ class TopicsController extends ControllerBase
      */
     public function upvoteAction($id)
     {
-        $auth = $this->session->get('auth');
+        if (!$auth = $this->session->get('auth')) {
+            $this->flashSession->error('You must be logged first');
+            $this->response->redirect();
+            return;
+        }
+        
         $users_id = $auth['id'];
 
         //取出当前话题数据

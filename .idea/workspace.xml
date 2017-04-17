@@ -67,8 +67,8 @@
       <file leaf-file-name="footer.volt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/footer.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="134" lean-forward="true" selection-start-line="10" selection-start-column="134" selection-end-line="10" selection-end-column="134" />
+            <state relative-caret-position="102">
+              <caret line="6" column="128" lean-forward="false" selection-start-line="6" selection-start-column="128" selection-end-line="6" selection-end-column="128" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
@@ -602,12 +602,12 @@
       <workItem from="1492161370924" duration="2194000" />
       <workItem from="1492164471635" duration="8294000" />
       <workItem from="1492397460121" duration="430000" />
-      <workItem from="1492426265317" duration="3627000" />
+      <workItem from="1492426265317" duration="3683000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210586000" />
+    <option name="totallyTimeSpent" value="210642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1920" height="1080" extended-state="0" />
@@ -977,8 +977,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/footer.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="134" lean-forward="true" selection-start-line="10" selection-start-column="134" selection-end-line="10" selection-end-column="134" />
+        <state relative-caret-position="102">
+          <caret line="6" column="128" lean-forward="false" selection-start-line="6" selection-start-column="128" selection-end-line="6" selection-end-column="128" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />

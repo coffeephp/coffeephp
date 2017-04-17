@@ -188,7 +188,7 @@
                                 {% if item.sticked == 1 %}
                                 <span class="hidden-xs label label-warning">置顶</span>
                                 {% else %}
-                                <span class="hidden-xs label label-default">{{ item.categories.name }}</span>
+                                <span class="hidden-xs label {% if item.is_excellent %}label-success{% else %}label-default{% endif %}">{{ item.categories.name }}</span>
                                 {% endif %}
                                 <a href="{{ url("topics/" ~ item.id) }}" title="{{ item.title }}">
                                     {{ item.title }}

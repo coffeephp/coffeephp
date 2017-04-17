@@ -212,6 +212,7 @@ class TopicsController extends ControllerBase
             ]
         );
 
+        $this->view->setVar("title", $topic->title);
         $this->view->setVar("topic", $topic);
         $this->view->setVar("replies", $replies);
         $this->view->setVar("votes", $votes);

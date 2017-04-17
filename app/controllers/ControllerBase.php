@@ -18,6 +18,8 @@ class ControllerBase extends Controller
         $this->view->setVar("numberUsers", $numberUsers);
         $this->view->setVar("numberTopics", $numberTopics);
         $this->view->setVar("numberReplies", $numberReplies);
+
+        $this->view->setVar("title", '');
     }
 
     /**

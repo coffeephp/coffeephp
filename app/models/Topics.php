@@ -14,6 +14,7 @@ class Topics extends ModelBase
     public $id;
     public $users_id;
     public $categories_id;
+    public $title;
 
     public function initialize()
     {

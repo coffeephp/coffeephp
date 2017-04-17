@@ -4,7 +4,7 @@
 
             <div class="col-sm-5 col-lg-5">
 
-                <p class="padding-top-xsm">我们是一个 PHP 开发者社区，致力于为 PHP 开发者提供一个解决问题、分享创造、结识伙伴、协同互助的平台。</p>
+                <p class="padding-top-xsm">我们是一个 PHP 开发者社区，致力于为 PHP 开发者提供一个解决问题、分享创造、结识伙伴、协同互助的平台。CoffeePHP社区QQ群：415183844</p>
 
                 {#<div class="text-md ">#}
                     {#<a class="popover-with-html" data-content="反馈问题" target="_blank" style="padding-right:8px" href="mailto:summer@estgroupe.com" data-original-title="" title=""><i class="fa fa-envelope" aria-hidden="true"></i></a>#}

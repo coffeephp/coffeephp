@@ -5,8 +5,8 @@ ini_set('date.timezone','Asia/Shanghai');
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 // 开启调试模式
-define('APP_DEBUG', true);
-if (APP_DEBUG) {
+define('APP_DEBUG', false);
+if (APP_DEBUG || (isset($_GET['debug']) && $_GET['debug'] == '1')) {
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);

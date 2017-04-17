@@ -67,7 +67,7 @@
             <div class="markdown-body" id="emojify">
                 {{ topic.body }}
             </div>
-            {% if item.is_excellent %}
+            {% if topic.is_excellent %}
             <div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">
                 <div class="ribbon">
                     <div class="ribbon-excellent">

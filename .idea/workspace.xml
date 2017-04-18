@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ed0234a-d82e-4c95-a2b7-d2c20908e200" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/RepliesController.php" afterPath="$PROJECT_DIR$/app/controllers/RepliesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/index.volt" afterPath="$PROJECT_DIR$/app/views/topics/index.volt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/create.volt" afterPath="$PROJECT_DIR$/app/views/topics/create.volt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/show.volt" afterPath="$PROJECT_DIR$/app/views/topics/show.volt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database.sql" afterPath="$PROJECT_DIR$/database.sql" />
     </list>
     <ignored path="coffeephp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,6 +65,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="create.volt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/topics/create.volt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="623">
+              <caret line="87" column="60" lean-forward="false" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="services.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/services.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -113,8 +120,8 @@
       <file leaf-file-name="show.volt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1893">
-              <caret line="177" column="77" lean-forward="false" selection-start-line="177" selection-start-column="77" selection-end-line="177" selection-end-column="77" />
+            <state relative-caret-position="417">
+              <caret line="243" column="33" lean-forward="true" selection-start-line="243" selection-start-column="33" selection-end-line="243" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -134,7 +141,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RepliesController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RepliesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/RepliesController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="816">
@@ -238,7 +245,6 @@
         <option value="$PROJECT_DIR$/app/models/ModelBase.php" />
         <option value="$PROJECT_DIR$/app/views/users/show.volt" />
         <option value="$PROJECT_DIR$/app/models/Votes.php" />
-        <option value="$PROJECT_DIR$/app/views/topics/create.volt" />
         <option value="$PROJECT_DIR$/app/models/Topics.php" />
         <option value="$PROJECT_DIR$/app/views/index.volt" />
         <option value="$PROJECT_DIR$/app/views/layouts/footer.volt" />
@@ -250,9 +256,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/config/services.php" />
         <option value="$PROJECT_DIR$/database.sql" />
-        <option value="$PROJECT_DIR$/app/views/topics/show.volt" />
         <option value="$PROJECT_DIR$/app/views/topics/index.volt" />
         <option value="$PROJECT_DIR$/app/controllers/RepliesController.php" />
+        <option value="$PROJECT_DIR$/app/views/topics/show.volt" />
+        <option value="$PROJECT_DIR$/app/views/topics/create.volt" />
       </list>
     </option>
   </component>
@@ -576,12 +583,12 @@
       <workItem from="1492397460121" duration="430000" />
       <workItem from="1492426265317" duration="3752000" />
       <workItem from="1492439243410" duration="2036000" />
-      <workItem from="1492500504119" duration="5508000" />
+      <workItem from="1492500504119" duration="5654000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218255000" />
+    <option name="totallyTimeSpent" value="218401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1920" height="1080" extended-state="0" />
@@ -758,14 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/topics/create.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../tool/phalcon-devtools/ide/stubs/Phalcon/mvc/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -841,14 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -935,16 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1893">
-          <caret line="177" column="77" lean-forward="false" selection-start-line="177" selection-start-column="77" selection-end-line="177" selection-end-column="77" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/TopicsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -963,10 +944,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/RepliesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="243" column="33" lean-forward="true" selection-start-line="243" selection-start-column="33" selection-end-line="243" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/topics/create.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="87" column="60" lean-forward="false" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="60" />
           <folding />
         </state>
       </provider>

@@ -52,7 +52,7 @@ class AuthController extends ControllerBase
             $users->company = $user->original['company'];
             $users->personal_website = $user->original['blog'];
             $users->github_id = $user->id;
-            $users->github_nickname = $user->nickname;
+            $users->github_name = $user->nickname;
             $users->last_actived_at = date('Y-m-d H:i:s', time());
             $users->create();
         }

@@ -46,14 +46,12 @@
                 ⋅
 
                 {% if replies.count() %}
-                    {% for reply in replies %}
+                    {% set lastReplies = replies.getLast() %}
                         最后回复由
-                        <a href="{{ url('users/') ~  reply.users.id}}">
-                            {{ reply.users.name }}
+                        <a href="{{ url('users/') ~  lastReplies.users.id}}">
+                            {{ lastReplies.users.name }}
                         </a>
-                        于 <abbr title="{{ reply.created_at }}" class="timeago">{{ reply.created_at }}</abbr>
-                        {% break %}
-                    {% endfor %}
+                        于 <abbr title="{{ lastReplies.created_at }}" class="timeago">{{ lastReplies.created_at }}</abbr>
                     ⋅
                 {% endif %}
 
@@ -174,55 +172,55 @@
 
             <ul class="list-group row">
                 {% for reply in replies %}
-                    {#{% if loop.last %}#}
-                        {#<a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>#}
-                    {#{% endif %}#}
-                <li class="list-group-item media" style="margin-top: 0px;">
+                    {% if loop.last %}
+                        <a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>
+                    {% endif %}
+                    <li class="list-group-item media" style="margin-top: 0px;">
 
-                    <div class="avatar pull-left">
-                        <a href="{{ url('users/') ~ reply.users_id }}">
-                            <img class="media-object img-thumbnail avatar avatar-middle" alt="xcaptain" src="{{ reply.users.avatar }}" style="width:48px;height:48px;">
-                        </a>
-                    </div>
-
-                    <div class="infos">
-
-                        <div class="media-heading">
-
-                            <a href="{{ url('users/') ~ reply.users_id }}" title="xcaptain" class="remove-padding-left author">
-                                {{ reply.users.name }}
+                        <div class="avatar pull-left">
+                            <a href="{{ url('users/') ~ reply.users_id }}">
+                                <img class="media-object img-thumbnail avatar avatar-middle" alt="xcaptain" src="{{ reply.users.avatar }}" style="width:48px;height:48px;">
                             </a>
+                        </div>
+
+                        <div class="infos">
+
+                            <div class="media-heading">
+
+                                <a href="{{ url('users/') ~ reply.users_id }}" title="xcaptain" class="remove-padding-left author">
+                                    {{ reply.users.name }}
+                                </a>
 
 
 
-                            <span class="operate pull-right">
+                                <span class="operate pull-right">
 
-                <a class="comment-vote" data-ajax="post" id="reply-up-vote-{{ reply.id }}" href="javascript:void(0);" data-url="/replies/{{ reply.id }}/vote" title="Vote Up">
-         <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
-      </a>
-      <span> ⋅  </span>
+                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-{{ reply.id }}" href="javascript:void(0);" data-url="/replies/{{ reply.id }}/vote" title="Vote Up">
+             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
+          </a>
+          <span> ⋅  </span>
 
-                <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('{{ reply.users.name }}');" title="回复 {{ reply.users.name }}"></a>
-    </span>
+                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('{{ reply.users.name }}');" title="回复 {{ reply.users.name }}"></a>
+        </span>
 
-                            <div class="meta">
-                                <a name="reply{{ loop.index }}" class="anchor" href="#reply{{ loop.index }}" aria-hidden="true">#{{ loop.index }}</a>
+                                <div class="meta">
+                                    <a name="reply{{ loop.index }}" class="anchor" href="#reply{{ loop.index }}" aria-hidden="true">#{{ loop.index }}</a>
 
 
-                                <span> ⋅  </span>
-                                <abbr class="timeago" title="{{ reply.created_at }}">{{ reply.created_at }}</abbr>
+                                    <span> ⋅  </span>
+                                    <abbr class="timeago" title="{{ reply.created_at }}">{{ reply.created_at }}</abbr>
 
+                                </div>
+
+                            </div>
+
+                            <div class="media-body markdown-reply content-body">
+                                {{ reply.body }}
                             </div>
 
                         </div>
 
-                        <div class="media-body markdown-reply content-body">
-                            {{ reply.body }}
-                        </div>
-
-                    </div>
-
-                </li>
+                    </li>
                 {% endfor %}
             </ul>
             <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>

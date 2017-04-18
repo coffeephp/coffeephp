@@ -1,4 +1,6 @@
 <?php
+use Carbon\Carbon;
+
 /**
  * 回复控制器
  * @author jsyzchenchen@gmail.com
@@ -6,6 +8,11 @@
  */
 class RepliesController extends ControllerBase
 {
+    public $body_parsed;
+    public $users = [];
+    public $usernames;
+    public $body_original;
+
     /**
      * 添加回复
      * @author jsyzchenchen@gmail.com
@@ -23,14 +30,18 @@ class RepliesController extends ControllerBase
 
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
+                // @ user
+                $body_original = $this->request->getPost('body_original');
+                $body_original = $this->parse($body_original);
+
                 $parsedown = new Parsedown();
-                $body = $parsedown->text($this->request->getPost('body_original'));
+                $body = $parsedown->text($body_original);
                 $topicsId = $this->request->getPost('topics_id');
                 $usersId = $auth['id'];
 
                 $replies = new Replies([
                     'topics_id' => $topicsId,
-                    'body_original' => $this->request->getPost('body_original'),
+                    'body_original' => $body_original,
                     'body'          => $body,
                     'users_id'      => $usersId
                 ]);
@@ -60,7 +71,7 @@ class RepliesController extends ControllerBase
 
                     //更新用户的活跃时间
                     $users = Users::findFirst($usersId);
-                    $users->last_actived_at = date('Y-m-d H:i:s');
+                    $users->last_actived_at = Carbon::now()->toDateTimeString();
                     $users->save();
 
                 } else {
@@ -81,5 +92,47 @@ class RepliesController extends ControllerBase
         }
 
         exit(json_encode($return));
+    }
+
+    public function getMentionedUsername()
+    {
+        preg_match_all("/(\S*)\@([^\r\n\s]*)/i", $this->body_original, $atlist_tmp);
+        $usernames = [];
+        foreach ($atlist_tmp[2] as $k=>$v) {
+            if ($atlist_tmp[1][$k] || strlen($v) >25) {
+                continue;
+            }
+            $usernames[] = $v;
+        }
+        return array_unique($usernames);
+    }
+
+    public function replace()
+    {
+        $this->body_parsed = $this->body_original;
+
+        foreach ($this->users as $user) {
+            $search = '@' . $user->name;
+            $place = '['.$search.'](/users/'.$user->id.')';
+            $this->body_parsed = str_replace($search, $place, $this->body_parsed);
+        }
+    }
+
+    public function parse($body_original)
+    {
+        $this->body_original = $body_original;
+
+        $this->usernames = $this->getMentionedUsername();
+        count($this->usernames) > 0 && $this->users = Users::find(
+            [
+                'name IN ({names:array})',
+                'bind' => [
+                    'names' => $this->usernames
+                ]
+            ]
+        );
+
+        $this->replace();
+        return $this->body_parsed;
     }
 }

@@ -38,7 +38,6 @@ CREATE TABLE IF NOT EXISTS `topics`(
   `number_views` int unsigned NOT NULL DEFAULT 0 COMMENT '浏览数',
   `votes_up` int unsigned NOT NULL DEFAULT 0 COMMENT 'up投票数',
   `votes_down` int unsigned NOT NULL DEFAULT 0 COMMENT 'down投票数',
-  `last_replies_id` int unsigned NOT NULL DEFAULT 0 COMMENT '最后回复id',
   `status` int unsigned NOT NULL DEFAULT 1 COMMENT '状态',
   `created_at` DATETIME,
   `updated_at` DATETIME,

@@ -172,7 +172,7 @@
                  </span>
                                 <span class="count_seperator">|</span>
 
-                                <abbr title="" class="timeago popover-with-html" data-content="36分钟前" data-original-title="2017-03-05 16:58:01">36分钟前</abbr>
+                                <abbr title="{% if item.updated_at %}{{ item.updated_at }}{% else %}{{ item.created_at }}{% endif %}" class="timeago">{% if item.updated_at %}{{ item.updated_at }}{% else %}{{ item.created_at }}{% endif %}</abbr>
                             </div>
                         </a>
 

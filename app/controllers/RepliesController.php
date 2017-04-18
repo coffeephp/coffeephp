@@ -58,6 +58,11 @@ class RepliesController extends ControllerBase
                     $topic->number_replies = $topic->number_replies + 1;
                     $topic->update();
 
+                    //更新用户的活跃时间
+                    $users = Users::findFirst($usersId);
+                    $users->last_actived_at = date('Y-m-d H:i:s');
+                    $users->save();
+
                 } else {
                     $messages = $replies->getMessages();
 

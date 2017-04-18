@@ -107,6 +107,11 @@ class TopicsController extends ControllerBase
                     exit();
                 }
 
+                //更新用户的活跃时间
+                $users = Users::findFirst($usersId);
+                $users->last_actived_at = date('Y-m-d H:i:s');
+                $users->save();
+
 
                 $this->response->redirect("topics/{$topics->id}");
                 return;
@@ -296,7 +301,7 @@ class TopicsController extends ControllerBase
             return;
         }
 
-        $users_id = $auth['id'];
+        $usersId = $auth['id'];
 
         //取出当前话题数据
         $topic = Topics::findFirst($id);
@@ -305,7 +310,7 @@ class TopicsController extends ControllerBase
             "topics_id = :topics_id: AND users_id = :users_id:",
             "bind" => [
                 'topics_id' => $id,
-                'users_id' => $users_id
+                'users_id' => $usersId
             ]
         ]);
 
@@ -325,7 +330,7 @@ class TopicsController extends ControllerBase
             //更新投票表
             $votes = new Votes();
             $votes->topics_id = $id;
-            $votes->users_id = $users_id;
+            $votes->users_id = $usersId;
             $votes->type = 1;
             $votes->save();
 
@@ -333,6 +338,11 @@ class TopicsController extends ControllerBase
             $topic->votes_up = $topic->votes_up + 1;
             $topic->update();
         }
+
+        //更新用户的活跃时间
+        $users = Users::findFirst($usersId);
+        $users->last_actived_at = date('Y-m-d H:i:s');
+        $users->save();
 
         // Getting a response instance
         $response = new Response();

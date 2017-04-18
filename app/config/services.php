@@ -116,9 +116,6 @@ $di->set('flash', function () {
     ]);
 });
 
-/**
- * 建立flashSession服务
- */
 $di->set(
     "flashSession", function () {
         return new FlashSession([

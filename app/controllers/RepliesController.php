@@ -8,11 +8,6 @@ use Carbon\Carbon;
  */
 class RepliesController extends ControllerBase
 {
-    public $body_parsed;
-    public $users = [];
-    public $usernames;
-    public $body_original;
-
     /**
      * 添加回复
      * @author jsyzchenchen@gmail.com
@@ -30,18 +25,45 @@ class RepliesController extends ControllerBase
 
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
+                $bodyOriginal = $this->request->getPost('body_original');
                 // @ user
-                $body_original = $this->request->getPost('body_original');
-                $body_original = $this->parse($body_original);
+                $preg_match_res = preg_match_all("/(\S*)\@([^\r\n\s]*)/i", $bodyOriginal, $atlistTmp);
+                if ($preg_match_res) {
+                    $usersNames = [];
+                    foreach ($atlistTmp[2] as $k=>$v) {
+                        if ($atlistTmp[1][$k] || strlen($v) >25) {
+                            continue;
+                        }
+                        $usersNames[] = $v;
+                    }
+                    $usersNames =  array_unique($usersNames);
+
+                    if (count($usersNames) > 0) {
+                        $atUsers = Users::find(
+                            [
+                                'name IN ({names:array})',
+                                'bind' => [
+                                    'names' => $usersNames
+                                ]
+                            ]
+                        );
+
+                        foreach ($atUsers as $users) {
+                            $search = '@' . $users->name;
+                            $place = '['.$search.'](/users/'.$users->id.')';
+                            $bodyOriginal = str_replace($search, $place, $bodyOriginal);
+                        }
+                    }
+                }
 
                 $parsedown = new Parsedown();
-                $body = $parsedown->text($body_original);
+                $body = $parsedown->text($bodyOriginal);
                 $topicsId = $this->request->getPost('topics_id');
                 $usersId = $auth['id'];
 
                 $replies = new Replies([
                     'topics_id' => $topicsId,
-                    'body_original' => $body_original,
+                    'body_original' => $bodyOriginal,
                     'body'          => $body,
                     'users_id'      => $usersId
                 ]);
@@ -92,47 +114,5 @@ class RepliesController extends ControllerBase
         }
 
         exit(json_encode($return));
-    }
-
-    public function getMentionedUsername()
-    {
-        preg_match_all("/(\S*)\@([^\r\n\s]*)/i", $this->body_original, $atlist_tmp);
-        $usernames = [];
-        foreach ($atlist_tmp[2] as $k=>$v) {
-            if ($atlist_tmp[1][$k] || strlen($v) >25) {
-                continue;
-            }
-            $usernames[] = $v;
-        }
-        return array_unique($usernames);
-    }
-
-    public function replace()
-    {
-        $this->body_parsed = $this->body_original;
-
-        foreach ($this->users as $user) {
-            $search = '@' . $user->name;
-            $place = '['.$search.'](/users/'.$user->id.')';
-            $this->body_parsed = str_replace($search, $place, $this->body_parsed);
-        }
-    }
-
-    public function parse($body_original)
-    {
-        $this->body_original = $body_original;
-
-        $this->usernames = $this->getMentionedUsername();
-        count($this->usernames) > 0 && $this->users = Users::find(
-            [
-                'name IN ({names:array})',
-                'bind' => [
-                    'names' => $this->usernames
-                ]
-            ]
-        );
-
-        $this->replace();
-        return $this->body_parsed;
     }
 }

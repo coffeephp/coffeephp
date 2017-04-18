@@ -25,7 +25,8 @@ return new \Phalcon\Config([
         'libraryDir'     => APP_PATH . '/library/',
         'cacheDir'       => BASE_PATH . '/cache/',
         'baseUri'        => '/',
-        'staticBaseUri'  => 'http://oojwdbogh.bkt.clouddn.com/'
+        'staticBaseUri'  => 'http://oojwdbogh.bkt.clouddn.com/',
+        'debug'          => false
     ],
     'socialite' => [
         'github' => [

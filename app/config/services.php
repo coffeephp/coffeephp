@@ -33,6 +33,7 @@ $di->setShared('url', function () {
 
     $url = new UrlResolver();
     $url->setBaseUri($config->application->baseUri);
+    $url->setStaticBaseUri($config->application->staticBaseUri);
 
     return $url;
 });

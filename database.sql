@@ -85,8 +85,8 @@ CREATE TABLE IF NOT EXISTS `tags` (
   KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '标签表';
 
-DROP TABLE IF EXISTS `votes`;
-CREATE TABLE IF NOT EXISTS `votes` (
+DROP TABLE IF EXISTS `topics_votes`;
+CREATE TABLE IF NOT EXISTS `topics_votes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `users_id` int unsigned NOT NULL COMMENT '用户id',
   `topics_id` int unsigned NOT NULL COMMENT '主题id',
@@ -95,7 +95,19 @@ CREATE TABLE IF NOT EXISTS `votes` (
   `created_at` DATETIME,
   `updated_at` DATETIME,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '投票表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '话题的投票表';
+
+DROP TABLE IF EXISTS `replies_votes`;
+CREATE TABLE IF NOT EXISTS `replies_votes` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `users_id` int unsigned NOT NULL COMMENT '用户id',
+  `replies_id` int unsigned NOT NULL COMMENT '回复id',
+  `type` int unsigned NOT NULL DEFAULT 1 COMMENT '投票类型,1up,2down',
+  `status` int unsigned NOT NULL DEFAULT 1 COMMENT '状态',
+  `created_at` DATETIME,
+  `updated_at` DATETIME,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '回复的投票表';
 
 
 DROP TABLE IF EXISTS `topics_views`;

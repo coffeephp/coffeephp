@@ -149,9 +149,9 @@
 
             <div class="voted-users">
                 <div class="user-lists">
-                    {% for vote in votes %}
-                    <a href="{{ url('users/') ~ vote.users.id }}" data-userid="{{ vote.users.id }}">
-                        <img class="img-thumbnail avatar avatar-middle" src="{{ vote.users.avatar }}" style="width:48px;height:48px;">
+                    {% for topicsVote in topicsVotes %}
+                    <a href="{{ url('users/') ~ topicsVote.users.id }}" data-userid="{{ topicsVote.users.id }}">
+                        <img class="img-thumbnail avatar avatar-middle" src="{{ topicsVote.users.avatar }}" style="width:48px;height:48px;">
                     </a>
                     {% endfor %}
                 </div>

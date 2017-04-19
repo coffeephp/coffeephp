@@ -49,18 +49,8 @@ class Topics extends ModelBase
 
         $this->hasMany(
             "id",
-            "Votes",
+            "TopicsVotes",
             "topics_id"
         );
-    }
-
-    public function beforeCreate()
-    {
-        $this->created_at = date("Y-m-d H:i:s");
-    }
-
-    public function beforeUpdate()
-    {
-        $this->updated_at = date("Y-m-d H:i:s");
     }
 }

@@ -1,10 +1,10 @@
 <?php
 /**
- * 投票模型
+ * 话题投票模型
  * @author jsyzchenchen@gmail.com
  * @date 2017/04/13
  */
-class Votes extends ModelBase
+class TopicsVotes extends ModelBase
 {
     public $topics_id;
     public $users_id;

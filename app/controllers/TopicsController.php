@@ -129,14 +129,18 @@ class TopicsController extends ControllerBase
      */
     public function showAction($id)
     {
+        $usersId = 0;
+        if($auth = $this->session->get('auth')) {
+            $usersId = $auth['id'];
+        }
+
         //话题浏览量+1
         $topicsViews = new TopicsViews();
         $topicsViews->topics_id = $id;
         $topicsViews->ip_address = get_client_ip();
         $topicsViews->user_agent = $_SERVER['HTTP_USER_AGENT'];
-        if($auth = $this->session->get('auth')) {
-            $topicsViews->users_id = $auth['id'];
-        }
+        $topicsViews->users_id = $usersId;
+
         $topicsViews->create();
 
         //取出当前话题数据
@@ -150,21 +154,20 @@ class TopicsController extends ControllerBase
         $replies = $topic->getReplies();
 
         //获取当前话题下的赞
-        $votes = $topic->getVotes([
+        $topicsVotes = $topic->getTopicsVotes([
             'status = :status:',
             'bind'     => [
                 'status' => 1
             ]
         ]);
-        $isVoted = 0;
-        if ($auth) {
-            $isVoted = $topic->getVotes([
-                'status = :status: AND users_id = :users_id:',
-                'bind'     => [
-                    'status' => 1,
-                    'users_id' => $auth['id']
-                    ]
-                ])->count() ? 1 :0;
+        //当前用户是否已经赞过当前话题
+        $isVoted = false;
+        if ($usersId) {
+            foreach ($topicsVotes as $topicsVote) {
+                if ($topicsVote->users_id == $usersId) {
+                    $isVoted = true;
+                }
+            }
         }
 
         //当前作者的其他话题
@@ -220,7 +223,7 @@ class TopicsController extends ControllerBase
         $this->view->setVar("title", $topic->title);
         $this->view->setVar("topic", $topic);
         $this->view->setVar("replies", $replies);
-        $this->view->setVar("votes", $votes);
+        $this->view->setVar("topicsVotes", $topicsVotes);
         $this->view->setVar("isVoted", $isVoted);
         $this->view->setVar("userTopics", $userTopics);
         $this->view->setVar("categoryTopics", $categoryTopics);
@@ -306,7 +309,7 @@ class TopicsController extends ControllerBase
         //取出当前话题数据
         $topic = Topics::findFirst($id);
 
-        $votes = Votes::findFirst([
+        $topicsVotes = TopicsVotes::findFirst([
             "topics_id = :topics_id: AND users_id = :users_id:",
             "bind" => [
                 'topics_id' => $id,
@@ -314,25 +317,25 @@ class TopicsController extends ControllerBase
             ]
         ]);
 
-        if ($votes) {
-            if ($votes->status == 1) {
-                $votes->status = 0;
+        if ($topicsVotes) {
+            if ($topicsVotes->status == 1) {
+                $topicsVotes->status = 0;
                 //点赞数-1
-                $topic->votes_up = $topic->votes_up - 1;
-            } elseif ($votes->status == 0) {
-                $votes->status = 1;
+                $topicsVotes->votes_up = $topic->votes_up - 1;
+            } elseif ($topicsVotes->status == 0) {
+                $topicsVotes->status = 1;
                 //点赞数+1
                 $topic->votes_up = $topic->votes_up + 1;
             }
-            $votes->save();
+            $topicsVotes->save();
             $topic->update();
         } else {
             //更新投票表
-            $votes = new Votes();
-            $votes->topics_id = $id;
-            $votes->users_id = $usersId;
-            $votes->type = 1;
-            $votes->save();
+            $topicsVotes = new TopicsVotes();
+            $topicsVotes->topics_id = $id;
+            $topicsVotes->users_id = $usersId;
+            $topicsVotes->type = 1;
+            $topicsVotes->save();
 
             //点赞数+1
             $topic->votes_up = $topic->votes_up + 1;

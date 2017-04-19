@@ -22,7 +22,7 @@ class ModelBase extends Model
             new SoftDelete(
                 [
                     "field" => "status",
-                    "value" => Votes::DELETED,
+                    "value" => TopicsVotes::DELETED,
                 ]
             )
         );

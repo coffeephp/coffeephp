@@ -85,6 +85,15 @@ $router->addGet(
     ]
 );
 
+//回复点赞
+$router->addPost(
+    '/replies/{id:[0-9]+}/upvote',
+    [
+        'controller' => 'replies',
+        'action'     => 'upvote'
+    ]
+);
+
 //上传图片
 $router->addPost(
     '/upload_image',

@@ -115,4 +115,63 @@ class RepliesController extends ControllerBase
 
         exit(json_encode($return));
     }
+
+    /**
+     * 回复投票控制器
+     * @param $id
+     * @auhor jsyzchenchen@gmail.com
+     * @date 2017/04/19
+     */
+    public function upvoteAction($id)
+    {
+        $return = array();
+
+        if (!$auth = $this->session->get('auth')) {
+            $this->flashSession->error('You must be logged first');
+            $this->response->redirect();
+            return;
+        }
+
+        $usersId = $auth['id'];
+
+        $repliesVotes = RepliesVotes::findFirst([
+            "replies_id = :replies_id: AND users_id = :users_id:",
+            "bind" => [
+                'replies_id' => $id,
+                'users_id' => $usersId
+            ]
+        ]);
+
+        if ($repliesVotes) {
+            if ($repliesVotes->status == 1) {
+                $repliesVotes->status = 0;
+
+                $return['type'] = 'sub';
+            } elseif ($repliesVotes->status == 0) {
+                $repliesVotes->status = 1;
+
+                $return['type'] = 'add';
+            }
+            $repliesVotes->save();
+        } else {
+            //更新投票表
+            $repliesVotes = new repliesVotes();
+            $repliesVotes->replies_id = $id;
+            $repliesVotes->users_id = $usersId;
+            $repliesVotes->type = 1;
+            $repliesVotes->save();
+
+            $return['type'] = 'add';
+        }
+
+        //更新用户的活跃时间
+        $users = Users::findFirst($usersId);
+        $users->last_actived_at = Carbon::now()->toDateTimeString();
+        $users->save();
+
+        $return['status'] = 200;
+        $return['message'] = '操作成功！';
+
+        exit(json_encode($return));
+    }
 }

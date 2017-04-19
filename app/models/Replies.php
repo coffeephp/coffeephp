@@ -7,18 +7,11 @@ use Phalcon\Mvc\Model\Behavior\SoftDelete;
  * @author jsyzchenchen@gmail.com
  * @date 2016/12/3
  */
-class Replies extends Model
+class Replies extends ModelBase
 {
     public function initialize()
     {
-        $this->addBehavior(
-            new SoftDelete(
-                [
-                    "field" => "deleted_at",
-                    "value" => date("Y-m-d H:i:s"),
-                ]
-            )
-        );
+        parent::initialize();
 
         $this->belongsTo(
             "users_id",
@@ -31,15 +24,11 @@ class Replies extends Model
             "Topics",
             "id"
         );
-    }
 
-    public function beforeCreate()
-    {
-        $this->created_at = date("Y-m-d H:i:s");
-    }
-
-    public function beforeUpdate()
-    {
-        $this->updated_at = date("Y-m-d H:i:s");
+        $this->hasMany(
+            "id",
+            "RepliesVotes",
+            "replies_id"
+        );
     }
 }

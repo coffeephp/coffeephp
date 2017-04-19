@@ -1,6 +1,7 @@
 <?php
 use Phalcon\Mvc\Model;
 use Phalcon\Mvc\Model\Behavior\SoftDelete;
+use Carbon\Carbon;
 
 /**
  * 基础模型
@@ -30,12 +31,12 @@ class ModelBase extends Model
 
     public function beforeCreate()
     {
-        $this->created_at = date("Y-m-d H:i:s");
+        $this->created_at = Carbon::now()->toDateTimeString();
     }
 
     public function beforeUpdate()
     {
-        $this->updated_at = date("Y-m-d H:i:s");
+        $this->updated_at = Carbon::now()->toDateTimeString();
     }
 
     /**

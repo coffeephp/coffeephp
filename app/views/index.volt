@@ -153,5 +153,15 @@
         <script src="{{ static_url("js/coffeephp.js") }}"></script>
         {#<script src="{{ static_url("js/prism.js") }}"></script>#}
 
+        <!--百度统计-->
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?8cb350b9a5523174fcd0d5f514daf292";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
     </body>
 </html>

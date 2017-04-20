@@ -84,18 +84,17 @@
                 </div>
             </div>
 
-            {#<div class="pull-right actions">#}
+            <div class="pull-right actions">
 
 
                 {#<a id="topic-append-button" href="javascript:void(0);" class="admin  popover-with-html" data-toggle="modal" data-target="#exampleModal" data-content="帖子附言，添加附言后所有参与讨论的用户都能收到消息提醒，包括点赞和评论的用户" data-original-title="" title="">#}
                     {#<i class="fa fa-plus"></i>#}
                 {#</a>#}
 
-                {#<a id="topic-edit-button" href="https://laravel-china.org/topics/2100/edit" data-content="编辑" class="admin  popover-with-html" data-original-title="" title="">#}
-                    {#<i class="fa fa-pencil-square-o"></i>#}
-                {#</a>#}
-
-            {#</div>#}
+                {% if topic.users_id == session.auth['id'] %}
+                    <a id="topic-edit-button" href="/topics/{{ topic.id }}/edit" data-content="编辑" class="admin  popover-with-html no-pjax"><i class="fa fa-pencil-square-o"></i></a>
+                {% endif %}
+            </div>
             <div class="clearfix"></div>
         </div>
 
@@ -148,13 +147,22 @@
             </div>
 
             <div class="voted-users">
-                <div class="user-lists">
-                    {% for topicsVote in topicsVotes %}
-                    <a href="{{ url('users/') ~ topicsVote.users.id }}" data-userid="{{ topicsVote.users.id }}">
-                        <img class="img-thumbnail avatar avatar-middle" src="{{ topicsVote.users.avatar }}" style="width:48px;height:48px;">
-                    </a>
-                    {% endfor %}
-                </div>
+                {% if topicsVotes.count() %}
+                    <div class="user-lists">
+                        {% for topicsVote in topicsVotes %}
+                        <a href="{{ url('users/') ~ topicsVote.users.id }}" data-userid="{{ topicsVote.users.id }}">
+                            <img class="img-thumbnail avatar avatar-middle" src="{{ topicsVote.users.avatar }}" style="width:48px;height:48px;">
+                        </a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="user-lists">
+
+                    </div>
+                    <div class="vote-hint">
+                        成为第一个点赞的人吧 <img title=":bowtie:" alt=":bowtie:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/bowtie.png" align="absmiddle"></img>
+                    </div>
+                {% endif %}
                 <a class="voted-template" href="" data-userid="" style="display:none">
                     <img class="img-thumbnail avatar avatar-middle" src="" style="width:48px;height:48px;">
                 </a>
@@ -169,62 +177,65 @@
         </div>
 
         <div class="panel-body">
+            {% if replies.count() %}
+                <ul class="list-group row">
+                    {% for reply in replies %}
+                        {% if loop.last %}
+                            <a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>
+                        {% endif %}
+                        <li class="list-group-item media" style="margin-top: 0px;">
 
-            <ul class="list-group row">
-                {% for reply in replies %}
-                    {% if loop.last %}
-                        <a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>
-                    {% endif %}
-                    <li class="list-group-item media" style="margin-top: 0px;">
-
-                        <div class="avatar pull-left">
-                            <a href="{{ url('users/') ~ reply.users_id }}">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="xcaptain" src="{{ reply.users.avatar }}" style="width:48px;height:48px;">
-                            </a>
-                        </div>
-
-                        <div class="infos">
-
-                            <div class="media-heading">
-
-                                <a href="{{ url('users/') ~ reply.users_id }}" title="xcaptain" class="remove-padding-left author">
-                                    {{ reply.users.name }}
+                            <div class="avatar pull-left">
+                                <a href="{{ url('users/') ~ reply.users_id }}">
+                                    <img class="media-object img-thumbnail avatar avatar-middle" alt="xcaptain" src="{{ reply.users.avatar }}" style="width:48px;height:48px;">
                                 </a>
+                            </div>
+
+                            <div class="infos">
+
+                                <div class="media-heading">
+
+                                    <a href="{{ url('users/') ~ reply.users_id }}" title="xcaptain" class="remove-padding-left author">
+                                        {{ reply.users.name }}
+                                    </a>
 
 
 
-                                <span class="operate pull-right">
+                                    <span class="operate pull-right">
 
-                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-{{ reply.id }}" href="javascript:void(0);" data-url="/replies/{{ reply.id }}/upvote" title="Vote Up">
-             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count">{% if reply.repliesVotes.count() %}{{ reply.repliesVotes.count() }}{% endif %}</span>
-          </a>
-          <span> ⋅  </span>
+                        <a class="comment-vote" data-ajax="post" id="reply-up-vote-{{ reply.id }}" href="javascript:void(0);" data-url="/replies/{{ reply.id }}/upvote" title="Vote Up">
+                 <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count">{% if reply.repliesVotes.count() %}{{ reply.repliesVotes.count() }}{% endif %}</span>
+              </a>
+              <span> ⋅  </span>
 
-                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('{{ reply.users.name }}');" title="回复 {{ reply.users.name }}"></a>
-        </span>
+                        <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('{{ reply.users.name }}');" title="回复 {{ reply.users.name }}"></a>
+            </span>
 
-                                <div class="meta">
-                                    <a name="reply{{ loop.index }}" class="anchor" href="#reply{{ loop.index }}" aria-hidden="true">#{{ loop.index }}</a>
+                                    <div class="meta">
+                                        <a name="reply{{ loop.index }}" class="anchor" href="#reply{{ loop.index }}" aria-hidden="true">#{{ loop.index }}</a>
 
 
-                                    <span> ⋅  </span>
-                                    <abbr class="timeago" title="{{ reply.created_at }}">{{ reply.created_at }}</abbr>
+                                        <span> ⋅  </span>
+                                        <abbr class="timeago" title="{{ reply.created_at }}">{{ reply.created_at }}</abbr>
 
+                                    </div>
+
+                                </div>
+
+                                <div class="media-body markdown-reply content-body">
+                                    {{ reply.body }}
                                 </div>
 
                             </div>
 
-                            <div class="media-body markdown-reply content-body">
-                                {{ reply.body }}
-                            </div>
-
-                        </div>
-
-                    </li>
-                {% endfor %}
-            </ul>
-            <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>
-
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>
+            {% else %}
+                <ul class="list-group row"></ul>
+                <div id="replies-empty-block" class="empty-block">暂无评论~~</div>
+            {% endif %}
             <!-- Pager -->
             <div class="pull-right" style="padding-right:20px">
 

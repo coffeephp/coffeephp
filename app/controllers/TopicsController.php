@@ -1,6 +1,7 @@
 <?php
 use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 use Phalcon\Http\Response;
+use Carbon\Carbon;
 
 /**
  * 话题控制器
@@ -76,50 +77,58 @@ class TopicsController extends ControllerBase
     {
         if (!$auth = $this->session->get('auth')) {
             $this->flashSession->error('You must be logged first');
-            $this->response->redirect();
+            $this->response->redirect("topics/create");
             return;
         }
 
-        if ($this->request->isPost()) {
-            if ($this->security->checkToken()) {
-                $usersId = $auth['id'];
-                $bodyOriginal = $this->request->getPost('body_original');
-                $bodyOriginal = str_replace('<!--more--> ', '', $bodyOriginal);
+        if (!$this->request->isPost()) {
+            $this->flashSession->error('You must use post!');
+            $this->response->redirect("topics/create");
+            return;
+        }
 
-                $parsedown = new Parsedown();
-                $body = $parsedown->text($bodyOriginal);
+        if ($this->security->checkToken()) {
+            $usersId = $auth['id'];
+            $bodyOriginal = $this->request->getPost('body_original');
+            $bodyOriginal = str_replace('<!--more--> ', '', $bodyOriginal);
 
-                $topics = new Topics([
-                    'users_id'      => $usersId,
-                    'categories_id' => $this->request->getPost('category_id'),
-                    'title'         => $this->request->getPost('title'),
-                    'body_original' => $bodyOriginal,
-                    'body'          => $body,
-                ]);
+            $parsedown = new Parsedown();
+            $body = $parsedown->text($bodyOriginal);
 
-                $res = $topics->save();
+            $topics = new Topics([
+                'users_id'      => $usersId,
+                'categories_id' => $this->request->getPost('category_id'),
+                'title'         => $this->request->getPost('title'),
+                'body_original' => $bodyOriginal,
+                'body'          => $body,
+            ]);
 
-                if ($res === false) {
-                    $messages = $topics->getMessages();
+            $res = $topics->save();
 
-                    foreach ($messages as $message) {
-                        echo $message, "\n";
-                    }
+            if ($res === false) {
+                $messages = $topics->getMessages();
 
-                    exit();
+                foreach ($messages as $message) {
+                    //echo $message, "\n";
                 }
 
-                //更新用户的活跃时间
-                $users = Users::findFirst($usersId);
-                $users->last_actived_at = date('Y-m-d H:i:s');
-                $users->save();
-
-
-                $this->response->redirect("topics/{$topics->id}");
-                return;
-            } else {
                 $this->flashSession->error("The topic was failed to save!");
+                $this->response->redirect("topics/create");
+                return;
             }
+
+            //更新用户的活跃时间
+            $users = Users::findFirst($usersId);
+            $users->last_actived_at = Carbon::now()->toDateTimeString();
+            $users->save();
+
+            $this->flashSession->success('创建成功!');
+            $this->response->redirect("topics/{$topics->id}");
+            return;
+        } else {
+            $this->flashSession->error("The token is error!");
+            $this->response->redirect("topics/create");
+            return;
         }
     }
 
@@ -233,24 +242,98 @@ class TopicsController extends ControllerBase
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
+     * 话题修改页
      * @param  int  $id
-     *
+     * @author jsyzchenchen@gmail.com
+     * @date 2017/04/20
      */
     public function editAction($id)
     {
-        //
+        if (!$auth = $this->session->get('auth')) {
+            $this->flashSession->error('You must be logged first');
+            $this->response->redirect();
+            return;
+        }
+
+        $usersId = $auth['id'];
+
+        //取出当前话题数据
+        $topic = Topics::findFirst($id);
+
+        if ($topic->users_id != $usersId) {//不是当前话题的作者
+            // Getting a response instance
+            $response = new Response();
+            // Setting a raw header
+            $response->setRawHeader("HTTP/1.1 403 Forbidden");
+            // Return the response
+            return $response;
+        }
+
+        $this->view->setVar("topic", $topic);
     }
 
     /**
-     * Update the specified resource in storage.
+     * 话题更新
      * @param  int  $id
-     *
+     * @author jsyzchenchen@gmail.com
+     * @date 2017/04/20
      */
     public function updateAction($id)
     {
-        //
+        if (!$auth = $this->session->get('auth')) {
+            $this->flashSession->error('You must be logged first');
+            $this->response->redirect();
+            return;
+        }
+
+        //取出当前话题数据
+        $topics = Topics::findFirst($id);
+
+        if (!$this->request->isPost()) {
+            $this->flashSession->error('You must use put!');
+            $this->response->redirect("topics/{$topics->id}/edit");
+            return;
+        }
+
+        if ($this->security->checkToken()) {
+            $usersId = $auth['id'];
+            $bodyOriginal = $this->request->getPost('body_original');
+            $bodyOriginal = str_replace('<!--more--> ', '', $bodyOriginal);
+
+            $parsedown = new Parsedown();
+            $body = $parsedown->text($bodyOriginal);
+
+            $topics->title = $this->request->getPost('title');
+            $topics->body_original = $bodyOriginal;
+            $topics->body = $body;
+
+            $res = $topics->save();
+
+            if ($res === false) {
+                $messages = $topics->getMessages();
+
+                foreach ($messages as $message) {
+                    //echo $message, "\n";
+                }
+
+                $this->flashSession->error("The topic was failed to save!");
+                $this->response->redirect("topics/create");
+                return;
+            }
+
+            //更新用户的活跃时间
+            $users = Users::findFirst($usersId);
+            $users->last_actived_at = Carbon::now()->toDateTimeString();
+            $users->save();
+
+            $this->flashSession->success('修改成功!');
+            $this->response->redirect("topics/{$topics->id}");
+            return;
+        } else {
+            $this->flashSession->error("The token is error!");
+            $this->response->redirect("topics/{$topics->id}/edit");
+            return;
+        }
     }
 
     /**

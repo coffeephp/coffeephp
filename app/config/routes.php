@@ -67,6 +67,24 @@ $router->addPost(
     ]
 );
 
+//话题编辑页
+$router->addGet(
+    '/topics/{id:[0-9]+}/edit',
+    [
+        'controller' => 'topics',
+        'action'     => 'edit'
+    ]
+);
+
+//话题修改
+$router->addPost(
+    '/topics/{id:[0-9]+}',
+    [
+        'controller' => 'topics',
+        'action'     => 'update'
+    ]
+);
+
 //话题点赞
 $router->addPost(
     '/topics/{id:[0-9]+}/upvote',

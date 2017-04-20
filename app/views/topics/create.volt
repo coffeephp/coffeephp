@@ -1,41 +1,3 @@
-{#<div class="container">#}
-    {#<div class="col-md-8" style="padding-left: 0px;">#}
-        {#<form role="form" method="post" action="{{ url("topics/store") }}">#}
-            {#<div class="form-group">#}
-                {#<label>标题</label>#}
-                {#<input name="title" class="form-control" placeholder="请填写标题">#}
-            {#</div>#}
-            {#<div class="form-group">#}
-                {#<label>分类</label>#}
-                {#<select class="form-control" name="categories_id">#}
-                    {#<option>请选择分类</option>#}
-                    {#{% for category in categories %}#}
-                        {#<option value="{{ category.id }}">{{ category.name }}</option>#}
-                    {#{% endfor %}#}
-                {#</select>#}
-            {#</div>#}
-            {#<div class="form-group">#}
-                {#<label>内容</label>#}
-                {#<textarea name="body_original" class="form-control" rows="20" placeholder="请使用 Markdown 格式书写 ;-)"></textarea>#}
-            {#</div>#}
-            {#<input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>#}
-            {#<button type="submit" class="btn btn-primary">发布</button>#}
-        {#</form>#}
-    {#</div>#}
-
-    {#<div class="col-md-4" style="padding-right: 0px;">#}
-        {#<div class="panel panel-default">#}
-            {#<div class="panel-heading">#}
-                {#<h3 class="panel-title">注意事项</h3>#}
-            {#</div>#}
-            {#<div class="panel-body">#}
-                {#1.在提问之前先google，看能否找到答案<br />#}
-                {#2.分享的文章要是技术相关的#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
-
 <div class="topic_create">
 
     <div class="col-md-8 main-col">
@@ -92,7 +54,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea class="form-control" rows="20" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 614px;" id="reply_content" placeholder="请使用 Markdown 格式书写 ;-)" name="body" cols="50"></textarea>
+                    <textarea class="form-control" rows="20" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 614px;" id="reply_content" placeholder="请使用 Markdown 格式书写 ;-)" name="body_original" cols="50"></textarea>
                 </div>
 
                 <div class="form-group status-post-submit">

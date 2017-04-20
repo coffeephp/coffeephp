@@ -83,15 +83,17 @@ class TopicsController extends ControllerBase
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
                 $usersId = $auth['id'];
+                $bodyOriginal = $this->request->getPost('body_original');
+                $bodyOriginal = str_replace('<!--more--> ', '', $bodyOriginal);
 
                 $parsedown = new Parsedown();
-                $body = $parsedown->text($this->request->getPost('body'));
+                $body = $parsedown->text($bodyOriginal);
 
                 $topics = new Topics([
                     'users_id'      => $usersId,
                     'categories_id' => $this->request->getPost('category_id'),
                     'title'         => $this->request->getPost('title'),
-                    'body_original' => $this->request->getPost('body'),
+                    'body_original' => $bodyOriginal,
                     'body'          => $body,
                 ]);
 

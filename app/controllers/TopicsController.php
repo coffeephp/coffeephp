@@ -62,6 +62,12 @@ class TopicsController extends ControllerBase
      */
     public function createAction()
     {
+        if (!$auth = $this->session->get('auth')) {
+            $this->flashSession->error('You must be logged first');
+            $this->response->redirect();
+            return;
+        }
+
         //获取所有分类
         $categories = Categories::find();
 

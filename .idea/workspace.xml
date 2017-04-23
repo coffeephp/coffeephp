@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ed0234a-d82e-4c95-a2b7-d2c20908e200" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/show.volt" afterPath="$PROJECT_DIR$/app/views/topics/show.volt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/TopicsController.php" afterPath="$PROJECT_DIR$/app/controllers/TopicsController.php" />
     </list>
     <ignored path="coffeephp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,12 +44,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TopicsController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TopicsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/TopicsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="439">
+              <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+              <folding>
+                <element signature="e#34#102#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,7 +90,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.volt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show.volt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -222,7 +224,6 @@
         <option value="$PROJECT_DIR$/app/models/TopicsVotes.php" />
         <option value="$PROJECT_DIR$/app/models/Users.php" />
         <option value="$PROJECT_DIR$/app/controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/TopicsController.php" />
         <option value="$PROJECT_DIR$/app/controllers/UsersController.php" />
         <option value="$PROJECT_DIR$/app/controllers/RepliesController.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
@@ -230,6 +231,7 @@
         <option value="$PROJECT_DIR$/app/views/topics/index.volt" />
         <option value="$PROJECT_DIR$/app/views/index.volt" />
         <option value="$PROJECT_DIR$/app/views/topics/show.volt" />
+        <option value="$PROJECT_DIR$/app/controllers/TopicsController.php" />
       </list>
     </option>
   </component>
@@ -565,12 +567,12 @@
       <workItem from="1492767919447" duration="700000" />
       <workItem from="1492947735627" duration="4920000" />
       <workItem from="1492952846653" duration="4372000" />
-      <workItem from="1492960195923" duration="1877000" />
+      <workItem from="1492960195923" duration="2052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243969000" />
+    <option name="totallyTimeSpent" value="244144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -823,6 +825,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="e#29#51#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -854,6 +859,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -914,14 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/TopicsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -993,6 +991,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/TopicsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+          <folding>
+            <element signature="e#34#102#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

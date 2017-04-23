@@ -54,7 +54,7 @@ class TopicsController extends ControllerBase
 
         //获取热门话题
         $hotTopics = Topics::find([
-            "order" => "number_replies DESC",
+            "order" => "number_replies DESC,id DESC",
             "limit" => 5
         ]);
 

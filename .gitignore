@@ -1,5 +1,4 @@
 database.sql
-.env
 cache/
 public/files/
 .idea/

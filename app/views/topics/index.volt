@@ -1,156 +1,15 @@
-{#<div class="container">#}
-    {#<div class="col-md-9" style="padding-left: 0px;">#}
-        {#<div class="panel panel-default">#}
-            {#<div class="panel-heading">#}
-                {#<h3 class="panel-title">所有话题</h3>#}
-            {#</div>#}
-            {#<ul class="list-group row topic-list">#}
-                {#{% for item in page.items %}#}
-                    {#<li class="list-group-item" style="margin-top: 0px;">#}
-                            {#<a href="{{ url("topics/" ~ item.id) }}" class=""><span class="badge">{{ item.reply_count }}</span>{{ item.title }}</a>#}
-                    {#</li>#}
-                {#{% endfor %}#}
-            {#</ul>#}
-
-
-            {#<div class="panel-footer" style="text-align: right;padding-bottom: 0px;padding-top: 0px;">#}
-                {#<nav>#}
-                    {#<ul class="pagination">#}
-                        {#<li><a href="#">&laquo;</a></li>#}
-                        {#<li><a href="#">1</a></li>#}
-                        {#<li><a href="#">2</a></li>#}
-                        {#<li><a href="#">3</a></li>#}
-                        {#<li><a href="#">4</a></li>#}
-                        {#<li><a href="#">5</a></li>#}
-                        {#<li><a href="#">&raquo;</a></li>#}
-                    {#</ul>#}
-                {#</nav>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-    {#<div class="col-md-3" style="padding-right: 0px;">#}
-        {#<div class="panel panel-default">#}
-            {#<div class="panel-heading">#}
-                {#<h3 class="panel-title">新建</h3>#}
-            {#</div>#}
-            {#<div class="panel-body">#}
-                {#<a href="{{ url("topics/create") }}" class="btn btn-primary btn-lg btn-block" role="button">新 建 话 题</a>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
-
-
 <div class="col-md-9 topics-index main-col">
     <div class="panel panel-default">
-
         <div class="panel-heading">
-
             <ul class="list-inline topic-filter">
                 <li class="popover-with-html" data-content="最后创建排序"><a href="{{ url('topics') }}" class="active">最新</a></li>
-                {#<li class="popover-with-html" data-content="最后回复排序"><a href="https://laravel-china.org/topics?filter=default" class="active">活跃</a></li>#}
-                {#<li class="popover-with-html" data-content="只看加精的话题"><a href="https://laravel-china.org/topics?filter=excellent">精华</a></li>#}
-                {#<li class="popover-with-html" data-content="点赞数排序"><a href="https://laravel-china.org/topics?filter=vote">投票</a></li>#}
-                {#<li class="popover-with-html" data-content="发布时间排序"><a href="https://laravel-china.org/topics?filter=recent">最近</a></li>#}
-                {#<li class="popover-with-html" data-content="无人问津的话题"><a href="https://laravel-china.org/topics?filter=noreply">零回复</a></li>#}
             </ul>
 
             <div class="clearfix"></div>
         </div>
-
-
         <div class="panel-body remove-padding-horizontal">
             <ul class="list-group row topic-list">
-
-                {#<li class="list-group-item media" style="margin-top: 0px;">#}
-
-                    {#<a class="reply_last_time hidden-xs" href="https://laravel-china.org/topics/3383">#}
-                        {#<img class="user_small_avatar avatar-circle" src="https://dn-phphub.qbox.me/uploads/avatars/5303_1470682385.jpeg?imageView2/1/w/100/h/100">#}
-
-                        {#<span class="timeago popover-with-html" data-content="2016-12-20 17:54:03" data-original-title="" title="">4小时前</span>#}
-                    {#</a>#}
-
-                    {#<div class="avatar pull-left">#}
-                        {#<a href="https://laravel-china.org/users/1">#}
-                            {#<img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://dn-phphub.qbox.me/uploads/avatars/1_1479342408.png?imageView2/1/w/100/h/100">#}
-                        {#</a>#}
-                    {#</div>#}
-
-                    {#<div class="reply_count_area hidden-xs">#}
-                        {#<div class="count_of_votes" title="投票数">#}
-                            {#126#}
-                        {#</div>#}
-                        {#<div class="count_set">#}
-                {#<span class="count_of_replies" title="回复数">#}
-                  {#73#}
-                {#</span>#}
-                            {#<span class="count_seperator">/</span>#}
-                            {#<span class="count_of_visits" title="查看数">#}
-                  {#11950#}
-                {#</span>#}
-                        {#</div>#}
-                    {#</div>#}
-
-                    {#<div class="infos">#}
-
-                        {#<div class="media-heading">#}
-
-                            {#<span class="hidden-xs label label-warning">置顶</span>#}
-
-                            {#<a href="https://laravel-china.org/topics/3383" title="Laravel 第一部中文新手书籍《Laravel 入门教程》">#}
-                                {#Laravel 第一部中文新手书籍《Laravel 入门教程》#}
-                            {#</a>#}
-                        {#</div>#}
-
-                    {#</div>#}
-
-                {#</li>#}
-
                 {% for item in page.items %}
-                    {#<li class="list-group-item media" style="margin-top: 0px;">#}
-
-                        {#<a class="reply_last_time hidden-xs" href="{{ url("topics/" ~ item.id) }}">#}
-                            {#<img class="user_small_avatar avatar-circle" src="{{ item.lastReplyUsers.avatar }}">#}
-
-                            {#<span class="timeago popover-with-html" data-content="{{ item.lastReplyUsers.created_at }}" data-original-title="" title="">{{ item.lastReplyUsers.created_at }}</span>#}
-                        {#</a>#}
-
-                        {#<div class="avatar pull-left">#}
-                            {#<a href="{{ url('users/') ~  item.users.id}}">#}
-                                {#<img class="media-object img-thumbnail avatar avatar-middle" alt="maimai" src="{{ item.users.avatar }}">#}
-                            {#</a>#}
-                        {#</div>#}
-
-                        {#<div class="reply_count_area hidden-xs">#}
-                            {#<div class="count_of_votes" title="投票数">#}
-                                {#{{ item.votes_up }}#}
-                            {#</div>#}
-                            {#<div class="count_set">#}
-                                {#<span class="count_of_replies" title="回复数">#}
-                                  {#{{ item.number_replies }}#}
-                                {#</span>#}
-                                {#<span class="count_seperator">/</span>#}
-                                {#<span class="count_of_visits" title="查看数">#}
-                                  {#{{ item.number_views }}#}
-                                {#</span>#}
-                            {#</div>#}
-                        {#</div>#}
-
-                        {#<div class="infos">#}
-
-                            {#<div class="media-heading">#}
-
-                                {#<span class="hidden-xs label label-default">{{ item.categories.name }}</span>#}
-
-                                {#<a href="{{ url("topics/" ~ item.id) }}" title="{{ item.title }}">#}
-                                    {#{{ item.title }}#}
-                                {#</a>#}
-                            {#</div>#}
-
-                        {#</div>#}
-
-                    {#</li>#}
-
                     <li class="list-group-item ">
 
                         <a class="reply_count_area hidden-xs pull-right" href="{{ url("topics/" ~ item.id) }}">
@@ -216,13 +75,6 @@
 </div>
 
 <div class="col-md-3 side-bar">
-
-
-
-
-
-
-
     <div class="panel panel-default corner-radius">
         <div class="panel-body text-center">
             <div class="btn-group">
@@ -232,26 +84,6 @@
             </div>
         </div>
     </div>
-
-    {#<div class="panel panel-default corner-radius" style="#}
-{#text-align: center;#}
-{#background-color: transparent;#}
-{#border: none;#}
-{#">#}
-        {#<a href="https://laravel-china.org/topics/3383" rel="nofollow" title="" style="">#}
-            {#<img src="https://dn-phphub.qbox.me/uploads/images/201612/09/1/qASrRyKNj0.jpg" style="width: 100%;border-radius: 0px;box-shadow: none;border: 1px solid #ffafaf;"></a>#}
-    {#</div>#}
-
-    {#<div class="panel panel-default corner-radius" style="#}
-{#text-align: center;#}
-{#background-color: transparent;#}
-{#border: none;#}
-{#">#}
-        {#<a href="https://laravel-china.org/topics/3213" rel="nofollow" title="" style="">#}
-            {#<img src="https://dn-phphub.qbox.me/uploads/images/201612/09/1/06fkozmGAH.jpg" style="width: 100%;border-radius: 0px;box-shadow: none;border: 1px solid #e2e1e1;"></a>#}
-    {#</div>#}
-
-
 
     <div class="panel panel-default corner-radius sidebar-resources">
         <div class="panel-heading text-center">
@@ -311,16 +143,6 @@
         </div>
     </div>
 
-
-
-    {#<div class="panel panel-default corner-radius">#}
-        {#<div class="panel-body text-center sidebar-sponsor-box">#}
-            {#<a class="sidebar-sponsor-link" href="http://www.ucloud.cn/site/seo.html?utm_source=zanzhu&amp;utm_campaign=phphub&amp;utm_medium=display&amp;utm_content=shengji&amp;ytag=phphubshenji" target="_blank">#}
-                {#<img src="https://dn-phphub.qbox.me/uploads/banners/IHfTLiWaKJ4CmUL4Tfbc.jpg" class="popover-with-html" data-content="UCloud" width="100%" data-original-title="" title="">#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
-
     <div class="panel panel-default corner-radius">
         <div class="panel-heading text-center">
             <h3 class="panel-title">友情社区</h3>
@@ -334,41 +156,6 @@
             </a>
         </div>
     </div>
-
-
-
-    {#<div class="panel panel-default corner-radius">#}
-        {#<div class="panel-heading text-center">#}
-            {#<h3 class="panel-title">App 下载</h3>#}
-        {#</div>#}
-        {#<div class="panel-body text-center" style="padding: 7px;">#}
-            {#<a href="https://laravel-china.org/topics/1531" target="_blank" rel="nofollow" title="">#}
-                {#<img src="https://dn-phphub.qbox.me/uploads/images/201512/08/1/cziZFHqkm8.png" style="width:240px;">#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
-
-
-
-    {#<div class="box text-center">#}
-        {#<p style="margin-bottom: 10px;margin-top: 10px;">订阅 Laravel 资讯</p>#}
-        {#<img class="image-border popover-with-html" data-content="扫码，或者搜索微信订阅号：「Laravel资讯」" src="https://dn-phphub.qbox.me/uploads/images/201612/15/1/MGig6IACCQ.png" style="width:80%" data-original-title="" title="">#}
-        {#<br><br>#}
-    {#</div>#}
-
-
-    {#<div class="panel panel-default corner-radius" style="color:#a5a5a5">#}
-        {#<div class="panel-body text-center">#}
-            {#<a href="http://estgroupe.com/" style="color:#a5a5a5">#}
-                {#<img src="https://dn-phphub.qbox.me/uploads/images/201612/12/1/iq7WQc2iuW.png" style="width: 20px;margin-right: 4px;margin-top: -4px;">#}
-                {#<span style="margin-top: 7px;display: inline-block;">#}
-          {#优帆远扬 - 创造不息，交付不止#}
-      {#</span>#}
-            {#</a>#}
-        {#</div>#}
-
-    {#</div>#}
-
 </div>
 <div class="clearfix"></div>
 

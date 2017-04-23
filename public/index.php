@@ -13,6 +13,7 @@ define('APP_START_TIME', microtime(true));
 define('APP_START_MEMORY', memory_get_usage());
 
 define('BASE_PATH', dirname(__DIR__));
+define('APP_PATH', BASE_PATH . '/app');
 
 /***************************** 简单的反爬虫策略 **************************************/
 //获取UA信息

@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 /**
  * 分类模型
  * @author jsyzchenchen@gmail.com

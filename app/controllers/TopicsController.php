@@ -1,7 +1,15 @@
 <?php
+namespace App\Controllers;
+
 use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 use Phalcon\Http\Response;
 use Carbon\Carbon;
+use Parsedown;
+use App\Models\Users;
+use App\Models\Topics;
+use App\Models\Categories;
+use App\Models\TopicsViews;
+use App\Models\TopicsVotes;
 
 /**
  * 话题控制器
@@ -20,7 +28,7 @@ class TopicsController extends ControllerBase
         $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
         $builder = $this->modelsManager->createBuilder()
-            ->from("Topics")
+            ->from("App\\Models\\Topics")
             ->orderBy("sticked desc, id desc");
 
         $paginator = new PaginatorQueryBuilder(

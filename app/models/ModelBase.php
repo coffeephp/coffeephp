@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 use Phalcon\Mvc\Model;
 use Phalcon\Mvc\Model\Behavior\SoftDelete;
 use Carbon\Carbon;

@@ -1,4 +1,5 @@
 <?php
+namespace App\Controllers;
 
 /**
  * 酷站控制器

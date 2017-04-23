@@ -1,8 +1,9 @@
 <?php
 use Phalcon\Mvc\Router;
 
-$router = new Router();
-$router->removeExtraSlashes(true);
+$router = new Router(false);
+
+$router->setDefaultNamespace('App\Controllers');
 
 //github授权
 $router->add(

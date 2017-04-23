@@ -1,4 +1,6 @@
 <?php
+namespace App\Controllers;
+
 /**
  * Error Controller
  *

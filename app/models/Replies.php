@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 use Phalcon\Mvc\Model;
 use Phalcon\Mvc\Model\Behavior\SoftDelete;
 
@@ -15,20 +17,29 @@ class Replies extends ModelBase
 
         $this->belongsTo(
             "users_id",
-            "Users",
-            "id"
+            "App\\Models\\Users",
+            "id",
+            [
+                "alias" => "users",
+            ]
         );
 
         $this->belongsTo(
             "topics_id",
-            "Topics",
-            "id"
+            "App\\Models\\Topics",
+            "id",
+            [
+                "alias" => "topics",
+            ]
         );
 
         $this->hasMany(
             "id",
-            "RepliesVotes",
-            "replies_id"
+            "App\\Models\\RepliesVotes",
+            "replies_id",
+            [
+                "alias" => "repliesVotes",
+            ]
         );
     }
 }

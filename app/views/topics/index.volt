@@ -253,45 +253,21 @@
 
 
 
-    {#<div class="panel panel-default corner-radius sidebar-resources">#}
-        {#<div class="panel-heading text-center">#}
-            {#<h3 class="panel-title">推荐资源</h3>#}
-        {#</div>#}
-        {#<div class="panel-body">#}
-            {#<ul class="list list-group ">#}
-                {#<li class="list-group-item ">#}
-                    {#<a href="https://laravel-china.org/docs/home" class="popover-with-html no-pjax" data-content="Laravel 中文文档" data-original-title="" title="">#}
-                        {#<img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/ql9XtosRhTe4v8HVC3TV.jpg">#}
-                        {#Laravel 中文文档#}
-                    {#</a>#}
-                {#</li>#}
-                {#<li class="list-group-item ">#}
-                    {#<a href="https://lumen.laravel-china.org" class="popover-with-html no-pjax" data-content="Lumen 中文文档" data-original-title="" title="">#}
-                        {#<img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/bcMFkfsJZpetLgKFwWqY.jpg">#}
-                        {#Lumen 中文文档#}
-                    {#</a>#}
-                {#</li>#}
-                {#<li class="list-group-item ">#}
-                    {#<a href="https://cs.laravel-china.org/" class="popover-with-html no-pjax" data-content="Laravel 速查表" data-original-title="" title="">#}
-                        {#<img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/cV55gsrH70qz6VdKr502.jpg">#}
-                        {#Laravel 速查表#}
-                    {#</a>#}
-                {#</li>#}
-                {#<li class="list-group-item ">#}
-                    {#<a href="http://laravel.so/" class="popover-with-html no-pjax" data-content="Laravel.so 实战技巧" data-original-title="" title="">#}
-                        {#<img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/ROHXvR4OQwsX4spfOK33.png">#}
-                        {#Laravel.so 实战技巧#}
-                    {#</a>#}
-                {#</li>#}
-                {#<li class="list-group-item ">#}
-                    {#<a href="http://estgroupe.com/tickets/create" class="popover-with-html no-pjax" data-content="寻求技术合作？ " data-original-title="" title="">#}
-                        {#<img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/v89tIQ6vjceA6g7JmrQB.png">#}
-                        {#寻求技术合作？#}
-                    {#</a>#}
-                {#</li>#}
-            {#</ul>#}
-        {#</div>#}
-    {#</div>#}
+    <div class="panel panel-default corner-radius sidebar-resources">
+        <div class="panel-heading text-center">
+            <h3 class="panel-title">推荐资源</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list list-group ">
+                <li class="list-group-item ">
+                    <a href="https://laravel-china.org/docs/home" class="popover-with-html no-pjax" data-content="Laravel 中文文档" data-original-title="" title="">
+                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/ql9XtosRhTe4v8HVC3TV.jpg">
+                        Laravel 中文文档
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     {% if activeUsers %}
         <div class="panel panel-default corner-radius panel-active-users">

@@ -1,5 +1,8 @@
 <?php
+namespace App\Controllers;
+
 use Overtrue\Socialite\SocialiteManager;
+use App\Models\Users;
 
 /**
  * 权限控制器

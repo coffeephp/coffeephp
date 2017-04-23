@@ -1,5 +1,12 @@
 <?php
+namespace App\Controllers;
+
 use Carbon\Carbon;
+use Parsedown;
+use App\Models\Topics;
+use App\Models\Replies;
+use App\Models\Users;
+use App\Models\RepliesVotes;
 
 /**
  * 回复控制器

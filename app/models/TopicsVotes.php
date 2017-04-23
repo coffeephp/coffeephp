@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 /**
  * 话题投票模型
  * @author jsyzchenchen@gmail.com
@@ -15,8 +17,11 @@ class TopicsVotes extends ModelBase
 
         $this->belongsTo(
             "users_id",
-            "Users",
-            "id"
+            "App\\Models\\Users",
+            "id",
+            [
+                "alias" => "users"
+            ]
         );
     }
 

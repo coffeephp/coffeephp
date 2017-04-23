@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 /**
  * 话题模型
  * @author jsyzchenchen@gmail.com
@@ -22,35 +24,38 @@ class Topics extends ModelBase
 
         $this->belongsTo(
             "users_id",
-            "Users",
-            "id"
-        );
-
-        $this->belongsTo(
-            "last_reply_users_id",
-            "Users",
+            "App\\Models\\Users",
             "id",
             [
-                "alias" => "lastReplyUsers",
+                "alias" => "users",
             ]
         );
 
         $this->hasMany(
             "id",
-            "Replies",
-            "topics_id"
+            "App\\Models\\Replies",
+            "topics_id",
+            [
+                'alias'    => 'replies'
+            ]
         );
 
         $this->belongsTo(
             "categories_id",
-            "Categories",
-            "id"
+            "App\\Models\\Categories",
+            "id",
+            [
+                'alias'    => 'categories'
+            ]
         );
 
         $this->hasMany(
             "id",
-            "TopicsVotes",
-            "topics_id"
+            "App\\Models\\TopicsVotes",
+            "topics_id",
+            [
+                'alias'    => 'topicsVotes'
+            ]
         );
     }
 }

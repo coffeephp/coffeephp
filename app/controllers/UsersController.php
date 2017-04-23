@@ -1,4 +1,8 @@
 <?php
+namespace App\Controllers;
+
+use App\Models\Users;
+use App\Models\Topics;
 
 /**
  * 用户控制器

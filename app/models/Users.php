@@ -1,13 +1,12 @@
 <?php
-use Phalcon\Mvc\Model;
-use Phalcon\Mvc\Model\Behavior\SoftDelete;
+namespace App\Models;
 
 /**
  * 用户模型
  * @author jsyzchenchen@gmail.com
  * @date 2016/12/3
  */
-class Users extends Model
+class Users extends ModelBase
 {
     public $name;
     public $real_name;
@@ -18,26 +17,4 @@ class Users extends Model
     public $github_name;
     public $github_nickname;
     public $last_actived_at;
-
-    public function initialize()
-    {
-        $this->addBehavior(
-            new SoftDelete(
-                [
-                    "field" => "deleted_at",
-                    "value" => date("Y-m-d H:i:s"),
-                ]
-            )
-        );
-    }
-
-    public function beforeCreate()
-    {
-        $this->created_at = date("Y-m-d H:i:s");
-    }
-
-    public function beforeUpdate()
-    {
-        $this->updated_at = date("Y-m-d H:i:s");
-    }
 }

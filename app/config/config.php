@@ -9,12 +9,14 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
-        'password'    => '154e38048e',
-        'dbname'      => 'coffeephp',
-        'charset'     => 'utf8',
+        'host'     => env('DB_HOST', '127.0.0.1'),
+        'dbname'   => env('DB_DATABASE', 'coffeephp'),
+        'port'     => env('DB_PORT', 3306),
+        'username' => env('DB_USERNAME', 'coffeephp'),
+        'password' => env('DB_PASSWORD', 'secret'),
+        'charset'  => env('DB_CHARSET', 'utf8'),
     ],
+
     'application' => [
         'appDir'         => APP_PATH . '/',
         'controllersDir' => APP_PATH . '/controllers/',
@@ -24,15 +26,15 @@ return new \Phalcon\Config([
         'pluginsDir'     => APP_PATH . '/plugins/',
         'libraryDir'     => APP_PATH . '/library/',
         'cacheDir'       => BASE_PATH . '/cache/',
-        'baseUri'        => '/',
-        'staticBaseUri'  => 'http://oojwdbogh.bkt.clouddn.com/',
-        'debug'          => false
+        'staticBaseUri'  => env('APP_STATIC_URL'),
+        'baseUri'        => env('APP_BASE_URI'),
+        'debug'          => env('APP_DEBUG', false),
     ],
     'socialite' => [
         'github' => [
-            'client_id' => '50fc46901da900ce5361',
-            'client_secret' => '8a7fa5a5ae5c368872b60f0b077039d729d424ce',
-            'redirect' => 'http://coffeephp.com/auth/github/callback',
-        ],
+            'client_id' => env('GITHUB_CLIENT_ID'),
+            'client_secret' => env('GITHUB_SECRET'),
+            'redirect' => env('GITHUB_REDIRECT_URI'),
+        ]
     ]
 ]);

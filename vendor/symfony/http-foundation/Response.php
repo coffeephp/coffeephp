@@ -242,6 +242,11 @@ class Response
                 @trigger_error(sprintf('Extending %s::%s() in %s is deprecated since version 3.2 and won\'t be supported anymore in 4.0 as it will be final.', __CLASS__, $method, $class), E_USER_DEPRECATED);
             }
         }
+
+        /* RFC2616 - 14.18 says all Responses need to have a Date */
+        if (!$this->headers->has('Date')) {
+            $this->setDate(new \DateTime(null, new \DateTimeZone('UTC')));
+        }
     }
 
     /**
@@ -256,7 +261,7 @@ class Response
      * @param int   $status  The response status code
      * @param array $headers An array of response headers
      *
-     * @return Response
+     * @return static
      */
     public static function create($content = '', $status = 200, $headers = array())
     {
@@ -299,7 +304,7 @@ class Response
      *
      * @param Request $request A Request instance
      *
-     * @return Response The current response
+     * @return $this
      */
     public function prepare(Request $request)
     {
@@ -361,7 +366,7 @@ class Response
     /**
      * Sends HTTP headers.
      *
-     * @return Response
+     * @return $this
      */
     public function sendHeaders()
     {
@@ -370,6 +375,7 @@ class Response
             return $this;
         }
 
+        /* RFC2616 - 14.18 says all Responses need to have a Date */
         if (!$this->headers->has('Date')) {
             $this->setDate(\DateTime::createFromFormat('U', time()));
         }
@@ -399,7 +405,7 @@ class Response
     /**
      * Sends content for the current web response.
      *
-     * @return Response
+     * @return $this
      */
     public function sendContent()
     {
@@ -411,7 +417,7 @@ class Response
     /**
      * Sends HTTP headers and content.
      *
-     * @return Response
+     * @return $this
      */
     public function send()
     {
@@ -434,7 +440,7 @@ class Response
      *
      * @param mixed $content Content that can be cast to string
      *
-     * @return Response
+     * @return $this
      *
      * @throws \UnexpectedValueException
      */
@@ -464,7 +470,7 @@ class Response
      *
      * @param string $version The HTTP protocol version
      *
-     * @return Response
+     * @return $this
      */
     public function setProtocolVersion($version)
     {
@@ -492,7 +498,7 @@ class Response
      * If the status text is null it will be automatically populated for the known
      * status codes and left empty otherwise.
      *
-     * @return Response
+     * @return $this
      *
      * @throws \InvalidArgumentException When the HTTP status code is not valid
      */
@@ -535,7 +541,7 @@ class Response
      *
      * @param string $charset Character set
      *
-     * @return Response
+     * @return $this
      */
     public function setCharset($charset)
     {
@@ -608,7 +614,7 @@ class Response
      *
      * It makes the response ineligible for serving other clients.
      *
-     * @return Response
+     * @return $this
      */
     public function setPrivate()
     {
@@ -623,7 +629,7 @@ class Response
      *
      * It makes the response eligible for serving other clients.
      *
-     * @return Response
+     * @return $this
      */
     public function setPublic()
     {
@@ -657,6 +663,11 @@ class Response
      */
     public function getDate()
     {
+        /*
+            RFC2616 - 14.18 says all Responses need to have a Date.
+            Make sure we provide one even if it the header
+            has been removed in the meantime.
+         */
         if (!$this->headers->has('Date')) {
             $this->setDate(\DateTime::createFromFormat('U', time()));
         }
@@ -669,7 +680,7 @@ class Response
      *
      * @param \DateTime $date A \DateTime instance
      *
-     * @return Response
+     * @return $this
      */
     public function setDate(\DateTime $date)
     {
@@ -696,7 +707,7 @@ class Response
     /**
      * Marks the response stale by setting the Age header to be equal to the maximum age of the response.
      *
-     * @return Response
+     * @return $this
      */
     public function expire()
     {
@@ -729,7 +740,7 @@ class Response
      *
      * @param \DateTime|null $date A \DateTime instance or null to remove the header
      *
-     * @return Response
+     * @return $this
      */
     public function setExpires(\DateTime $date = null)
     {
@@ -775,7 +786,7 @@ class Response
      *
      * @param int $value Number of seconds
      *
-     * @return Response
+     * @return $this
      */
     public function setMaxAge($value)
     {
@@ -791,7 +802,7 @@ class Response
      *
      * @param int $value Number of seconds
      *
-     * @return Response
+     * @return $this
      */
     public function setSharedMaxAge($value)
     {
@@ -825,7 +836,7 @@ class Response
      *
      * @param int $seconds Number of seconds
      *
-     * @return Response
+     * @return $this
      */
     public function setTtl($seconds)
     {
@@ -841,7 +852,7 @@ class Response
      *
      * @param int $seconds Number of seconds
      *
-     * @return Response
+     * @return $this
      */
     public function setClientTtl($seconds)
     {
@@ -869,7 +880,7 @@ class Response
      *
      * @param \DateTime|null $date A \DateTime instance or null to remove the header
      *
-     * @return Response
+     * @return $this
      */
     public function setLastModified(\DateTime $date = null)
     {
@@ -900,7 +911,7 @@ class Response
      * @param string|null $etag The ETag unique identifier or null to remove the header
      * @param bool        $weak Whether you want a weak ETag or not
      *
-     * @return Response
+     * @return $this
      */
     public function setEtag($etag = null, $weak = false)
     {
@@ -924,7 +935,7 @@ class Response
      *
      * @param array $options An array of cache options
      *
-     * @return Response
+     * @return $this
      *
      * @throws \InvalidArgumentException
      */
@@ -975,7 +986,7 @@ class Response
      * This sets the status, removes the body, and discards any headers
      * that MUST NOT be included in 304 responses.
      *
-     * @return Response
+     * @return $this
      *
      * @see http://tools.ietf.org/html/rfc2616#section-10.3.5
      */
@@ -1027,7 +1038,7 @@ class Response
      * @param string|array $headers
      * @param bool         $replace Whether to replace the actual value or not (true by default)
      *
-     * @return Response
+     * @return $this
      */
     public function setVary($headers, $replace = true)
     {

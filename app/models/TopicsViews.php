@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 /**
  * 话题浏览表
  * @author jsyzchenchen@gmail.com
@@ -18,8 +20,11 @@ class TopicsViews extends ModelBase
 
         $this->belongsTo(
             'topics_id',
-            'Topics',
-            'id'
+            'App\\Models\\Topics',
+            'id',
+            [
+                "alias" => "topics"
+            ]
         );
     }
 }

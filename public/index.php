@@ -2,15 +2,18 @@
 header('content-type:text/html;charset=utf-8');
 ini_set('date.timezone','Asia/Shanghai');
 
+/**
+ * @const APP_START_TIME The start time of the application, used for profiling
+ */
+define('APP_START_TIME', microtime(true));
+
+/**
+ * @const APP_START_MEMORY The memory usage at the start of the application, used for profiling
+ */
+define('APP_START_MEMORY', memory_get_usage());
+
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
-// 开启调试模式
-define('APP_DEBUG', false);
-if (APP_DEBUG || (isset($_GET['debug']) && $_GET['debug'] == '1')) {
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-}
 
 /***************************** 简单的反爬虫策略 **************************************/
 //获取UA信息
@@ -39,7 +42,6 @@ if (!$ua) {
 /***************************** 反爬虫策略 end **************************************/
 
 try {
-
     /**
      * The FactoryDefault Dependency Injector automatically registers
      * the services that provide a full stack framework.
@@ -47,24 +49,15 @@ try {
     $di = new \Phalcon\Di\FactoryDefault();
 
     /**
-     * Read services
-     */
-    include APP_PATH . "/config/services.php";
-
-    /**
-     * Get config service for use in inline setup below
-     */
-    $config = $di->getConfig();
-
-    /**
      * Include Autoloader
      */
     include APP_PATH . '/config/loader.php';
 
     /**
-     * Include Helpers
+     * Read services
      */
-    include APP_PATH . '/library/helpers.php';
+    include APP_PATH . "/config/services.php";
+
 
     /**
      * Handle the request

@@ -34,13 +34,6 @@ abstract class AbstractProvider implements ProviderInterface
     protected $request;
 
     /**
-     * The configuration.
-     *
-     * @var \Overtrue\Socialite\Config
-     */
-    protected $config;
-
-    /**
      * The client ID.
      *
      * @var string
@@ -100,15 +93,13 @@ abstract class AbstractProvider implements ProviderInterface
      * Create a new provider instance.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Overtrue\Socialite\Config                $config
      * @param string                                    $clientId
      * @param string                                    $clientSecret
      * @param string|null                               $redirectUrl
      */
-    public function __construct(Request $request, $config, $clientId, $clientSecret, $redirectUrl = null)
+    public function __construct(Request $request, $clientId, $clientSecret, $redirectUrl = null)
     {
         $this->request = $request;
-        $this->config = $config;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->redirectUrl = $redirectUrl;
@@ -164,8 +155,7 @@ abstract class AbstractProvider implements ProviderInterface
         }
 
         if ($this->usesState()) {
-            $state = sha1(uniqid(mt_rand(1, 1000000), true));
-            $this->request->getSession()->set('state', $state);
+            $state = $this->makeState();
         }
 
         return new RedirectResponse($this->getAuthUrl($state));
@@ -480,5 +470,26 @@ abstract class AbstractProvider implements ProviderInterface
         }
 
         return $array;
+    }
+
+    /**
+     * Put state to session storage and return it.
+     *
+     * @return string|bool
+     */
+    protected function makeState()
+    {
+        $state = sha1(uniqid(mt_rand(1, 1000000), true));
+        $session = $this->request->getSession();
+
+        if (is_callable([$session, 'put'])) {
+            $session->put('state', $state);
+        } elseif (is_callable([$session, 'set'])) {
+            $session->set('state', $state);
+        } else {
+            return false;
+        }
+
+        return $state;
     }
 }

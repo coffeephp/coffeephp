@@ -266,9 +266,9 @@
                         PHP 之道 - PHPer 必读
                     </a>
                 </li>
-                
+
                 <li class="list-group-item ">
-                    <a href="https://laravel-china.org/docs/home" class="popover-with-html no-pjax" data-content="Laravel 中文文档" data-original-title="" title="">
+                    <a href="http://d.laravel-china.org/" class="no-pjax" title="Laravel 中文文档">
                         <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/ql9XtosRhTe4v8HVC3TV.jpg">
                         Laravel 中文文档
                     </a>

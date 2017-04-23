@@ -1,29 +1,3 @@
-{#<div class="container">#}
-    {#<div class="col-md-9" style="padding-left: 0px;">#}
-        {#<div class="panel panel-default">#}
-            {#<div class="panel-heading">#}
-                {#<h1 class="panel-title topic-title">{{ topic.title }}</h1>#}
-            {#</div>#}
-
-            {#<div class="panel-body">#}
-                {#<div class="markdown-body">#}
-                    {#{{ topic.body }}#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-
-    {#<div class="col-md-3" style="padding-right: 0px;">#}
-        {#<div class="panel panel-default">#}
-            {#<div class="panel-heading">#}
-                {#<h3 class="panel-title">作者</h3>#}
-            {#</div>#}
-            {#<div class="panel-body">#}
-                {#jsyzchen#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
 <div class="col-md-9 topics-show main-col">
     <!-- Topic Detial -->
     <div class="topic panel panel-default">

@@ -13,10 +13,6 @@ define('APP_START_TIME', microtime(true));
 define('APP_START_MEMORY', memory_get_usage());
 
 define('BASE_PATH', dirname(__DIR__));
-define('APP_PATH', BASE_PATH . '/app');
-error_reporting(E_ALL);//使用error_reporting来定义哪些级别错误可以触发
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 
 /***************************** 简单的反爬虫策略 **************************************/
 //获取UA信息

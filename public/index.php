@@ -15,7 +15,7 @@ define('APP_START_MEMORY', memory_get_usage());
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 
-define('APP_DEBUG', true);
+define('APP_DEBUG', false);
 
 if (APP_DEBUG) {
     error_reporting(E_ALL);//使用error_reporting来定义哪些级别错误可以触发

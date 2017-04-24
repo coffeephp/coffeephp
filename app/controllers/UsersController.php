@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\Users;
 use App\Models\Topics;
+use App\Models\Replies;
 
 /**
  * 用户控制器

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ed0234a-d82e-4c95-a2b7-d2c20908e200" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/UsersController.php" afterPath="$PROJECT_DIR$/app/controllers/UsersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.volt" afterPath="$PROJECT_DIR$/app/views/index.volt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/topics/index.volt" afterPath="$PROJECT_DIR$/app/views/topics/index.volt" />
     </list>
     <ignored path="coffeephp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +67,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-945">
               <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.volt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/topics/index.volt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="582">
+              <caret line="96" column="99" lean-forward="false" selection-start-line="96" selection-start-column="99" selection-end-line="96" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.volt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/index.volt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="83" lean-forward="true" selection-start-line="11" selection-start-column="83" selection-end-line="11" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -179,13 +200,13 @@
         <option value="$PROJECT_DIR$/app/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/app/controllers/RepliesController.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/views/topics/index.volt" />
-        <option value="$PROJECT_DIR$/app/views/index.volt" />
         <option value="$PROJECT_DIR$/app/views/topics/show.volt" />
         <option value="$PROJECT_DIR$/app/controllers/TopicsController.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/app/controllers/UsersController.php" />
+        <option value="$PROJECT_DIR$/app/views/index.volt" />
+        <option value="$PROJECT_DIR$/app/views/topics/index.volt" />
       </list>
     </option>
   </component>
@@ -256,7 +277,33 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coffeephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coffeephp" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="topics" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -517,12 +564,12 @@
       <workItem from="1492960195923" duration="2672000" />
       <workItem from="1493001179786" duration="90000" />
       <workItem from="1493001296811" duration="7000" />
-      <workItem from="1493001307947" duration="1000000" />
+      <workItem from="1493001307947" duration="1671000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245861000" />
+    <option name="totallyTimeSpent" value="246532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1920" height="1080" extended-state="0" />
@@ -818,20 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/topics/index.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/index.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -883,13 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="653">
@@ -920,6 +946,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-945">
           <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/topics/show.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/index.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="83" lean-forward="true" selection-start-line="11" selection-start-column="83" selection-end-line="11" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/topics/index.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="96" column="99" lean-forward="false" selection-start-line="96" selection-start-column="99" selection-end-line="96" selection-end-column="99" />
           <folding />
         </state>
       </provider>

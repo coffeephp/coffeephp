@@ -93,16 +93,16 @@
         <div class="panel-body">
             <ul class="list list-group ">
                 <li class="list-group-item ">
-                    <a href="https://docs.phalconphp.com/zh/latest/index.html" class="no-pjax" title="phalcon 中文文档">
-                        <img class="media-object inline-block " src="{{ static_url("img/phalcon-log.png") }}">
+                    <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读">
+                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/vA50AYuscu2RCMowq7ee.png">
                         PHP 之道 - PHPer 必读
                     </a>
                 </li>
 
                 <li class="list-group-item ">
-                    <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读">
-                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/vA50AYuscu2RCMowq7ee.png">
-                        PHP 之道 - PHPer 必读
+                    <a href="https://docs.phalconphp.com/zh/latest/index.html" class="no-pjax" title="Phalcon 中文文档">
+                        <img class="media-object inline-block " src="{{ static_url("img/phalcon-log.png") }}">
+                        Phalcon 中文文档
                     </a>
                 </li>
 

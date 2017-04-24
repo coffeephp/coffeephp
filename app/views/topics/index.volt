@@ -101,7 +101,7 @@
 
                 <li class="list-group-item ">
                     <a href="https://docs.phalconphp.com/zh/latest/index.html" class="no-pjax" title="Phalcon 中文文档">
-                        <img class="media-object inline-block " src="{{ static_url("img/phalcon-log.png") }}">
+                        <img class="media-object inline-block " src="{{ static_url("img/phalcon-logo.png") }}">
                         Phalcon 中文文档
                     </a>
                 </li>

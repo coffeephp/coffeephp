@@ -100,6 +100,13 @@
                 </li>
 
                 <li class="list-group-item ">
+                    <a href="https://psr.phphub.org/" class="no-pjax" title="PHP PSR 标准规范" target="_blank">
+                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/sites/XmmZmLyBtdvRcxvzEj20hlHPOHB3k2hV.ico">
+                        PHP PSR 标准规范
+                    </a>
+                </li>
+
+                <li class="list-group-item ">
                     <a href="https://docs.phalconphp.com/zh/latest/index.html" class="no-pjax" title="Phalcon 中文文档" target="_blank">
                         <img class="media-object inline-block " src="{{ static_url("img/phalcon-logo.png") }}">
                         Phalcon 中文文档

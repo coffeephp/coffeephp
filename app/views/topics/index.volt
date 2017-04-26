@@ -91,29 +91,36 @@
         </div>
 
         <div class="panel-body">
-            <ul class="list list-group ">
-                <li class="list-group-item ">
+            <ul class="list list-group">
+                <li class="list-group-item">
                     <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读" target="_blank">
                         <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/vA50AYuscu2RCMowq7ee.png">
                         PHP 之道 - PHPer 必读
                     </a>
                 </li>
 
-                <li class="list-group-item ">
+                <li class="list-group-item">
                     <a href="https://psr.phphub.org/" class="no-pjax" title="PHP PSR 标准规范" target="_blank">
                         <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/sites/XmmZmLyBtdvRcxvzEj20hlHPOHB3k2hV.ico">
                         PHP PSR 标准规范
                     </a>
                 </li>
 
-                <li class="list-group-item ">
+                <li class="list-group-item">
+                    <a href="http://php-internals.com/" class="no-pjax" title="深入理解PHP内核" target="_blank">
+                        <img class="media-object inline-block " src="{{ static_url("img/tipi-logo.png") }}">
+                        深入理解PHP内核
+                    </a>
+                </li>
+
+                <li class="list-group-item">
                     <a href="https://docs.phalconphp.com/zh/latest/index.html" class="no-pjax" title="Phalcon 中文文档" target="_blank">
                         <img class="media-object inline-block " src="{{ static_url("img/phalcon-logo.png") }}">
                         Phalcon 中文文档
                     </a>
                 </li>
 
-                <li class="list-group-item ">
+                <li class="list-group-item">
                     <a href="http://d.laravel-china.org/" class="no-pjax" title="Laravel 中文文档" target="_blank">
                         <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/ql9XtosRhTe4v8HVC3TV.jpg">
                         Laravel 中文文档

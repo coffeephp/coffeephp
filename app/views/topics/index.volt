@@ -100,16 +100,16 @@
                 </li>
 
                 <li class="list-group-item">
-                    <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读" target="_blank">
-                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/vA50AYuscu2RCMowq7ee.png">
-                        PHP 之道 - PHPer 必读
+                    <a href="https://psr.phphub.org/" class="no-pjax" title="PHP PSR 标准规范" target="_blank">
+                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/sites/XmmZmLyBtdvRcxvzEj20hlHPOHB3k2hV.ico">
+                        PHP PSR 标准规范
                     </a>
                 </li>
 
                 <li class="list-group-item">
-                    <a href="https://psr.phphub.org/" class="no-pjax" title="PHP PSR 标准规范" target="_blank">
-                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/sites/XmmZmLyBtdvRcxvzEj20hlHPOHB3k2hV.ico">
-                        PHP PSR 标准规范
+                    <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读" target="_blank">
+                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/vA50AYuscu2RCMowq7ee.png">
+                        PHP 之道 - PHPer 必读
                     </a>
                 </li>
 

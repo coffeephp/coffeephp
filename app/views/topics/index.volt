@@ -93,6 +93,13 @@
         <div class="panel-body">
             <ul class="list list-group">
                 <li class="list-group-item">
+                    <a href="http://php.net/manual/zh/" class="no-pjax" title="PHP 手册" target="_blank">
+                        <img class="media-object inline-block " src="{{ static_url("img/php-logo.jpg") }}">
+                        PHP 手册
+                    </a>
+                </li>
+
+                <li class="list-group-item">
                     <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读" target="_blank">
                         <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/vA50AYuscu2RCMowq7ee.png">
                         PHP 之道 - PHPer 必读

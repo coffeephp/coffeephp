@@ -9,7 +9,7 @@
             {#</div>#}
 
 
-            <form method="POST" action="{{ url("topics/store") }}" accept-charset="UTF-8" id="topic-create-form">
+            <form method="POST" action="{{ url("topics") }}" accept-charset="UTF-8" id="topic-create-form">
                 <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>
                 <div class="form-group">
                     <select class="selectpicker form-control" name="category_id" id="category-select"><option value="" disabled="" selected="">请选择分类</option>

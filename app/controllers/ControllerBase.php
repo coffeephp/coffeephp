@@ -24,6 +24,9 @@ class ControllerBase extends Controller
         $this->view->setVar("numberReplies", $numberReplies);
 
         $this->view->setVar("title", '');
+
+        $currentUrl = $this->request->getURI();
+        $this->view->setVar("currentUrl", $currentUrl);
     }
 
     /**

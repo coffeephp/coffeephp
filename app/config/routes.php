@@ -160,9 +160,9 @@ $router->addPost(
 
 //酷站
 $router->addGet(
-    '/sites',
+    '/resources',
     [
-        'controller' => 'sites',
+        'controller' => 'resources',
         'action'     => 'index'
     ]
 );

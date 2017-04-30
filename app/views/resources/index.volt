@@ -2,7 +2,9 @@
     <div class="content-body entry-content panel-body">
         <div class="markdown-body" id="emojify">
             <h1>Awesome PHP</h1>
-            <p>一个PHP资源列表，内容包括：库、框架、模板、安全、代码分析、日志、第三方库、配置工具、Web 工具、书籍、电子书、经典博文等等</p>
+            <p>一个PHP资源列表，内容包括：库、框架、模板、安全、代码分析、日志、第三方库、配置工具、Web 工具、书籍、电子书、经典博文等等。
+                内容大部分来自github的项目<a href="https://github.com/CraryPrimitiveMan/awesome-php-zh_CN">awesome-php-zh_CN</a>，加上自己的整理。
+            </p>
             <h2>贡献</h2>
             <p>详细内容请查看<a href="https://github.com/ziadoz/awesome-php/blob/master/CONTRIBUTING.md">贡献</a> 和 <a href="https://github.com/ziadoz/awesome-php/blob/master/CODE-OF-CONDUCT.md">代码管理</a>.</p>
             <h2>目录</h2>

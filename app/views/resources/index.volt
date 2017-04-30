@@ -1,4 +1,4 @@
-<div class="panel padding-lg rm-padding-top">
+<div class="panel padding-lg rm-padding-top topics-show">
     <div class="content-body entry-content panel-body">
         <div class="markdown-body" id="emojify">
             <h1>Awesome PHP</h1>

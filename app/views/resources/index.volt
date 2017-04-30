@@ -522,7 +522,7 @@
                 <li><a href="https://github.com/florianv/swap">Swap</a> - 一个汇率库</li>
                 <li><a href="http://sylius.org/">Sylius</a> - 一个开源的电子商务解决方案</li>
             </ul>
-            <h2>PDF PDF</h2>
+            <h2>PDF</h2>
             <p><em>处理PDF文件的库和软件</em></p>
             <ul>
                 <li><a href="https://github.com/dompdf/dompdf">Dompdf</a> - 一个将HTML转换为PDF的工具</li>

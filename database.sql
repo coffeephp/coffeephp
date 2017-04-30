@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS `topics`(
   `title` varchar(255) NOT NULL COMMENT '标题',
   `body` text NOT NULL COMMENT '内容主体',
   `body_original` text COMMENT 'Markdown原文',
-  `excerpt` text COMMENT '摘要',
   `users_id` int unsigned NOT NULL COMMENT '用户id',
   `categories_id` int unsigned NOT NULL COMMENT '分类id',
   `is_excellent` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '是否是精华帖',
@@ -45,8 +44,40 @@ CREATE TABLE IF NOT EXISTS `topics`(
   KEY (`categories_id`),
   KEY (`users_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '话题表';
-#ALTER TABLE `topics` ADD `is_excellent` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '是否是精华帖' AFTER `categories_id`;
-#ALTER TABLE `topics` ADD `sticked` int unsigned NOT NULL DEFAULT 0 COMMENT '置顶' AFTER `is_excellent`;
+
+DROP TABLE IF EXISTS `blogs`;
+CREATE TABLE `blogs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `users_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255)  NOT NULL DEFAULT '' COMMENT '专栏名称',
+  `description` text  NOT NULL DEFAULT '' COMMENT '专栏介绍',
+  `cover` varchar(255)  NOT NULL DEFAULT '' COMMENT '封面',
+  `number_articles` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '文章数量',
+  `created_at` DATETIME,
+  `updated_at` DATETIME,
+  PRIMARY KEY (`id`),
+  KEY (`users_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '专题表';
+
+DROP TABLE IF EXISTS `articles`;
+CREATE TABLE IF NOT EXISTS `articles`(
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL COMMENT '标题',
+  `body` text NOT NULL COMMENT '内容主体',
+  `body_original` text COMMENT 'Markdown原文',
+  `blogs_id` int unsigned NOT NULL COMMENT '专栏id',
+  `is_excellent` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '是否是精华帖',
+  `sticked` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '置顶',
+  `number_replies` int unsigned NOT NULL DEFAULT 0 COMMENT '回复数',
+  `number_views` int unsigned NOT NULL DEFAULT 0 COMMENT '浏览数',
+  `votes_up` int unsigned NOT NULL DEFAULT 0 COMMENT 'up投票数',
+  `votes_down` int unsigned NOT NULL DEFAULT 0 COMMENT 'down投票数',
+  `status` int unsigned NOT NULL DEFAULT 1 COMMENT '状态',
+  `created_at` DATETIME,
+  `updated_at` DATETIME,
+  PRIMARY KEY (`id`),
+  KEY (`blogs_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT '话题表';
 
 DROP TABLE IF EXISTS `replies`;
 CREATE TABLE IF NOT EXISTS `replies` (

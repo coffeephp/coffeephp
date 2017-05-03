@@ -33,7 +33,7 @@ class Topics extends ModelBase
 
         $this->hasMany(
             "id",
-            "App\\Models\\Replies",
+            "App\\Models\\TopicsReplies",
             "topics_id",
             [
                 'alias'    => 'replies'

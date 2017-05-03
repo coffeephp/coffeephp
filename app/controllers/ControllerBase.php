@@ -4,7 +4,7 @@ namespace App\Controllers;
 use Phalcon\Mvc\Controller;
 use App\Models\Users;
 use App\Models\Topics;
-use App\Models\Replies;
+use App\Models\TopicsReplies;
 
 class ControllerBase extends Controller
 {
@@ -17,7 +17,7 @@ class ControllerBase extends Controller
     {
         $numberUsers = Users::count();
         $numberTopics = Topics::count();
-        $numberReplies = Replies::count();
+        $numberReplies = TopicsReplies::count();
 
         $this->view->setVar("numberUsers", $numberUsers);
         $this->view->setVar("numberTopics", $numberTopics);

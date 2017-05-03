@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use App\Models\Users;
 use App\Models\Topics;
-use App\Models\Replies;
+use App\Models\TopicsReplies;
 
 /**
  * 用户控制器
@@ -37,7 +37,7 @@ class UsersController extends ControllerBase
             ]
         );
 
-        $replies = Replies::find(
+        $replies = TopicsReplies::find(
             [
                 "users_id = :users_id:",
                 "order" => "id desc",

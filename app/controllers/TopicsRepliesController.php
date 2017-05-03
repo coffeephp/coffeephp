@@ -4,16 +4,16 @@ namespace App\Controllers;
 use Carbon\Carbon;
 use Parsedown;
 use App\Models\Topics;
-use App\Models\Replies;
+use App\Models\TopicsReplies;
 use App\Models\Users;
-use App\Models\RepliesVotes;
+use App\Models\TopicsRepliesVotes;
 
 /**
  * 回复控制器
  * @author jsyzchenchen@gmail.com
  * @date 2016/12/31
  */
-class RepliesController extends ControllerBase
+class TopicsRepliesController extends ControllerBase
 {
     /**
      * 添加回复
@@ -68,7 +68,7 @@ class RepliesController extends ControllerBase
                 $topicsId = $this->request->getPost('topics_id');
                 $usersId = $auth['id'];
 
-                $replies = new Replies([
+                $replies = new TopicsReplies([
                     'topics_id' => $topicsId,
                     'body_original' => $bodyOriginal,
                     'body'          => $body,
@@ -141,10 +141,10 @@ class RepliesController extends ControllerBase
 
         $usersId = $auth['id'];
 
-        $repliesVotes = RepliesVotes::findFirst([
-            "replies_id = :replies_id: AND users_id = :users_id:",
+        $repliesVotes = TopicsRepliesVotes::findFirst([
+            "topics_replies_id = :topics_replies_id: AND users_id = :users_id:",
             "bind" => [
-                'replies_id' => $id,
+                'topics_replies_id' => $id,
                 'users_id' => $usersId
             ]
         ]);
@@ -162,8 +162,8 @@ class RepliesController extends ControllerBase
             $repliesVotes->save();
         } else {
             //更新投票表
-            $repliesVotes = new repliesVotes();
-            $repliesVotes->replies_id = $id;
+            $repliesVotes = new TopicsRepliesVotes();
+            $repliesVotes->topics_replies_id = $id;
             $repliesVotes->users_id = $usersId;
             $repliesVotes->type = 1;
             $repliesVotes->save();

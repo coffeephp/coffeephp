@@ -1,15 +1,12 @@
 <?php
 namespace App\Models;
 
-use Phalcon\Mvc\Model;
-use Phalcon\Mvc\Model\Behavior\SoftDelete;
-
 /**
- * 回复模型
+ * 话题回复模型
  * @author jsyzchenchen@gmail.com
  * @date 2016/12/3
  */
-class Replies extends ModelBase
+class TopicsReplies extends ModelBase
 {
     public function initialize()
     {
@@ -35,8 +32,8 @@ class Replies extends ModelBase
 
         $this->hasMany(
             "id",
-            "App\\Models\\RepliesVotes",
-            "replies_id",
+            "App\\Models\\TopicsRepliesVotes",
+            "topics_replies_id",
             [
                 "alias" => "repliesVotes",
             ]

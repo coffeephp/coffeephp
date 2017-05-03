@@ -104,12 +104,21 @@ $router->addGet(
     ]
 );
 
-//回复点赞
+//话题回复点赞
 $router->addPost(
-    '/replies/{id:[0-9]+}/upvote',
+    '/topics-replies/{id:[0-9]+}/upvote',
     [
-        'controller' => 'replies',
+        'controller' => 'topicsReplies',
         'action'     => 'upvote'
+    ]
+);
+
+//话题回复
+$router->addPost(
+    '/topics-replies',
+    [
+        'controller' => 'topicsReplies',
+        'action'     => 'store'
     ]
 );
 
@@ -122,14 +131,6 @@ $router->addPost(
     ]
 );
 
-//回复
-$router->addPost(
-    '/replies',
-    [
-        'controller' => 'replies',
-        'action'     => 'store'
-    ]
-);
 
 //用户中心页
 $router->addGet(
@@ -158,7 +159,7 @@ $router->addPost(
     ]
 );
 
-//酷站
+//资源
 $router->addGet(
     '/resources',
     [

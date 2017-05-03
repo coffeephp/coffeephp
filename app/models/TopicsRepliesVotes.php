@@ -6,9 +6,9 @@ namespace App\Models;
  * @author jsyzchenchen@gmail.com
  * @date 2017/04/19
  */
-class RepliesVotes extends ModelBase
+class TopicsRepliesVotes extends ModelBase
 {
-    public $replies_id;
+    public $topics_replies_id;
     public $users_id;
 
     public function initialize()

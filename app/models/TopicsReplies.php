@@ -8,6 +8,8 @@ namespace App\Models;
  */
 class TopicsReplies extends ModelBase
 {
+    public $votes_up;
+
     public function initialize()
     {
         parent::initialize();

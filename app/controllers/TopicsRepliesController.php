@@ -139,6 +139,8 @@ class TopicsRepliesController extends ControllerBase
             return;
         }
 
+        $topicsReplies = TopicsReplies::findFirst($id);
+
         $usersId = $auth['id'];
 
         $repliesVotes = TopicsRepliesVotes::findFirst([
@@ -153,23 +155,30 @@ class TopicsRepliesController extends ControllerBase
             if ($repliesVotes->status == 1) {
                 $repliesVotes->status = 0;
 
+                $topicsReplies->votes_up = $topicsReplies->votes_up - 1;
+
                 $return['type'] = 'sub';
             } elseif ($repliesVotes->status == 0) {
                 $repliesVotes->status = 1;
 
+                $topicsReplies->votes_up = $topicsReplies->votes_up + 1;
+
                 $return['type'] = 'add';
             }
-            $repliesVotes->save();
         } else {
             //更新投票表
             $repliesVotes = new TopicsRepliesVotes();
             $repliesVotes->topics_replies_id = $id;
             $repliesVotes->users_id = $usersId;
             $repliesVotes->type = 1;
-            $repliesVotes->save();
+
+            $topicsReplies->votes_up = $topicsReplies->votes_up + 1;
 
             $return['type'] = 'add';
         }
+
+        $repliesVotes->save();
+        $topicsReplies->save();
 
         //更新用户的活跃时间
         $users = Users::findFirst($usersId);

@@ -178,7 +178,7 @@
                                     <span class="operate pull-right">
 
                         <a class="comment-vote" data-ajax="post" id="reply-up-vote-{{ reply.id }}" href="javascript:void(0);" data-url="/topics-replies/{{ reply.id }}/upvote" title="Vote Up">
-                 <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count">{% if reply.repliesVotes.count() %}{{ reply.repliesVotes.count() }}{% endif %}</span>
+                 <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count">{% if reply.votes_up %}{{ reply.votes_up }}{% endif %}</span>
               </a>
               <span> ⋅  </span>
 

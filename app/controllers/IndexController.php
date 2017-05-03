@@ -11,6 +11,8 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
+        $this->response->redirect('/topics');
+        return;
 //        $topics       = new  Topics();
 //        $topics->title = "test";
 //        $topics->body = "test";

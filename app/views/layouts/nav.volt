@@ -11,7 +11,7 @@
         </div>
         <div id="top-navbar-collapse" class="navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="{%  if currentUrl == '/topics' %}active{% endif %}"><a href="{{ url('topics') }}">话题</a></li>
+                <li class="{%  if currentUrl == '/topics' %}active{% endif %}"><a href="{{ url('topics') }}">社区</a></li>
                 <li class="{%  if currentUrl == '/resources' %}active{% endif %}"><a href="{{ url('resources') }}">资源</a></li>
                 <li><a href="http://www.imooc.com/course/list?c=php" target="_blank">课程</a></li>
                 <li><a href="https://www.lagou.com/zhaopin/PHP/" target="_blank">招聘</a></li>

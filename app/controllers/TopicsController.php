@@ -374,11 +374,15 @@ class TopicsController extends ControllerBase
 
             foreach ($files as $file) {
                 // Move the file into the application
-                $filename = $file->getName();
-                $file->moveTo(
-                    "files/" . $filename
-                );
-                $data['filename'] = '/files/' . $filename;
+                $path = "files/" . date('Ymd') . '/';
+                if (!is_dir($path)) {
+                    mkdir($path);
+                }
+                $savename = md5(microtime(true)) . '.' .pathinfo($file->getName(), PATHINFO_EXTENSION);
+                $filename = $path . $savename;
+                $file->moveTo($filename);
+
+                $data['filename'] = '/' . $filename;
             }
         } else {
             $data['error'] = 'Error while uploading file';

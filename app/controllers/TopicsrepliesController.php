@@ -13,7 +13,7 @@ use App\Models\TopicsRepliesVotes;
  * @author jsyzchenchen@gmail.com
  * @date 2016/12/31
  */
-class TopicsrepliesController extends ControllerBase
+class TopicsRepliesController extends ControllerBase
 {
     /**
      * 添加回复

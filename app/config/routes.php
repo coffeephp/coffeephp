@@ -159,6 +159,24 @@ $router->addPost(
     ]
 );
 
+//专栏创建
+$router->addGet(
+    '/blogs/create',
+    [
+        'controller' => 'blogs',
+        'action'     => 'create'
+    ]
+);
+
+//专栏保存
+$router->addPost(
+    '/blogs/store',
+    [
+        'controller' => 'blogs',
+        'action'     => 'store'
+    ]
+);
+
 //资源
 $router->addGet(
     '/resources',

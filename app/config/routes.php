@@ -117,7 +117,7 @@ $router->addPost(
 $router->addPost(
     '/topics-replies',
     [
-        'controller' => 'topicsReplies',
+        'controller' => 'TopicsReplies',
         'action'     => 'store'
     ]
 );

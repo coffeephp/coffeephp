@@ -17,4 +17,27 @@ class Users extends ModelBase
     public $github_name;
     public $github_nickname;
     public $last_actived_at;
+
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->hasMany(
+            "id",
+            "App\\Models\\Topics",
+            "users_id",
+            [
+                'alias'    => 'topics'
+            ]
+        );
+
+        $this->hasMany(
+            "id",
+            "App\\Models\\TopicsReplies",
+            "users_id",
+            [
+                'alias'    => 'replies'
+            ]
+        );
+    }
 }

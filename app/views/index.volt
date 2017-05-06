@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>{{ title }} CoffeePHP 社区 - Powered by PHPHub</title>
+        <meta name="baidu-site-verification" content="x8Le704cGC" />
         <meta name="keywords" content="CoffeePHP,PHP,PHP社区,PHP论坛,PHP学习,PHP问答,PHP文章,PHP招聘,Phalcon社区,Phalcon,Yaf,Laravel,ThinkPHP" />
         <meta name="description" content="CoffeePHP是一个有情怀的PHP社区，致力于解决PHP问题和分享PHP相关文章，目标成为每一位PHP开发者每天都会访问的PHP社区。" />
         <link href="{{ static_url("css/coffeephp.css") }}" rel="stylesheet">

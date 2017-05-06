@@ -190,7 +190,7 @@ $router->addGet(
 $router->addGet(
     '/',
     [
-        'controller' => 'index',
+        'controller' => 'topics',
         'action'     => 'index'
     ]
 );

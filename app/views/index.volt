@@ -28,6 +28,8 @@
             var ShowCrxHint = 'no';
         </script>
         <script src="{{ static_url("js/coffeephp.js") }}"></script>
+
+        {% if appEnv == 'production' %}
         <!-- Google Analytics -->
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -39,6 +41,7 @@
             ga('send', 'pageview');
         </script>
         <!-- End Google Analytics -->
+        {% endif %}
     </head>
     <body id="body">
         <div id="wrap">
@@ -50,6 +53,7 @@
             {{ partial("layouts/footer") }}
         </div>
 
+        {% if appEnv == 'production' %}
         <!--百度统计-->
         <script>
             var _hmt = _hmt || [];
@@ -78,5 +82,6 @@
             })();
         </script>
         <!--百度站长 链接提交结束-->
+        {% endif %}
     </body>
 </html>

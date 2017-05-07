@@ -45,7 +45,7 @@ class SharesController extends ControllerBase
             "limit" => 10
         ]);
 
-        $title = '分享列表 ' . '第' . $currentPage . '页';
+        $title = '分享列表';
 
         $this->view->setVar("page", $page);
         $this->view->setVar("title", $title);

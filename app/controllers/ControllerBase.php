@@ -21,6 +21,7 @@ class ControllerBase extends Controller
         $numberTopics = Topics::count();
         $numberReplies = TopicsReplies::count();
         $controllerName = $this->dispatcher->getControllerName();
+        $appEnv = env('APP_ENV');
 
         $this->view->setVar("numberUsers", $numberUsers);
         $this->view->setVar("numberShares", $numberShares);
@@ -28,6 +29,7 @@ class ControllerBase extends Controller
         $this->view->setVar("numberReplies", $numberReplies);
         $this->view->setVar("title", '');
         $this->view->setVar("controllerName", $controllerName);
+        $this->view->setVar("appEnv", $appEnv);
     }
 
     /**

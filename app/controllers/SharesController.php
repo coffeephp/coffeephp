@@ -127,9 +127,9 @@ class SharesController extends ControllerBase
     {
         $return = array();
 
-        $shares_id = $this->request->getPost('shares_id', 'int');
+        $sharesId = $this->request->getPost('sharesId', 'int');
 
-        $shares = Shares::findFirst($shares_id);
+        $shares = Shares::findFirst($sharesId);
 
         if ($shares) {
             $shares->clicks = $shares->clicks + 1;
@@ -144,11 +144,15 @@ class SharesController extends ControllerBase
                 }
 
                 $return['msg'] = 'save fail!';
+                $return['status'] = 400;
             } else {
                 $return['msg'] = 'success!';
+                $return['status'] = 200;
+                $return['data']['clicks'] = $shares->clicks;
             }
         } else {
             $return['msg'] = 'this share does not exist!';
+            $return['status'] = 400;
         }
 
         exit(json_encode($return));

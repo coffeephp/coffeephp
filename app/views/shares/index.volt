@@ -10,7 +10,7 @@
         <div class="panel-body remove-padding-horizontal">
             <ul class="list-group row topic-list">
                 {% for item in page.items %}
-                    <li class="list-group-item ">
+                    <li class="list-group-item">
 
                         <a class="reply_count_area hidden-xs pull-right" href="{{ url("topics/" ~ item.id) }}">
                             <div class="count_set">
@@ -39,7 +39,7 @@
                                     {#<span class="hidden-xs label {% if item.is_excellent %}label-success{% else %}label-default{% endif %}">{{ item.categories.name }}</span>#}
                                 {#{% endif %}#}
                                 <span class="hidden-xs label label-primary">分享</span>
-                                <a href="{{ item.url }}" title="{{ item.title }}" onclick="addClicks({{ item.id }})" target="_blank">
+                                <a href="{{ item.url }}" title="{{ item.title }}" class="shares_clicks" data-sharesId="{{ item.id }}" target="_blank">
                                     {{ item.title }}
                                 </a>
 
@@ -67,25 +67,30 @@
 {{ partial("layouts/partials/sidebar") }}
 
 <script>
-    /**
-     * 添加点击量
-     * @param shares_id
-     */
-    function addClicks(shares_id)
-    {
-        if (!shares_id) {
-            console.log('clicks fail!');
-            return false;
-        }
+    $(function() {
+        //添加点击量
+       $('.shares_clicks').click(function () {
+           var sharesId = $(this).attr("data-sharesId");
 
-        $.ajax({
-            type: "POST",
-            url: "{{ url('shares/clicks') }}",
-            data: "shares_id="+shares_id,
-            dataType: "json",
-            success: function(data){
-                //console.log(data.msg);
-            }
-        });
-    }
+           if (!sharesId) {
+               console.log('add clicks fail!');
+               return false;
+           }
+
+           var currentObj = $(this);
+
+           $.ajax({
+               type: "POST",
+               url: "{{ url('shares/clicks') }}",
+               data: "sharesId="+sharesId,
+               dataType: "json",
+               success: function(msg){
+                   if (msg.status == 200) {
+                       //修改页面的点击量
+                       currentObj.parentsUntil('','li.list-group-item').find('.count_set .count_of_visits').text(msg.data.clicks);
+                   }
+               }
+           });
+       });
+    });
 </script>

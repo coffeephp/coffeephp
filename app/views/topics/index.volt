@@ -2,7 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <ul class="list-inline topic-filter">
-                <li class="popover-with-html" data-content="创建时间排序"><a href="{{ url('topics') }}" class="active">最新</a></li>
+                <li class="popover-with-html" data-content="时间排序"><a href="{{ url('topics') }}" class="active">最新</a></li>
             </ul>
 
             <div class="clearfix"></div>

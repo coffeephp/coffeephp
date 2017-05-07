@@ -94,7 +94,7 @@
                 {% for hotTopic in hotTopics %}
                     <li>
                         <a href="{{ url("topics/") ~ hotTopic.id }}" class="popover-with-html" data-content="{{ hotTopic.title }}">
-                            {{ hotTopic.title }}
+                            {{ loop.index }}.{{ hotTopic.title }}
                         </a>
                     </li>
                 {% endfor %}

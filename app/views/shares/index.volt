@@ -38,6 +38,7 @@
                                 {#{% else %}#}
                                     {#<span class="hidden-xs label {% if item.is_excellent %}label-success{% else %}label-default{% endif %}">{{ item.categories.name }}</span>#}
                                 {#{% endif %}#}
+                                <span class="hidden-xs label label-primary">分享</span>
                                 <a href="{{ item.url }}" title="{{ item.title }}" target="_blank">
                                     {{ item.title }}
                                 </a>

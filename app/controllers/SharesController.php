@@ -36,7 +36,7 @@ class SharesController extends ControllerBase
 
         // Get the paginated results
         $page = $paginator->getPaginate();
-        $paginatorRender = $this->getPaginateRender($page->total_pages, '/Shares');
+        $paginatorRender = $this->getPaginateRender($page->total_pages, '/shares');
         $page->paginatorRender = $paginatorRender;
 
         $this->view->setVar("title", '分享列表');

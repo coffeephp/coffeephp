@@ -20,16 +20,14 @@ class ControllerBase extends Controller
         $numberShares = Shares::count();
         $numberTopics = Topics::count();
         $numberReplies = TopicsReplies::count();
+        $controllerName = $this->dispatcher->getControllerName();
 
         $this->view->setVar("numberUsers", $numberUsers);
         $this->view->setVar("numberShares", $numberShares);
         $this->view->setVar("numberTopics", $numberTopics);
         $this->view->setVar("numberReplies", $numberReplies);
-
         $this->view->setVar("title", '');
-
-        $currentUrl = $this->request->getURI();
-        $this->view->setVar("currentUrl", $currentUrl);
+        $this->view->setVar("controllerName", $controllerName);
     }
 
     /**

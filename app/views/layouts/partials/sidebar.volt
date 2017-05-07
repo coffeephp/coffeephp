@@ -2,11 +2,11 @@
     <div class="panel panel-default corner-radius">
         <div class="panel-body text-center">
             <div class="btn-group">
-                {%  if currentUrl == '/topics' %}
+                {%  if controllerName == 'topics' %}
                     <a href="{{ url("topics/create") }}" class="btn btn-primary btn-lg btn-inverted">
                         <i class="fa fa-comment" aria-hidden="true"></i>  新 建 话 题
                     </a>
-                {% elseif currentUrl == '/shares' %}
+                {% elseif controllerName == 'shares' %}
                     <a href="{{ url("shares/create") }}" class="btn btn-primary btn-lg btn-inverted">
                         <i class="fa fa-share-alt" aria-hidden="true"></i>  推 荐 分 享
                     </a>

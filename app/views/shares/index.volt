@@ -14,21 +14,10 @@
 
                         <a class="reply_count_area hidden-xs pull-right" href="{{ url("topics/" ~ item.id) }}">
                             <div class="count_set">
-                 <span class="count_of_votes" title="投票数">
-                   {{ item.votes_up }}
-                </span>
+                                <span class="count_of_visits" title="点击量">
+                                   {{ item.clicks }}
+                                </span>
 
-                                <span class="count_seperator">/</span>
-
-                                <span class="count_of_replies" title="回复数">
-                   {{ item.number_replies }}
-                 </span>
-
-                                <span class="count_seperator">/</span>
-
-                                <span class="count_of_visits" title="查看数">
-                   {{ item.number_views }}
-                 </span>
                                 <span class="count_seperator">|</span>
 
                                 <abbr title="{{ item.created_at }}" class="timeago">{{ item.created_at }}</abbr>
@@ -44,12 +33,12 @@
                         <div class="infos">
 
                             <div class="media-heading">
-                                {% if item.sticked == 1 %}
-                                <span class="hidden-xs label label-warning">置顶</span>
-                                {% else %}
-                                <span class="hidden-xs label {% if item.is_excellent %}label-success{% else %}label-default{% endif %}">{{ item.categories.name }}</span>
-                                {% endif %}
-                                <a href="{{ url("topics/" ~ item.id) }}" title="{{ item.title }}">
+                                {#{% if item.sticked == 1 %}#}
+                                    {#<span class="hidden-xs label label-warning">置顶</span>#}
+                                {#{% else %}#}
+                                    {#<span class="hidden-xs label {% if item.is_excellent %}label-success{% else %}label-default{% endif %}">{{ item.categories.name }}</span>#}
+                                {#{% endif %}#}
+                                <a href="{{ item.url }}" title="{{ item.title }}" target="_blank">
                                     {{ item.title }}
                                 </a>
 
@@ -75,6 +64,3 @@
 </div>
 
 {{ partial("layouts/partials/sidebar") }}
-
-
-

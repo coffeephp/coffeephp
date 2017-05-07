@@ -58,6 +58,7 @@ class TopicsController extends ControllerBase
             "limit" => 5
         ]);
 
+        $this->view->setVar("title", '话题列表');
         $this->view->setVar("page", $page);
         $this->view->setVar("activeUsers", $activeUsers);
         $this->view->setVar("hotTopics", $hotTopics);
@@ -79,6 +80,7 @@ class TopicsController extends ControllerBase
         //获取所有分类
         $categories = Categories::find();
 
+        $this->view->setVar("title", '话题创建');
         $this->view->setVar("categories", $categories);
     }
 
@@ -91,7 +93,7 @@ class TopicsController extends ControllerBase
     {
         if (!$auth = $this->session->get('auth')) {
             $this->flashSession->error('You must be logged first');
-            $this->response->redirect("topics/create");
+            $this->response->redirect();
             return;
         }
 
@@ -111,8 +113,8 @@ class TopicsController extends ControllerBase
 
             $topics = new Topics([
                 'users_id'      => $usersId,
-                'categories_id' => $this->request->getPost('category_id'),
-                'title'         => $this->request->getPost('title'),
+                'categories_id' => $this->request->getPost('category_id', 'int'),
+                'title'         => $this->request->getPost('title', 'string'),
                 'body_original' => $bodyOriginal,
                 'body'          => $body,
             ]);
@@ -283,6 +285,7 @@ class TopicsController extends ControllerBase
             return $response;
         }
 
+        $this->view->setVar("title", '话题编辑');
         $this->view->setVar("topic", $topic);
     }
 
@@ -317,7 +320,7 @@ class TopicsController extends ControllerBase
             $parsedown = new Parsedown();
             $body = $parsedown->text($bodyOriginal);
 
-            $topics->title = $this->request->getPost('title');
+            $topics->title = $this->request->getPost('title', 'string');
             $topics->body_original = $bodyOriginal;
             $topics->body = $body;
 
@@ -447,7 +450,7 @@ class TopicsController extends ControllerBase
 
         //更新用户的活跃时间
         $users = Users::findFirst($usersId);
-        $users->last_actived_at = date('Y-m-d H:i:s');
+        $users->last_actived_at = Carbon::now()->toDateTimeString();
         $users->save();
 
         // Getting a response instance

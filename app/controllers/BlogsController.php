@@ -37,7 +37,7 @@ class BlogsController extends ControllerBase
     {
         if (!$auth = $this->session->get('auth')) {
             $this->flashSession->error('You must be logged first');
-            $this->response->redirect("blogs/create");
+            $this->response->redirect();
             return;
         }
 

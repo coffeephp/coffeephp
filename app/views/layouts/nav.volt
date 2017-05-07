@@ -11,7 +11,8 @@
         </div>
         <div id="top-navbar-collapse" class="navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="{%  if currentUrl == '/topics' %}active{% endif %}"><a href="{{ url('topics') }}">社区</a></li>
+                <li class="{%  if currentUrl == '/topics' %}active{% endif %}"><a href="{{ url('topics') }}">话题</a></li>
+                <li class="{%  if currentUrl == '/shares' %}active{% endif %}"><a href="{{ url('shares') }}">分享</a></li>
                 <li class="{%  if currentUrl == '/resources' %}active{% endif %}"><a href="{{ url('resources') }}">资源</a></li>
                 <li><a href="http://www.imooc.com/course/list?c=php" target="_blank">课程</a></li>
                 <li><a href="https://www.lagou.com/zhaopin/PHP/" target="_blank">招聘</a></li>
@@ -19,18 +20,37 @@
             </ul>
 
             <div class="navbar-right">
-                {#<form method="GET" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" target="_blank">#}
-                    {#<div class="form-group">#}
-                        {#<input class="form-control search-input mac-style" placeholder="搜索" name="q" type="text">#}
-                    {#</div>#}
-                {#</form>#}
+                <form method="GET" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" target="_blank">
+                    <div class="form-group">
+                        <input class="form-control search-input mac-style" placeholder="搜索" name="q" type="text">
+                    </div>
+                </form>
 
                 <ul class="nav navbar-nav github-login">
                     {% if session.auth%}
-                        <li>
-                            <a href="{{ url('topics/create') }}" data-placement="bottom" class="popover-with-html" data-content="添加主题" data-original-title="" title="">
+                        <li class="">
+                            <a href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-plus text-md"></i>
                             </a>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a class="button no-pjax" href="{{ url('shares/create') }}">
+                                        <i class="fa fa-share-alt text-md"></i> 推荐分享
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="button no-pjax" href="{{ url('topics/create') }}">
+                                        <i class="fa fa-comment text-md"></i> 新建话题
+                                    </a>
+                                </li>
+
+                                {#<li>#}
+                                    {#<a class="button no-pjax" href="https://laravel-china.org/articles/create">#}
+                                        {#<i class="fa fa-paint-brush text-md"></i> 创作文章#}
+                                    {#</a>#}
+                                {#</li>#}
+                            </ul>
                         </li>
 
                         {#<li>#}

@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use Phalcon\Mvc\Controller;
 use App\Models\Users;
+use App\Models\Shares;
 use App\Models\Topics;
 use App\Models\TopicsReplies;
 
@@ -16,10 +17,12 @@ class ControllerBase extends Controller
     public function initialize()
     {
         $numberUsers = Users::count();
+        $numberShares = Shares::count();
         $numberTopics = Topics::count();
         $numberReplies = TopicsReplies::count();
 
         $this->view->setVar("numberUsers", $numberUsers);
+        $this->view->setVar("numberShares", $numberShares);
         $this->view->setVar("numberTopics", $numberTopics);
         $this->view->setVar("numberReplies", $numberReplies);
 

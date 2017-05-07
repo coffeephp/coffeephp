@@ -159,20 +159,47 @@ $router->addPost(
     ]
 );
 
-//专栏创建
+////专栏创建
+//$router->addGet(
+//    '/blogs/create',
+//    [
+//        'controller' => 'blogs',
+//        'action'     => 'create'
+//    ]
+//);
+//
+////专栏保存
+//$router->addPost(
+//    '/blogs/store',
+//    [
+//        'controller' => 'blogs',
+//        'action'     => 'store'
+//    ]
+//);
+
+//分享列表页
 $router->addGet(
-    '/blogs/create',
+    '/shares',
     [
-        'controller' => 'blogs',
+        'controller' => 'shares',
+        'action'     => 'index'
+    ]
+);
+
+//分享创建页
+$router->addGet(
+    '/shares/create',
+    [
+        'controller' => 'shares',
         'action'     => 'create'
     ]
 );
 
-//专栏保存
+//分享存储
 $router->addPost(
-    '/blogs/store',
+    '/shares',
     [
-        'controller' => 'blogs',
+        'controller' => 'shares',
         'action'     => 'store'
     ]
 );
@@ -186,11 +213,20 @@ $router->addGet(
     ]
 );
 
+//资源
+$router->addGet(
+    '/search',
+    [
+        'controller' => 'search',
+        'action'     => 'index'
+    ]
+);
+
 // Define a route
 $router->addGet(
     '/',
     [
-        'controller' => 'index',
+        'controller' => 'topics',
         'action'     => 'index'
     ]
 );

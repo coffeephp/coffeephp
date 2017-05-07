@@ -52,7 +52,12 @@ class TopicsController extends ControllerBase
 
         // Get the paginated results
         $page = $paginator->getPaginate();
-        $paginatorRender = $this->getPaginateRender($page->total_pages, '/topics');
+        if ($order == 'hot') {
+            $path = '/topics/hot';
+        } else {
+            $path = '/topics';
+        }
+        $paginatorRender = $this->getPaginateRender($page->total_pages, $path);
         $page->paginatorRender = $paginatorRender;
 
         //获取活跃用户

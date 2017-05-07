@@ -34,7 +34,7 @@
                         <h4>统计信息</h4>
                         <ul class="list-unstyled">
                             <li>社区会员: {{ numberUsers }} </li>
-                            <li>分享数: 0 </li>
+                            <li>分享数: {{ numberShares }} </li>
                             {#<li>文章数: 0 </li>#}
                             <li>话题数: {{ numberTopics }} </li>
                             <li>评论数: {{ numberReplies }} </li>

@@ -47,7 +47,12 @@ class SharesController extends ControllerBase
 
         // Get the paginated results
         $page = $paginator->getPaginate();
-        $paginatorRender = $this->getPaginateRender($page->total_pages, '/shares');
+        if ($order == 'hot') {
+            $path = '/shares/hot';
+        } else {
+            $path = '/shares';
+        }
+        $paginatorRender = $this->getPaginateRender($page->total_pages, $path);
         $page->paginatorRender = $paginatorRender;
 
         //热门分享

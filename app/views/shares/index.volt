@@ -67,8 +67,25 @@
 {{ partial("layouts/partials/sidebar") }}
 
 <script>
+    /**
+     * 添加点击量
+     * @param shares_id
+     */
     function addClicks(shares_id)
     {
-        console.log(shares_id);
+        if (!shares_id) {
+            console.log('clicks fail!');
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "{{ url('shares/clicks') }}",
+            data: "shares_id="+shares_id,
+            dataType: "json",
+            success: function(data){
+                //console.log(data.msg);
+            }
+        });
     }
 </script>

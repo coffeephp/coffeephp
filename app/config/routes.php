@@ -195,12 +195,21 @@ $router->addGet(
     ]
 );
 
-//分享存储
+//分享保存
 $router->addPost(
     '/shares',
     [
         'controller' => 'shares',
         'action'     => 'store'
+    ]
+);
+
+//分享点击量添加
+$router->addPost(
+    '/shares/clicks',
+    [
+        'controller' => 'shares',
+        'action'     => 'addClicks'
     ]
 );
 

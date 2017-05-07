@@ -27,6 +27,7 @@
 
             var ShowCrxHint = 'no';
         </script>
+        <script src="{{ static_url("js/coffeephp.js") }}"></script>
         <!-- Google Analytics -->
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -40,15 +41,14 @@
         <!-- End Google Analytics -->
     </head>
     <body id="body">
-    <div id="wrap">
-        {{ partial("layouts/nav") }}
-        <div class="container main-container">
-            {{ flashSession.output() }}
-            {{ content() }}
+        <div id="wrap">
+            {{ partial("layouts/nav") }}
+            <div class="container main-container">
+                {{ flashSession.output() }}
+                {{ content() }}
+            </div>
+            {{ partial("layouts/footer") }}
         </div>
-        {{ partial("layouts/footer") }}
-    </div>
-        <script src="{{ static_url("js/coffeephp.js") }}"></script>
 
         <!--百度统计-->
         <script>

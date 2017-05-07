@@ -117,4 +117,40 @@ class SharesController extends ControllerBase
             return;
         }
     }
+
+    /**
+     * 增加点击量
+     * @author jsyzchenchen@gmail.com
+     * @date 2017/5/7
+     */
+    public function addClicksAction()
+    {
+        $return = array();
+
+        $shares_id = $this->request->getPost('shares_id', 'int');
+
+        $shares = Shares::findFirst($shares_id);
+
+        if ($shares) {
+            $shares->clicks = $shares->clicks + 1;
+
+            $res = $shares->save();
+
+            if ($res === false) {
+                $messages = $shares->getMessages();
+
+                foreach ($messages as $message) {
+                    //echo $message, "\n";
+                }
+
+                $return['msg'] = 'save fail!';
+            } else {
+                $return['msg'] = 'success!';
+            }
+        } else {
+            $return['msg'] = 'this share does not exist!';
+        }
+
+        exit(json_encode($return));
+    }
 }

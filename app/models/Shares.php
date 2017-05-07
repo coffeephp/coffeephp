@@ -12,6 +12,7 @@ class Shares extends ModelBase
     public $users_id;
     public $title;
     public $url;
+    public $clicks;
 
     public function initialize()
     {

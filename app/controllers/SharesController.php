@@ -39,7 +39,7 @@ class SharesController extends ControllerBase
         $paginatorRender = $this->getPaginateRender($page->total_pages, '/shares');
         $page->paginatorRender = $paginatorRender;
 
-        $title = '分享列表 ' . '第' . $page . '页';
+        $title = '分享列表 ' . '第' . $currentPage . '页';
 
         $this->view->setVar("title", $title);
         $this->view->setVar("page", $page);

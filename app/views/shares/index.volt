@@ -39,7 +39,7 @@
                                     {#<span class="hidden-xs label {% if item.is_excellent %}label-success{% else %}label-default{% endif %}">{{ item.categories.name }}</span>#}
                                 {#{% endif %}#}
                                 <span class="hidden-xs label label-primary">分享</span>
-                                <a href="{{ item.url }}" title="{{ item.title }}" target="_blank">
+                                <a href="{{ item.url }}" title="{{ item.title }}" onclick="addClicks({{ item.id }})" target="_blank">
                                     {{ item.title }}
                                 </a>
 
@@ -65,3 +65,10 @@
 </div>
 
 {{ partial("layouts/partials/sidebar") }}
+
+<script>
+    function addClicks(shares_id)
+    {
+        console.log(shares_id);
+    }
+</script>

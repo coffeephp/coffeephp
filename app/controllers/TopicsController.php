@@ -58,7 +58,9 @@ class TopicsController extends ControllerBase
             "limit" => 5
         ]);
 
-        $this->view->setVar("title", '话题列表');
+        $title = '话题列表 ' . '第' . $page . '页';
+
+        $this->view->setVar("title", $title);
         $this->view->setVar("page", $page);
         $this->view->setVar("activeUsers", $activeUsers);
         $this->view->setVar("hotTopics", $hotTopics);

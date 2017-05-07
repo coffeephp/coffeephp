@@ -103,6 +103,25 @@
     </div>
     {% endif %}
 
+    {% if hotShares is defined %}
+    <div class="panel panel-default corner-radius panel-hot-topics">
+        <div class="panel-heading text-center">
+            <h3 class="panel-title">热门分享</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list">
+                {% for hotShare in hotShares %}
+                    <li>
+                        <a href="{{ hotShare.url }}" class="popover-with-html" data-content="{{ hotShare.title }}" target="_blank">
+                            {{ loop.index }}.{{ hotShare.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+
     <div class="panel panel-default corner-radius">
         <div class="panel-heading text-center">
             <h3 class="panel-title">友情社区</h3>

@@ -39,10 +39,17 @@ class SharesController extends ControllerBase
         $paginatorRender = $this->getPaginateRender($page->total_pages, '/shares');
         $page->paginatorRender = $paginatorRender;
 
+        //热门分享
+        $hotShares = Shares::find([
+            "order" => "clicks DESC, id DESC",
+            "limit" => 10
+        ]);
+
         $title = '分享列表 ' . '第' . $currentPage . '页';
 
-        $this->view->setVar("title", $title);
         $this->view->setVar("page", $page);
+        $this->view->setVar("title", $title);
+        $this->view->setVar("hotShares", $hotShares);
     }
 
     /**

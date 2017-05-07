@@ -18,13 +18,24 @@ class SharesController extends ControllerBase
      * @author jsyzchenchen@gmail.com
      * @date 2017/5/7
      */
-    public function indexAction()
+    public function indexAction($order = null)
     {
         $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-        $builder = $this->modelsManager->createBuilder()
-            ->from("App\\Models\\Shares")
-            ->orderBy("id desc");
+        switch ($order) {
+            case 'hot':
+                $builder = $this->modelsManager->createBuilder()
+                    ->from("App\\Models\\Shares")
+                    ->orderBy("clicks desc, id desc");
+                break;
+            default:
+                $builder = $this->modelsManager->createBuilder()
+                    ->from("App\\Models\\Shares")
+                    ->orderBy("id desc");
+
+        }
+
+        $order = $order ? $order : 'new';
 
         $paginator = new PaginatorQueryBuilder(
             [
@@ -50,6 +61,7 @@ class SharesController extends ControllerBase
         $this->view->setVar("page", $page);
         $this->view->setVar("title", $title);
         $this->view->setVar("hotShares", $hotShares);
+        $this->view->setVar("currentOrder", $order);
     }
 
     /**

@@ -2,7 +2,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <ul class="list-inline topic-filter">
-                <li class="popover-with-html" data-content="时间排序"><a href="{{ url('topics') }}" class="active">最新</a></li>
+                <li class="popover-with-html" data-content="时间排序"><a href="{{ url('topics') }}" class="{% if currentOrder == 'new' %}active{% endif %}">最新</a></li>
+                <li class="popover-with-html" data-content="回复、点赞、浏览排序"><a href="{{ url('topics/hot') }}" class="{% if currentOrder == 'hot' %}active{% endif %}">热门</a></li>
             </ul>
 
             <div class="clearfix"></div>

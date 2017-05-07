@@ -23,13 +23,24 @@ class TopicsController extends ControllerBase
      * @author jsyzchenchen@gmail.com
      * @date 2016/12/4
      */
-    public function indexAction()
+    public function indexAction($order = null)
     {
         $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-        $builder = $this->modelsManager->createBuilder()
-            ->from("App\\Models\\Topics")
-            ->orderBy("sticked desc, id desc");
+        switch ($order) {
+            case 'hot':
+                $builder = $this->modelsManager->createBuilder()
+                    ->from("App\\Models\\Topics")
+                    ->orderBy("sticked DESC, number_replies DESC, votes_up DESC, number_views DESC, id DESC");
+                break;
+            default:
+                $builder = $this->modelsManager->createBuilder()
+                    ->from("App\\Models\\Topics")
+                    ->orderBy("sticked DESC, id DESC");
+
+        }
+
+        $order = $order ? $order : 'new';
 
         $paginator = new PaginatorQueryBuilder(
             [
@@ -64,6 +75,7 @@ class TopicsController extends ControllerBase
         $this->view->setVar("page", $page);
         $this->view->setVar("activeUsers", $activeUsers);
         $this->view->setVar("hotTopics", $hotTopics);
+        $this->view->setVar("currentOrder", $order);
     }
 
     /**

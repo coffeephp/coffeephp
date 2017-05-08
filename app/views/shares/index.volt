@@ -3,7 +3,7 @@
         <div class="panel-heading">
             <ul class="list-inline topic-filter">
                 <li class="popover-with-html" data-content="时间排序"><a href="{{ url('shares') }}" class="{% if currentOrder == 'new' %}active{% endif %}">最新</a></li>
-                <li class="popover-with-html" data-content="点击量排序"><a href="{{ url('shares/hot') }}" class="{% if currentOrder == 'hot' %}active{% endif %}">热门</a></li>
+                <li class="popover-with-html" data-content="点击排序"><a href="{{ url('shares/hot') }}" class="{% if currentOrder == 'hot' %}active{% endif %}">热门</a></li>
             </ul>
 
             <div class="clearfix"></div>

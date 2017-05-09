@@ -41,6 +41,10 @@ $router->add(
     ]
 );
 
+$router->addGet('/topics/{order:[a-z]+}', 'Topics::index');
+
+$router->addGet('/shares/{order:[a-z]+}', 'Shares::index');
+
 //话题列表页
 $router->addGet(
     '/topics',
@@ -230,11 +234,6 @@ $router->addGet(
         'action'     => 'index'
     ]
 );
-
-$router->addGet('/topics/{order:[a-z]+}', 'Topics::index');
-
-$router->addGet('/shares/{order:[a-z]+}', 'Shares::index');
-
 
 //$router->addGet('/400', 'Error::route400')
 //    ->setName('error-400');

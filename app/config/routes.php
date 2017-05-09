@@ -41,10 +41,6 @@ $router->add(
     ]
 );
 
-$router->addGet('/topics/{order:[a-z]+}', 'Topics::index');
-
-$router->addGet('/shares/{order:[a-z]+}', 'Shares::index');
-
 //话题列表页
 $router->addGet(
     '/topics',
@@ -53,6 +49,8 @@ $router->addGet(
         'action'     => 'index'
     ]
 );
+
+$router->addGet('/topics/{order:hot}', 'Topics::index');
 
 //创建话题页
 $router->addGet(
@@ -225,6 +223,8 @@ $router->addGet(
         'action'     => 'index'
     ]
 );
+
+$router->addGet('/shares/{order:hot}', 'Shares::index');
 
 //资源
 $router->addGet(

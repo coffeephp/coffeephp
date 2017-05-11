@@ -9,7 +9,7 @@
         <meta name="baidu-site-verification" content="yzSVxuBQxp" />
         <meta name="keywords" content="CoffeePHP,PHP,PHP社区,PHP论坛,PHP学习,PHP话题,PHP问答,PHP文章,PHP招聘,Phalcon社区,Phalcon,Yaf,Laravel,ThinkPHP" />
         <meta name="description" content="CoffeePHP是一个有情怀的PHP社区，致力于解决PHP问题和分享PHP相关文章，目标成为每一位PHP开发者每天都会访问的PHP社区。" />
-        <link href="{{ static_url("css/coffeephp.css") }}" rel="stylesheet">
+        <link href="/css/coffeephp.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="/img/favicon.png">
         <script>
             Config = {

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-header hidden-xs">
             <a href="/" class="navbar-brand">
-                <img src="/img/logo.png" alt="CoffeePHP">
+                <img src="{{ static_url("img/logo.png") }}" alt="CoffeePHP">
             </a>
         </div>
 

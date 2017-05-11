@@ -1,14 +1,13 @@
 <div role="navigation" class="navbar navbar-default navbar-static-top topnav">
     <div class="container">
-        {#<div class="navbar-header hidden-xs">#}
-
-            {#<a href="/" class="navbar-brand">#}
-                {#<img src="https://dn-phphub.qbox.me/assets/images/logo4.png" alt="Laravel China">#}
-            {#</a>#}
-        {#</div>#}
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/" style="color: #777">CoffeePHP</a>
+        <div class="navbar-header hidden-xs">
+            <a href="/" class="navbar-brand">
+                <img src="/img/logo.png" alt="CoffeePHP" style="width: 58px;height: 58px;margin-top: -22px;">
+            </a>
         </div>
+        {#<div class="navbar-header">#}
+            {#<a class="navbar-brand" href="/" style="color: #777">CoffeePHP</a>#}
+        {#</div>#}
         <div id="top-navbar-collapse" class="navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="{%  if controllerName == 'shares' %}active{% endif %}"><a href="{{ url('shares') }}">分享</a></li>

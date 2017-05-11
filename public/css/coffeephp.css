@@ -11873,8 +11873,8 @@ div#preview-box {
     color: #fff;
     padding-top: 8px; }
 .navbar-default .navbar-brand img {
-    width: 185px;
-    height: 33px; }
+    width: 50px;
+    height: 50px; }
 
 .panel .panel-heading, .panel .panel-body {
     border: none; }
@@ -12687,12 +12687,12 @@ a.anchorific, a.anchorjs-link {
     display: inline-block; }
 
 .navbar-default .navbar-brand img {
-    width: 128px;
-    height: 16px; }
+    width: 50px;
+    height: 50px; }
 
 .navbar-default .navbar-brand {
     color: #fff;
-    padding-top: 17px; }
+    padding-top: 0px;  }
 
 .text-white {
     color: #fff; }

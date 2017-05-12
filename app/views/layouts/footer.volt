@@ -22,13 +22,14 @@
             <div class="col-sm-6 col-lg-6 col-lg-offset-1">
 
                 <div class="row">
-                    {#<div class="col-sm-4">#}
-                        {#<h4>赞助商</h4>#}
-                        {#<ul class="list-unstyled">#}
-                            {#<a href="http://www.ucloud.cn/?utm_source=zanzhu&amp;utm_campaign=phphub&amp;utm_medium=display&amp;utm_content=yejiao&amp;ytag=phphubyejiao" target="_blank"><img src="https://dn-phphub.qbox.me/uploads/banners/bQawWl3vT5dc2lYx5JZ7.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站服务器由 UCloud 赞助" data-original-title="" title=""></a>#}
-                            {#<a href="http://www.qiniu.com/?utm_source=phphub" target="_blank"><img src="https://dn-phphub.qbox.me/uploads/banners/yGLIR0idW7zsInjsNmzr.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站 CDN 服务由七牛赞助" data-original-title="" title=""></a>#}
-                        {#</ul>#}
-                    {#</div>#}
+                    <div class="col-sm-4">
+                        <h4>赞助商</h4>
+                        <ul class="list-unstyled">
+                            <a href="https://www.ucloud.cn/?utm_source=coffeephp&utm_medium=content_pic_pc&utm_campaign=zanzhu&ytag=coffeephp" target="_blank">
+                                <img src="{{ static_url("img/ucloud.png") }}" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站服务器由 UCloud 赞助" data-original-title="" title="">
+                            </a>
+                        </ul>
+                    </div>
 
                     <div class="col-sm-6">
                         <h4>统计信息</h4>

@@ -25,7 +25,7 @@
                     <div class="col-sm-4">
                         <h4>赞助商</h4>
                         <ul class="list-unstyled">
-                            <a href="https://account.ucloud.cn/cas/register?utm_source=coffeephp&utm_medium=content_pic_pc&utm_campaign=zanzhu&ytag=coffeephp" target="_blank">
+                            <a href="https://www.ucloud.cn/?utm_source=coffeephp&utm_medium=content_pic_pc&utm_campaign=zanzhu&ytag=coffeephp" target="_blank">
                                 <img src="{{ static_url("img/ucloud.png") }}" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站服务器由 UCloud 赞助" data-original-title="" title="">
                             </a>
                         </ul>

@@ -15,6 +15,20 @@
         </div>
     </div>
 
+    <div class="panel panel-default corner-radius">
+        <div class="panel-body text-center sidebar-sponsor-box">
+            <a class="sidebar-sponsor-link" href="https://account.ucloud.cn/cas/register?utm_source=coffeephp&utm_medium=content_pic_pc&utm_campaign=zanzhu&ytag=coffeephp" target="_blank">
+                <img src="{{ static_url("img/ad/ucloud.jpg") }}" class="popover-with-html" data-content="服务器赞助商：UCloud" width="100%" data-original-title="" title=""></a>
+            <hr>
+            <a class="sidebar-sponsor-link" href="http://www.bagevent.com/event/268776" target="_blank">
+                <img src="{{ static_url("img/ad/devlinkphp2017.jpg") }}" class="popover-with-html" data-content="第三届 PHP 全球开发者大会 2017·北京" width="100%" data-original-title="" title=""></a>
+            <hr>
+            <a class="sidebar-sponsor-link" href="http://www.phpconchina.com" target="_blank">
+                <img src="{{ static_url("img/ad/phpcon2017.png") }}" class="popover-with-html" data-content="PHPConf 2017 上海" width="100%" data-original-title="" title=""></a>
+            <hr>
+        </div>
+    </div>
+
     <div class="panel panel-default corner-radius sidebar-resources">
         <div class="panel-heading text-center">
             <h3 class="panel-title">推荐资源</h3>

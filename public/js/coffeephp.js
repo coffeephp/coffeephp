@@ -8483,3 +8483,30 @@ var moveEnd = function(obj){
 }
 
 //# sourceMappingURL=scripts.js.map
+
+$(function() {
+    //分享列表页-添加点击量
+    $('.shares_clicks').click(function () {
+        var sharesId = $(this).attr("data-sharesId");
+
+        if (!sharesId) {
+            console.log('add clicks fail!');
+            return false;
+        }
+
+        var currentObj = $(this);
+
+        $.ajax({
+            type: "POST",
+            url: "/shares/clicks",
+            data: "sharesId="+sharesId,
+            dataType: "json",
+            success: function(msg){
+                if (msg.status == 200) {
+                    //修改页面的点击量
+                    currentObj.parentsUntil('','li.list-group-item').find('.count_set .count_of_visits').text(msg.data.clicks);
+                }
+            }
+        });
+    });
+});

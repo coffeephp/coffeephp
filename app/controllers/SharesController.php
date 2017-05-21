@@ -78,7 +78,7 @@ class SharesController extends ControllerBase
     {
         if (!$auth = $this->session->get('auth')) {
             $this->flashSession->error('You must be logged first');
-            $this->response->redirect();
+            $this->response->redirect('/login');
             return;
         }
 
@@ -94,7 +94,7 @@ class SharesController extends ControllerBase
     {
         if (!$auth = $this->session->get('auth')) {
             $this->flashSession->error('You must be logged first');
-            $this->response->redirect();
+            $this->response->redirect('/login');
             return;
         }
 

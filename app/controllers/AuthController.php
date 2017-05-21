@@ -44,8 +44,8 @@ class AuthController extends ControllerBase
         $users = Users::findFirst(["conditions"=>"github_id = :github_id:", "bind"=>['github_id' => $user->id]]);
 
         if($users){
-            $users->last_actived_at = date('Y-m-d H:i:s', time());
-            $users->update();
+            //$users->last_actived_at = date('Y-m-d H:i:s', time());
+            //$users->update();
         } else {//没有该用户添加
             $users = new Users();
             $users->name = $user->nickname;

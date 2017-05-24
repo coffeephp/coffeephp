@@ -8,6 +8,7 @@ namespace App\Models;
  */
 class Users extends ModelBase
 {
+    public $id;
     public $name;
     public $real_name;
     public $email;
@@ -17,6 +18,7 @@ class Users extends ModelBase
     public $github_name;
     public $github_nickname;
     public $last_actived_at;
+    public $remember_token;
 
     public function initialize()
     {

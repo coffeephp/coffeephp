@@ -16,6 +16,8 @@ class ControllerBase extends Controller
      */
     public function initialize()
     {
+        $this->checkLogin();
+
         $numberUsers = Users::count();
         $numberShares = Shares::count();
         $numberTopics = Topics::count();
@@ -30,6 +32,37 @@ class ControllerBase extends Controller
         $this->view->setVar("title", '');
         $this->view->setVar("controllerName", $controllerName);
         $this->view->setVar("appEnv", $appEnv);
+    }
+
+    /**
+     * 检查用户是否登录
+     * @author jsyzchenchen@gmail.com
+     * @date 2017/5/24
+     */
+    public function checkLogin()
+    {
+        // 获取cookie
+        $rememberMeCookie = $this->cookies->get("remember_me");
+        // 获取cookie的值
+        $rememberMe = $rememberMeCookie->getValue();
+
+        if (!$this->session->get('auth') && $rememberMe) {
+            list($usersId, $rememberToken) = explode(':', $rememberMe);
+
+            $users = Users::findFirst($usersId);
+
+            if ($users->remember_token === $rememberToken) {
+                //设置用户的session
+                $this->session->set(
+                    "auth",
+                    [
+                        "id"   => $users->id,
+                        "name" => $users->name,
+                        "avatar" => $users->avatar
+                    ]
+                );
+            }
+        }
     }
 
     /**

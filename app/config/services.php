@@ -7,6 +7,8 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Http\Response\Cookies;
+use Phalcon\Crypt;
 
 /**
  * Shared configuration service
@@ -93,6 +95,32 @@ $di->setShared('db', function () {
 $di->setShared('modelsMetadata', function () {
     return new MetaDataAdapter();
 });
+
+/**
+ * cookies service
+ */
+$di->set(
+    "cookies",
+    function () {
+        $cookies = new Cookies();
+
+        return $cookies;
+    }
+);
+
+/**
+ * crypt service
+ */
+$di->set(
+    "crypt",
+    function () {
+        $crypt = new Crypt();
+
+        $crypt->setKey('/^coffeephp$/');
+
+        return $crypt;
+    }
+);
 
 /**
  * Start the session the first time some component request the session service

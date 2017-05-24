@@ -16,7 +16,6 @@ return new \Phalcon\Config([
         'password' => env('DB_PASSWORD', 'secret'),
         'charset'  => env('DB_CHARSET', 'utf8'),
     ],
-
     'application' => [
         'appDir'         => APP_PATH . '/',
         'controllersDir' => APP_PATH . '/controllers/',

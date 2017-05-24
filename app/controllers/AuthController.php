@@ -43,9 +43,13 @@ class AuthController extends ControllerBase
         //查看是否有该用户信息
         $users = Users::findFirst(["conditions"=>"github_id = :github_id:", "bind"=>['github_id' => $user->id]]);
 
+        $rememberToken = md5(uniqid(rand(), TRUE));
+        $rememberMe = $users->id . ':' . $rememberToken;
+
         if($users){
-            //$users->last_actived_at = date('Y-m-d H:i:s', time());
-            //$users->update();
+            $users->last_actived_at = date('Y-m-d H:i:s', time());
+            $users->remember_token = $rememberToken;
+            $users->update();
         } else {//没有该用户添加
             $users = new Users();
             $users->name = $user->nickname;
@@ -57,6 +61,7 @@ class AuthController extends ControllerBase
             $users->github_id = $user->id;
             $users->github_name = $user->nickname;
             $users->last_actived_at = date('Y-m-d H:i:s', time());
+            $users->remember_token = $rememberToken;
             $users->create();
         }
 
@@ -68,6 +73,13 @@ class AuthController extends ControllerBase
                 "name" => $users->name,
                 "avatar" => $users->avatar
             ]
+        );
+
+        //设置记住我的cookie
+        $this->cookies->set(
+            "remember_me",
+            $rememberMe,
+            time() + 15 * 86400
         );
 
         $this->response->redirect("/");
@@ -83,6 +95,10 @@ class AuthController extends ControllerBase
     {
         // 删除session变量
         $this->session->remove("auth");
+
+        // Delete the cookie
+        $rememberMeCookie = $this->cookies->get("remember_me");
+        $rememberMeCookie->delete();
 
         $this->response->redirect("/");
         return;

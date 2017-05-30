@@ -2,61 +2,61 @@
     {#Laravel China 中国最大的 Laravel 和 PHP 开发者社区，Powered By <a class="popover-with-html" data-content="查看源代码" target="_blank" style="padding-right:8px" href="https://github.com/summerblue/phphub5" data-original-title="" title=""><i class="fa fa-github-alt text-md" aria-hidden="true"></i> PHPHub</a>#}
 {#</div>#}
 
-{#<div class="banner-container rbs row">#}
-    {#<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">#}
-        {#<div class="item">#}
-            {#<a href="http://php.net/manual/zh/" class="no-pjax" target="_blank">#}
-                {#<p class="img"><span style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0pyH7UgXhF7PTBkLZRak.png?imageView2/1/w/424/h/212)"></span></p>#}
-                {#<p class="caption">PHP 手册</p>#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
+<div class="banner-container rbs row">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="item">
+            <a href="http://php.net/manual/zh/" class="no-pjax" target="_blank">
+                <p class="img"><span style="background-image:url({{ static_url("img/php-logo.jpg") }}); background-repeat:no-repeat;"></span></p>
+                <p class="caption">PHP 手册</p>
+            </a>
+        </div>
+    </div>
 
-    {#<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">#}
-        {#<div class="item">#}
-            {#<a href="http://laravel-china.github.io/php-the-right-way/" class="no-pjax" target="_blank">#}
-                {#<p class="img"><span style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0pyH7UgXhF7PTBkLZRak.png?imageView2/1/w/424/h/212)"></span></p>#}
-                {#<p class="caption">PHP 之道</p>#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="item">
+            <a href="https://psr.phphub.org/" class="no-pjax" target="_blank">
+                <p class="img"><span style="background-image:url({{ static_url("/img/php-fig.png") }})"></span></p>
+                <p class="caption">PSR PHP 标准规范</p>
+            </a>
+        </div>
+    </div>
 
-    {#<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">#}
-        {#<div class="item">#}
-            {#<a href="https://psr.phphub.org/" class="no-pjax" target="_blank">#}
-                {#<p class="img"><span style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0pyH7UgXhF7PTBkLZRak.png?imageView2/1/w/424/h/212)"></span></p>#}
-                {#<p class="caption">PSR PHP 标准规范</p>#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="item">
+            <a href="https://packagist.org/" class="no-pjax" target="_blank">
+                <p class="img"><span style="background-image:url({{ static_url("/img/packagist-logo.png") }}); background-repeat:no-repeat;"></span></p>
+                <p class="caption">Composer包</p>
+            </a>
+        </div>
+    </div>
 
-    {#<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">#}
-        {#<div class="item">#}
-            {#<a href="http://www.phpcomposer.com/" class="no-pjax" target="_blank">#}
-                {#<p class="img"><span style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0pyH7UgXhF7PTBkLZRak.png?imageView2/1/w/424/h/212)"></span></p>#}
-                {#<p class="caption">Composer</p>#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="item">
+            <a href="http://laravel-china.github.io/php-the-right-way/" class="no-pjax" target="_blank">
+                <p class="img"><span style="background-image:url({{ static_url("/img/the-right-way.png") }}); background-repeat:no-repeat;"></span></p>
+                <p class="caption">PHP 之道</p>
+            </a>
+        </div>
+    </div>
 
-    {#<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">#}
-        {#<div class="item">#}
-            {#<a href="http://php-internals.com/" class="no-pjax" target="_blank">#}
-                {#<p class="img"><span style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0pyH7UgXhF7PTBkLZRak.png?imageView2/1/w/424/h/212)"></span></p>#}
-                {#<p class="caption">深入理解PHP内核</p>#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="item">
+            <a href="http://php-internals.com/" class="no-pjax" target="_blank">
+                <p class="img"><span style="background-image:url({{ static_url("/img/tipi.png") }});"></span></p>
+                <p class="caption">深入理解PHP内核</p>
+            </a>
+        </div>
+    </div>
 
-    {#<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">#}
-        {#<div class="item">#}
-            {#<a href="https://zephir-lang.com/" class="no-pjax" target="_blank">#}
-                {#<p class="img"><span style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0pyH7UgXhF7PTBkLZRak.png?imageView2/1/w/424/h/212)"></span></p>#}
-                {#<p class="caption">Zephir 开发PHP扩展</p>#}
-            {#</a>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="item">
+            <a href="https://zephir-lang.com/" class="no-pjax" target="_blank">
+                <p class="img"><span style="background-image:url({{ static_url("/img/zephir.png") }}); background-repeat:no-repeat;"></span></p>
+                <p class="caption">Zephir 开发PHP扩展</p>
+            </a>
+        </div>
+    </div>
+</div>
 
 <div class="panel panel-default list-panel home-topic-list col-md-6">
     <div class="panel-heading">

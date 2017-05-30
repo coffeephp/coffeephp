@@ -22,13 +22,13 @@ class IndexController extends ControllerBase
         //热门分享
         $hotShares = Shares::find([
             "order" => "clicks DESC, id DESC",
-            "limit" => 10
+            "limit" => 8
         ]);
 
         //获取热门话题
         $hotTopics = Topics::find([
             "order" => "number_replies DESC, votes_up DESC, number_views DESC, id DESC",
-            "limit" => 10
+            "limit" => 8
         ]);
 
         $this->view->setVar("hotShares", $hotShares);

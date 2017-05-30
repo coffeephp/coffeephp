@@ -161,23 +161,41 @@ $router->addPost(
     ]
 );
 
-////专栏创建
-//$router->addGet(
-//    '/blogs/create',
-//    [
-//        'controller' => 'blogs',
-//        'action'     => 'create'
-//    ]
-//);
-//
-////专栏保存
-//$router->addPost(
-//    '/blogs/store',
-//    [
-//        'controller' => 'blogs',
-//        'action'     => 'store'
-//    ]
-//);
+//专栏创建
+$router->addGet(
+    '/blogs/create',
+    [
+        'controller' => 'blogs',
+        'action'     => 'create'
+    ]
+);
+
+//专栏保存
+$router->addPost(
+    '/blogs/store',
+    [
+        'controller' => 'blogs',
+        'action'     => 'store'
+    ]
+);
+
+//专栏编辑
+$router->addGet(
+    '/blogs/edit',
+    [
+        'controller' => 'blogs',
+        'action'     => 'edit'
+    ]
+);
+
+//专栏修改
+$router->addPost(
+    '/blogs/{id:[0-9]+}',
+    [
+        'controller' => 'blogs',
+        'action'     => 'update'
+    ]
+);
 
 //分享列表页
 $router->addGet(
@@ -235,29 +253,29 @@ $router->addGet(
     ]
 );
 
-//$router->addGet('/400', 'Error::route400')
-//    ->setName('error-400');
-//
-//$router->addGet('/401', 'Error::route401')
-//    ->setName('error-401');
-//
-//$router->addGet('/403', 'Error::route403')
-//    ->setName('error-403');
-//
-//$router->addGet('/404', 'Error::route404')
-//    ->setName('error-404');
-//
-//$router->addGet('/500', 'Error::route500')
-//    ->setName('error-500');
-//
-//$router->addGet('/503', 'Error::route503')
-//    ->setName('error-503');
+$router->addGet('/400', 'Error::route400')
+    ->setName('error-400');
+
+$router->addGet('/401', 'Error::route401')
+    ->setName('error-401');
+
+$router->addGet('/403', 'Error::route403')
+    ->setName('error-403');
+
+$router->addGet('/404', 'Error::route404')
+    ->setName('error-404');
+
+$router->addGet('/500', 'Error::route500')
+    ->setName('error-500');
+
+$router->addGet('/503', 'Error::route503')
+    ->setName('error-503');
 
 // Define a route
 $router->addGet(
     '/',
     [
-        'controller' => 'topics',
+        'controller' => 'index',
         'action'     => 'index'
     ]
 );

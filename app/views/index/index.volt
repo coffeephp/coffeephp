@@ -61,7 +61,7 @@
 <div class="panel panel-default list-panel home-topic-list col-md-6">
     <div class="panel-heading">
         <h3 class="panel-title text-center">
-            社区热门分享
+            热门分享
         </h3>
     </div>
 
@@ -95,7 +95,7 @@
     <div class="panel-footer text-right">
 
         <a href="{{ url("shares/hot") }}" class="more-excellent-topic-link">
-            查看更热门分享 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </a>
     </div>
 </div>
@@ -103,7 +103,7 @@
 <div class="panel panel-default list-panel home-topic-list col-md-6">
     <div class="panel-heading">
         <h3 class="panel-title text-center">
-            社区热门话题
+            热门话题
         </h3>
     </div>
 
@@ -143,7 +143,7 @@
     <div class="panel-footer text-right">
 
         <a href="{{ url("topics/hot") }}" class="more-excellent-topic-link">
-            查看更多热门话题 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </a>
     </div>
 </div>

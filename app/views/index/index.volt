@@ -82,7 +82,7 @@
                         <div class="media-heading">
                             <span class="hidden-xs label label-primary">分享</span>
 
-                            <a href="{{ share.url }}" title="{{ share.title }}">
+                            <a href="{{ share.url }}" title="{{ share.title }}" target="_blank">
                                 {{ share.title }}
                             </a>
                         </div>

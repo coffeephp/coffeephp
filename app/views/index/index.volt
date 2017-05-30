@@ -69,7 +69,7 @@
         <ul class="list-group row topic-list">
             {% for share in hotShares %}
                 <li class="list-group-item media col-md-12" style="margin-top: 0px;">
-                    <a class="reply_last_time hidden-xs meta" href="{{ share.url }}">
+                    <a class="reply_last_time hidden-xs meta" href="{{ share.url }}" target="_blank">
                         {{ share.clicks }} 点击
                     </a>
 

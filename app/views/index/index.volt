@@ -16,7 +16,7 @@
         <div class="item">
             <a href="https://psr.phphub.org/" class="no-pjax" target="_blank">
                 <p class="img"><span style="background-image:url({{ static_url("/img/php-fig.png") }})"></span></p>
-                <p class="caption">PSR PHP 标准规范</p>
+                <p class="caption">PHP PSR 标准规范</p>
             </a>
         </div>
     </div>

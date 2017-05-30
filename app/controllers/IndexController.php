@@ -1,6 +1,9 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Topics;
+use App\Models\Shares;
+
 /**
  * Class IndexController
  * @author jsyzchenchen@gmail.com
@@ -9,31 +12,27 @@ namespace App\Controllers;
 class IndexController extends ControllerBase
 {
 
+    /**
+     * 社区首页
+     * @author jsyzchenchen@gmail.com
+     * @date 2016/12/3
+     */
     public function indexAction()
     {
-        $this->response->redirect('/topics');
-        return;
-//        $topics       = new  Topics();
-//        $topics->title = "test";
-//        $topics->body = "test";
-//        $topics->user_id = 111;
-//        $topics->category_id = 1;
-//
-//        //执行操作
-//        $ret = $topics->save();
+        //热门分享
+        $hotShares = Shares::find([
+            "order" => "clicks DESC, id DESC",
+            "limit" => 10
+        ]);
 
-       //Topics::findFirst(2)->save(['user_id'=>222445600]);
-//        //对结果进行验证
-////        if ($ret) {
-////            echo "修改数据成功";
-////        } else {
-////            //如果插入失败处理打印报错信息
-////            echo "修改数据库失败了";
-////            foreach ($topics->getMessages() as $message) {
-////                echo $message->getMessage(), "<br/>";
-////            }
-////        }
-        //die;
+        //获取热门话题
+        $hotTopics = Topics::find([
+            "order" => "number_replies DESC, votes_up DESC, number_views DESC, id DESC",
+            "limit" => 10
+        ]);
+
+        $this->view->setVar("hotShares", $hotShares);
+        $this->view->setVar("hotTopics", $hotTopics);
     }
 }
 

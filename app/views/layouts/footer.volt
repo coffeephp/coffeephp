@@ -31,7 +31,7 @@
                         </ul>
                     </div>
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <h4>统计信息</h4>
                         <ul class="list-unstyled">
                             <li>社区会员: {{ numberUsers }} </li>
@@ -41,7 +41,7 @@
                             <li>评论数: {{ numberReplies }} </li>
                         </ul>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <h4>其他信息</h4>
                         <ul class="list-unstyled">
                             <li><a href="/topics/2"><i class="fa fa-info-circle" aria-hidden="true"></i> 关于我们</a></li>

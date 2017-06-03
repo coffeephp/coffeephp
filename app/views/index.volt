@@ -11,7 +11,6 @@
         <meta name="description" content="CoffeePHP是一个有情怀的PHP社区，致力于解决PHP问题和分享PHP相关文章，目标成为每一位PHP开发者每天都会访问的PHP社区。" />
         <link rel="icon" type="image/png" href="{{ static_url("img/favicon.png") }}">
         <link href="{{ static_url("css/coffeephp.css") }}" rel="stylesheet">
-        <script src="{{ static_url("js/coffeephp.js") }}"></script>
         <script>
             Config = {
                 'cdnDomain': 'http://oojwdbogh.bkt.clouddn.com/',
@@ -39,9 +38,7 @@
             {{ partial("layouts/footer") }}
         </div>
 
-
-
-
+        <script src="{{ static_url("js/coffeephp.js") }}"></script>
 
         {% if appEnv == 'production' %}
             <!-- Google Analytics -->

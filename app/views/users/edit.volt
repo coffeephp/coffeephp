@@ -131,7 +131,7 @@
                             <input class="form-control" name="personal_website" type="text" value="{{ user.personal_website }}">
                         </div>
                         <div class="col-sm-4 help-block">
-                            如：http://jsyzchen.com
+                            如：jsyzchen.com，不需要加前缀 http://和https://
                         </div>
                     </div>
 

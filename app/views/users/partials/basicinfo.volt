@@ -82,7 +82,7 @@
 
                 {% if user.personal_website %}
                     <li class="popover-with-html" data-content="{{ user.personal_website }}">
-                        <a href="{{ user.personal_website }}" rel="nofollow" target="_blank" class="url">
+                        <a href="{% if strpos(user.personal_website, 'http') === false %}http://{% endif %}{{ user.personal_website }}" rel="nofollow" target="_blank" class="url">
                             <i class="fa fa-globe"></i> Website
                         </a>
                     </li>

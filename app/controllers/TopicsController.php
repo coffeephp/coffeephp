@@ -74,7 +74,7 @@ class TopicsController extends ControllerBase
             "limit" => 10
         ]);
 
-        $title = '话题列表';
+        $title = '话题';
 
         $this->view->setVar("title", $title);
         $this->view->setVar("page", $page);

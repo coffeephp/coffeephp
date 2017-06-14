@@ -61,6 +61,9 @@ $di->setShared('view', function () {
                 'compiledSeparator' => '_'
             ]);
 
+            $compiler = $volt->getCompiler();
+            $compiler->addFunction("strpos", "strpos");
+
             return $volt;
         },
         '.phtml' => PhpEngine::class

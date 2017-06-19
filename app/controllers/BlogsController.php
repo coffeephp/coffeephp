@@ -87,11 +87,7 @@ class BlogsController extends ControllerBase
 
                     $blogs->cover = '/' . $filename;
                 }
-            } else {
-                $this->flashSession->error("upload file fail!");
-                $this->response->redirect("blogs/create");
-                return;
-            }
+            } 
 
             $res = $blogs->save();
 
@@ -190,10 +186,6 @@ class BlogsController extends ControllerBase
 
                     $blogs->cover = '/' . $filename;
                 }
-            } else {
-                $this->flashSession->error("upload file fail!");
-                $this->response->redirect("blogs/edit");
-                return;
             }
 
             $res = $blogs->save();
@@ -205,17 +197,17 @@ class BlogsController extends ControllerBase
                     //echo $message, "\n";
                 }
 
-                $this->flashSession->error("The topic was failed to save!");
-                $this->response->redirect("blogs/create");
+                $this->flashSession->error("The blog was failed to save!");
+                $this->response->redirect("blogs/" . $id . "/edit");
                 return;
             }
 
             $this->flashSession->success('修改成功!');
-            $this->response->redirect("blogs/edit");
+            $this->response->redirect("blogs/" . $id . "/edit");
             return;
         } else {
             $this->flashSession->error("The token is error!");
-            $this->response->redirect("blogs/edit");
+            $this->response->redirect("blogs/" . $id . "/edit");
             return;
         }
     }

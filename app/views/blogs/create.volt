@@ -1,4 +1,4 @@
-<div class="users-show  row">
+<div class="users-show row">
 
     <div class="col-md-3">
         {{ partial("users/partials/basicinfo") }}
@@ -14,7 +14,7 @@
 
             <hr>
 
-                <form class="form-horizontal" method="POST" action="{{ url("blogs/store") }}" accept-charset="UTF-8" id="topic-create-form" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="{{ url("blogs") }}" accept-charset="UTF-8" id="topic-create-form" enctype="multipart/form-data">
                     <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>
                     <div class="form-group">
                         <label for="" class="col-sm-2 control-label">专栏名称</label>

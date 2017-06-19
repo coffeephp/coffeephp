@@ -24,7 +24,7 @@ class ErrorController extends ControllerBase
 //            'debug'   => container('config')->application->debug,
 //            'support' => container('config')->site->support,
 //        ]);
-        exit('error');
+        //exit('error');
     }
 
     public function route400Action()

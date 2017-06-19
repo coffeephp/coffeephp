@@ -49,7 +49,6 @@ $router->addGet(
         'action'     => 'index'
     ]
 );
-
 $router->addGet('/topics/{order:hot}', 'Topics::index');
 
 //创建话题页
@@ -133,7 +132,6 @@ $router->addPost(
     ]
 );
 
-
 //用户中心页
 $router->addGet(
     '/users/{id:[0-9]+}',
@@ -172,7 +170,7 @@ $router->addGet(
 
 //专栏保存
 $router->addPost(
-    '/blogs/store',
+    '/blogs',
     [
         'controller' => 'blogs',
         'action'     => 'store'
@@ -181,7 +179,7 @@ $router->addPost(
 
 //专栏编辑
 $router->addGet(
-    '/blogs/edit',
+    '/blogs/id:[0-9]+}/edit',
     [
         'controller' => 'blogs',
         'action'     => 'edit'
@@ -194,6 +192,97 @@ $router->addPost(
     [
         'controller' => 'blogs',
         'action'     => 'update'
+    ]
+);
+
+//专栏详情页
+$router->addGet(
+    '/blogs/{slug:[a-z]+}',
+    [
+        'controller' => 'blogs',
+        'action'     => 'show'
+    ]
+);
+
+//文章列表页
+$router->addGet(
+    '/articles',
+    [
+        'controller' => 'articles',
+        'action'     => 'index'
+    ]
+);
+$router->addGet('/articles/{order:hot}', 'Articles::index');
+
+//文章创建页
+$router->addGet(
+    '/articles/create',
+    [
+        'controller' => 'articles',
+        'action'     => 'create'
+    ]
+);
+
+//文章保存
+$router->addPost(
+    '/articles',
+    [
+        'controller' => 'articles',
+        'action'     => 'store'
+    ]
+);
+
+//文章编辑页
+$router->addGet(
+    '/articles/{id:[0-9]+}/edit',
+    [
+        'controller' => 'articles',
+        'action'     => 'edit'
+    ]
+);
+
+//文章更新
+$router->addPost(
+    '/articles/{id:[0-9]+}',
+    [
+        'controller' => 'articles',
+        'action'     => 'update'
+    ]
+);
+
+//文章详情页
+$router->addGet(
+    '/articles/{id:[0-9]+}',
+    [
+        'controller' => 'articles',
+        'action'     => 'show'
+    ]
+);
+
+//文章点赞
+$router->addPost(
+    '/articles/{id:[0-9]+}/upvote',
+    [
+        'controller' => 'articles',
+        'action'     => 'upvote'
+    ]
+);
+
+//文章回复
+$router->addPost(
+    '/articles-replies',
+    [
+        'controller' => 'articlesReplies',
+        'action'     => 'store'
+    ]
+);
+
+//文章回复点赞
+$router->addPost(
+    '/articles-replies/{id:[0-9]+}/upvote',
+    [
+        'controller' => 'articlesReplies',
+        'action'     => 'upvote'
     ]
 );
 
@@ -233,6 +322,9 @@ $router->addPost(
     ]
 );
 
+$router->addGet('/shares/{order:hot}', 'Shares::index');
+
+
 //资源
 $router->addGet(
     '/resources',
@@ -241,8 +333,6 @@ $router->addGet(
         'action'     => 'index'
     ]
 );
-
-$router->addGet('/shares/{order:hot}', 'Shares::index');
 
 //资源
 $router->addGet(

@@ -2,18 +2,14 @@
 namespace App\Models;
 
 /**
- * 专栏模型
+ * 文章投票模型
  * @author jsyzchenchen@gmail.com
- * @date 2017/05/03
+ * @date 2017/06/19
  */
-class Blogs extends ModelBase
+class ArticlesVotes extends ModelBase
 {
-    public $id;
+    public $articles_id;
     public $users_id;
-    public $name;
-    public $slug;
-    public $description;
-    public $cover;
 
     public function initialize()
     {
@@ -24,8 +20,9 @@ class Blogs extends ModelBase
             "App\\Models\\Users",
             "id",
             [
-                "alias" => "users",
+                "alias" => "users"
             ]
         );
     }
+
 }

@@ -1,4 +1,4 @@
-<div role="navigation" class="navbar navbar-default navbar-static-top topnav">
+<div role="navigation" class="navbar navbar-default topnav">
     <div class="container">
         <div class="navbar-header hidden-xs">
             <a href="/" class="navbar-brand">
@@ -13,6 +13,7 @@
             <ul class="nav navbar-nav">
                 <li class="{%  if controllerName == 'shares' %}active{% endif %}"><a href="{{ url('shares') }}">分享</a></li>
                 <li class="{%  if controllerName == 'topics' %}active{% endif %}"><a href="{{ url('topics') }}">话题</a></li>
+                <li class="{%  if controllerName == 'articles' %}active{% endif %}"><a href="{{ url('articles') }}">专栏</a></li>
                 <li class="{%  if controllerName == 'resources' %}active{% endif %}"><a href="{{ url('resources') }}">资源</a></li>
                 <li><a href="http://www.imooc.com/course/list?c=php" target="_blank">课程</a></li>
                 <li><a href="https://www.lagou.com/zhaopin/PHP/" target="_blank">招聘</a></li>
@@ -45,11 +46,11 @@
                                     </a>
                                 </li>
 
-                                {#<li>#}
-                                    {#<a class="button no-pjax" href="https://laravel-china.org/articles/create">#}
-                                        {#<i class="fa fa-paint-brush text-md"></i> 创作文章#}
-                                    {#</a>#}
-                                {#</li>#}
+                                <li>
+                                    <a class="button no-pjax" href="{{ url('articles/create') }}">
+                                        <i class="fa fa-paint-brush text-md"></i> 创作文章
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 

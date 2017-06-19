@@ -10,7 +10,8 @@
         <meta name="keywords" content="CoffeePHP,PHP,PHP社区,PHP论坛,PHP学习,PHP话题,PHP问答,PHP文章,PHP招聘,Phalcon社区,Phalcon,Yaf,Laravel,ThinkPHP" />
         <meta name="description" content="CoffeePHP是一个有情怀的PHP社区，致力于解决PHP问题和分享PHP相关文章，目标成为每一位PHP开发者每天都会访问的PHP社区。" />
         <link rel="icon" type="image/png" href="{{ static_url("img/favicon.png") }}">
-        <link href="{{ static_url("css/coffeephp.css") }}" rel="stylesheet">
+        <link href="{{ static_url("css/main.css") }}" rel="stylesheet">
+        <script src="{{ static_url("js/main.js") }}"></script>
         <script>
             Config = {
                 'cdnDomain': 'http://oojwdbogh.bkt.clouddn.com/',
@@ -37,8 +38,6 @@
             </div>
             {{ partial("layouts/footer") }}
         </div>
-
-        <script src="{{ static_url("js/coffeephp.js") }}"></script>
 
         {% if appEnv == 'production' %}
             <!-- Google Analytics -->

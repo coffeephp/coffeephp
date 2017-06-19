@@ -192,9 +192,11 @@ class TopicsController extends ControllerBase
         //取出当前话题数据
         $topic = Topics::findFirst($id);
 
-        //浏览量+1
-        $topic->number_views = $topic->number_views + 1;
-        $topic->update();
+        if (!$this->request->isAjax()) {//pjax不统计
+            //浏览量+1
+            $topic->number_views = $topic->number_views + 1;
+            $topic->update();
+        }
 
         //获取该话题的所有回复数据
         $replies = $topic->getReplies();
@@ -446,7 +448,7 @@ class TopicsController extends ControllerBase
             if ($topicsVotes->status == 1) {
                 $topicsVotes->status = 0;
                 //点赞数-1
-                $topicsVotes->votes_up = $topic->votes_up - 1;
+                $topic->votes_up = $topic->votes_up - 1;
             } elseif ($topicsVotes->status == 0) {
                 $topicsVotes->status = 1;
                 //点赞数+1

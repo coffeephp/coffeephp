@@ -67,6 +67,10 @@ try {
     echo $application->handle()->getContent();
 
 } catch (\Exception $e) {
-    echo $e->getMessage() . '<br>';
-    echo '<pre>' . $e->getTraceAsString() . '</pre>';
+    if (isset($_GET['dbg']) && $_GET['dbg'] == '1') {
+        echo $e->getMessage() . '<br>';
+        echo '<pre>' . $e->getTraceAsString() . '</pre>';
+    } else {
+        exit('发生错误,正在抢修ing!');
+    }
 }

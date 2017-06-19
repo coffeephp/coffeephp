@@ -188,7 +188,7 @@ $router->addPost(
 
 //专栏编辑
 $router->addGet(
-    '/blogs/id:[0-9]+}/edit',
+    '/blogs/{id:[0-9]+}/edit',
     [
         'controller' => 'blogs',
         'action'     => 'edit'

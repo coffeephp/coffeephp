@@ -5,7 +5,7 @@ use Phalcon\Mvc\Controller;
 use App\Models\Users;
 use App\Models\Shares;
 use App\Models\Topics;
-use App\Models\TopicsReplies;
+use App\Models\Articles;
 
 class ControllerBase extends Controller
 {
@@ -21,14 +21,14 @@ class ControllerBase extends Controller
         $numberUsers = Users::count();
         $numberShares = Shares::count();
         $numberTopics = Topics::count();
-        $numberReplies = TopicsReplies::count();
+        $numberArticles = Articles::count();
         $controllerName = $this->dispatcher->getControllerName();
         $appEnv = env('APP_ENV');
 
         $this->view->setVar("numberUsers", $numberUsers);
         $this->view->setVar("numberShares", $numberShares);
         $this->view->setVar("numberTopics", $numberTopics);
-        $this->view->setVar("numberReplies", $numberReplies);
+        $this->view->setVar("numberArticles", $numberArticles);
         $this->view->setVar("title", '');
         $this->view->setVar("controllerName", $controllerName);
         $this->view->setVar("appEnv", $appEnv);

@@ -122,7 +122,7 @@ class BlogsController extends ControllerBase
      * @author jsyzchenchen@gmail.com
      * @date 2017/05/11
      */
-    public function editAction()
+    public function editAction($id)
     {
         if (!$auth = $this->session->get('auth')) {
             $this->flashSession->error('You must be logged first');
@@ -132,12 +132,14 @@ class BlogsController extends ControllerBase
 
         $usersId = $auth['id'];
 
-        $blog = Blogs::findFirst([
-            'conditions' => 'users_id = :users_id:',
-            'bind'     => [
-                'users_id' => $usersId,
-            ],
-        ]);
+        $user = Users::findFirst($usersId);
+        $blog = Blogs::findFirst($id);
+
+        if ($blog->users_id !== $usersId) {
+            $this->flashSession->error('The blog does not belong to you!');
+            $this->response->redirect();
+            return;
+        }
 
         $user = Users::findFirst($usersId);
         $this->view->setVar('user', $user);

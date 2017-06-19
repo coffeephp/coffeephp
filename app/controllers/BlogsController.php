@@ -162,7 +162,7 @@ class BlogsController extends ControllerBase
 
         if (!$this->request->isPost()) {
             $this->flashSession->error('You must use post!');
-            $this->response->redirect("blogs/edit");
+            $this->response->redirect("blogs/" . $id . "/edit");
             return;
         }
 

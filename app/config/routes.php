@@ -161,7 +161,7 @@ $router->addPost(
 
 //专栏详情页
 $router->addGet(
-    '/blogs/{slug:[a-z]+}',
+    '/blogs/{slug:[a-z_-]+}',
     [
         'controller' => 'blogs',
         'action'     => 'show'

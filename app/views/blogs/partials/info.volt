@@ -22,7 +22,7 @@
         {% if session.auth['id'] === blog.users_id %}
             <hr>
             <div class="follow-box">
-                <a class="btn btn-info btn-block" href="{{ url('blogs/') ~ blog.id ~ 'edit' }}">
+                <a class="btn btn-info btn-block" href="{{ url('blogs/') ~ blog.id ~ '/edit' }}">
                     <i class="fa fa-edit"></i> 编辑专栏
                 </a>
             </div>

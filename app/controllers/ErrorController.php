@@ -20,11 +20,11 @@ class ErrorController extends ControllerBase
             $this->error = $this->dispatcher->getParam('error');
         }
 
-        echo 'error!';exit();
-        $this->view->setVars([
-            //'debug'   => container('config')->application->debug,
-            //'support' => container('config')->site->support,
-        ]);
+//        $this->view->setVars([
+//            'debug'   => container('config')->application->debug,
+//            'support' => container('config')->site->support,
+//        ]);
+        exit('error');
     }
 
     public function route400Action()

@@ -27,5 +27,14 @@ class Blogs extends ModelBase
                 "alias" => "users",
             ]
         );
+
+        $this->hasMany(
+            "id",
+            "App\\Models\\Articles",
+            "blogs_id",
+            [
+                'alias'    => 'articles'
+            ]
+        );
     }
 }

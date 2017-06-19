@@ -16,7 +16,7 @@
         <hr>
 
         <a href="{{ url('blogs/') ~ blog.slug }}">
-            <li class="list-group-item"><i class="text-md fa fa-list-ul"></i> &nbsp;专栏文章（{{ articles.count() }}）</li>
+            <li class="list-group-item"><i class="text-md fa fa-list-ul"></i> &nbsp;专栏文章（{{ blog.articles.count() }}）</li>
         </a>
 
         {% if session.auth['id'] === blog.users_id %}

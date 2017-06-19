@@ -159,6 +159,15 @@ $router->addPost(
     ]
 );
 
+//专栏详情页
+$router->addGet(
+    '/blogs/{slug:[a-z]+}',
+    [
+        'controller' => 'blogs',
+        'action'     => 'show'
+    ]
+);
+
 //专栏创建
 $router->addGet(
     '/blogs/create',
@@ -192,15 +201,6 @@ $router->addPost(
     [
         'controller' => 'blogs',
         'action'     => 'update'
-    ]
-);
-
-//专栏详情页
-$router->addGet(
-    '/blogs/{slug:[a-z]+}',
-    [
-        'controller' => 'blogs',
-        'action'     => 'show'
     ]
 );
 

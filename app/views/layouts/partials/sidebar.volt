@@ -69,9 +69,9 @@
                 </li>
 
                 <li class="list-group-item">
-                    <a href="https://docs.phalconphp.com" class="no-pjax" title="Phalcon 文档" target="_blank">
+                    <a href="https://olddocs.phalconphp.com/zh/latest/index.html" class="no-pjax" title="Phalcon 中文文档" target="_blank">
                         <img class="media-object inline-block " src="{{ static_url("img/phalcon-logo.png") }}">
-                        Phalcon 文档
+                        Phalcon 中文文档
                     </a>
                 </li>
 

@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\Topics;
 use App\Models\Shares;
+use App\Models\Articles;
 
 /**
  * Class IndexController
@@ -31,8 +32,15 @@ class IndexController extends ControllerBase
             "limit" => 10
         ]);
 
+        //热门文章
+        $hotArticles = Articles::find([
+            "order" => "number_replies DESC, votes_up DESC, number_views DESC, id DESC",
+            "limit" => 10
+        ]);
+
         $this->view->setVar("hotShares", $hotShares);
         $this->view->setVar("hotTopics", $hotTopics);
+        $this->view->setVar("hotArticles", $hotArticles);
     }
 }
 

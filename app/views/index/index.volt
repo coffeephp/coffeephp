@@ -58,7 +58,47 @@
     </div>
 </div>
 
-<div class="panel panel-default list-panel home-topic-list col-md-4">
+{#<div class="panel panel-default list-panel home-topic-list col-md-4">#}
+    {#<div class="panel-heading">#}
+        {#<h3 class="panel-title text-center">#}
+            {#社区精华帖#}
+        {#</h3>#}
+    {#</div>#}
+
+    {#<div class="panel-body">#}
+        {#<ul class="list-group row topic-list">#}
+            {#{% for share in excellentPosts %}#}
+                {#<li class="list-group-item media col-md-12" style="margin-top: 0px;">#}
+                    {#<a class="reply_last_time hidden-xs meta" href="{{ share.url }}" target="_blank">#}
+                        {#{{ share.clicks }} 点击#}
+                    {#</a>#}
+
+                    {#<div class="avatar pull-left">#}
+                        {#<a href="{{ url('users/') ~  share.users_id}}">#}
+                            {#<img class="media-object img-thumbnail avatar avatar-middle" alt="phecho" src="{{ share.users.avatar }}"></a>#}
+                    {#</div>#}
+
+                    {#<div class="infos">#}
+                        {#<div class="media-heading">#}
+                            {#<span class="hidden-xs label label-primary">分享</span>#}
+
+                            {#<a href="{{ share.url }}" title="{{ share.title }}" target="_blank">#}
+                                {#{{ share.title }}#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</li>#}
+            {#{% endfor %}#}
+        {#</ul>#}
+    {#</div>#}
+
+    {#<div class="panel-footer text-right">#}
+        {#<a href="{{ url("shares/hot") }}" class="more-excellent-topic-link">#}
+            {#查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>#}
+        {#</a>#}
+    {#</div>#}
+{#</div>#}
+<div class="panel panel-default list-panel home-topic-list col-md-6">
     <div class="panel-heading">
         <h3 class="panel-title text-center">
             热门分享
@@ -66,41 +106,40 @@
     </div>
 
     <div class="panel-body">
-        <ul class="list-group row topic-list">
-            {% for share in hotShares %}
-                <li class="list-group-item media col-md-12" style="margin-top: 0px;">
-                    <a class="reply_last_time hidden-xs meta" href="{{ share.url }}" target="_blank">
-                        {{ share.clicks }} 点击
-                    </a>
+    <ul class="list-group row topic-list">
+    {% for share in hotShares %}
+    <li class="list-group-item media col-md-12" style="margin-top: 0px;">
+    <a class="reply_last_time hidden-xs meta" href="{{ share.url }}" target="_blank">
+    {{ share.clicks }} 点击
+    </a>
 
-                    <div class="avatar pull-left">
-                        <a href="{{ url('users/') ~  share.users_id}}">
-                            <img class="media-object img-thumbnail avatar avatar-middle" alt="phecho" src="{{ share.users.avatar }}"></a>
-                    </div>
+    <div class="avatar pull-left">
+    <a href="{{ url('users/') ~  share.users_id}}">
+    <img class="media-object img-thumbnail avatar avatar-middle" alt="phecho" src="{{ share.users.avatar }}"></a>
+    </div>
 
-                    <div class="infos">
-                        <div class="media-heading">
-                            {#<span class="hidden-xs label label-primary">分享</span>#}
+    <div class="infos">
+    <div class="media-heading">
+    <span class="hidden-xs label label-primary">分享</span>
 
-                            <a href="{{ share.url }}" title="{{ share.title }}" target="_blank">
-                                {{ share.title }}
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
+    <a href="{{ share.url }}" title="{{ share.title }}" target="_blank">
+    {{ share.title }}
+    </a>
+    </div>
+    </div>
+    </li>
+    {% endfor %}
+    </ul>
     </div>
 
     <div class="panel-footer text-right">
-
-        <a href="{{ url("shares/hot") }}" class="more-excellent-topic-link">
-            查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </a>
+    <a href="{{ url("shares/hot") }}" class="more-excellent-topic-link">
+    查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </a>
     </div>
 </div>
 
-<div class="panel panel-default list-panel home-topic-list col-md-4">
+<div class="panel panel-default list-panel home-topic-list col-md-6">
     <div class="panel-heading">
         <h3 class="panel-title text-center">
             热门话题
@@ -143,54 +182,6 @@
     <div class="panel-footer text-right">
 
         <a href="{{ url("topics/hot") }}" class="more-excellent-topic-link">
-            查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </a>
-    </div>
-</div>
-
-<div class="panel panel-default list-panel home-topic-list col-md-4">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">
-            热门文章
-        </h3>
-    </div>
-
-    <div class="panel-body">
-        <ul class="list-group row topic-list">
-            {% for article in hotArticles %}
-                <li class="list-group-item media col-md-12" style="margin-top: 0px;">
-                    <a class="reply_last_time hidden-xs meta" href="{{ url("article/" ~ article.id) }}">
-                        {{ article.votes_up }} 点赞
-                        <span> ⋅ </span>
-                        {{ article.number_replies }} 回复
-                    </a>
-
-                    <div class="avatar pull-left">
-                        <a href="{{ url('users/') ~  article.users_id}}">
-                            <img class="media-object img-thumbnail avatar avatar-middle" alt="oustn" src="{{ article.users.avatar }}"></a>
-                    </div>
-
-                    <div class="infos">
-
-                        <div class="media-heading">
-
-                            {#<span class="hidden-xs label label-default">文章</span>#}
-
-                            <a href="{{ url("article/" ~ article.id) }}" title="{{ article.title }}">
-                                {{ article.title }}
-                            </a>
-                        </div>
-
-                    </div>
-
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="panel-footer text-right">
-
-        <a href="{{ url("article/hot") }}" class="more-excellent-topic-link">
             查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </a>
     </div>

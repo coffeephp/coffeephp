@@ -2,4 +2,5 @@ coffeephp.sql
 cache/
 public/files/
 .idea/
-
+.DS_Store 
+.DS_Store?

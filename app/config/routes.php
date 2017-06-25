@@ -334,12 +334,20 @@ $router->addGet(
     ]
 );
 
-//资源
+//搜索
 $router->addGet(
     '/search',
     [
         'controller' => 'search',
         'action'     => 'index'
+    ]
+);
+
+$router->addGet(
+    '/notifications/count',
+    [
+        'controller' => 'notifications',
+        'action'     => 'count'
     ]
 );
 

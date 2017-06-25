@@ -14,7 +14,7 @@
         <script src="{{ static_url("js/main.js") }}"></script>
         <script>
             Config = {
-                'cdnDomain': 'http://oojwdbogh.bkt.clouddn.com/',
+                'cdnDomain': 'http://static.coffeephp.com/',
                 'user_id': {% if session.auth %}{{ session.auth['id'] }}{% else %}0{% endif %},
                 'user_avatar': "{% if session.auth %}{{ session.auth['avatar'] }}{% endif %}",
                 'user_link': "{% if session.auth %}/users/{{ session.auth['id'] }}{% endif %}",

@@ -103,22 +103,41 @@
     {% endif %}
 
     {% if hotTopics is defined %}
-    <div class="panel panel-default corner-radius panel-hot-topics">
-        <div class="panel-heading text-center">
-            <h3 class="panel-title">热门话题</h3>
+        <div class="panel panel-default corner-radius panel-hot-topics">
+            <div class="panel-heading text-center">
+                <h3 class="panel-title">热门话题</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list">
+                    {% for hotTopic in hotTopics %}
+                        <li>
+                            <a href="{{ url("topics/") ~ hotTopic.id }}" class="popover-with-html" data-content="{{ hotTopic.title }}">
+                                {{ loop.index }}.{{ hotTopic.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-        <div class="panel-body">
-            <ul class="list">
-                {% for hotTopic in hotTopics %}
-                    <li>
-                        <a href="{{ url("topics/") ~ hotTopic.id }}" class="popover-with-html" data-content="{{ hotTopic.title }}">
-                            {{ loop.index }}.{{ hotTopic.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+    {% endif %}
+
+    {% if hotArticles is defined %}
+        <div class="panel panel-default corner-radius panel-hot-topics">
+            <div class="panel-heading text-center">
+                <h3 class="panel-title">热门文章</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list">
+                    {% for hotArticle in hotArticles %}
+                        <li>
+                            <a href="{{ url("articles/") ~ hotArticle.id }}" class="popover-with-html" data-content="{{ hotArticle.title }}">
+                                {{ loop.index }}.{{ hotArticle.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-    </div>
     {% endif %}
 
     {% if hotShares is defined %}
@@ -146,10 +165,10 @@
         </div>
         <div class="panel-body text-center" style="padding-top: 5px;">
             <a href="http://golangtc.com/" target="_blank" rel="nofollow" title="Golang 中国" style="padding: 3px;">
-                <img src="{{ static_url("img/friends/golangcn.png") }}" style="width:150px; margin: 3px 0;">
+                <img src="{{ static_url("img/friends/golangcn.png") ~ '?imageView2/0/w/150' }}" style="width:150px; margin: 3px 0;">
             </a>
             <a href="http://cnodejs.org/" target="_blank" rel="nofollow" title="CNode：Node.js 中文社区" style="padding: 3px;">
-                <img src="{{ static_url("img/friends/cnodejs.png") }}" style="width:150px; margin: 3px 0;">
+                <img src="{{ static_url("img/friends/cnodejs.png") ~ '?imageView2/0/w/150' }}" style="width:150px; margin: 3px 0;">
             </a>
         </div>
     </div>

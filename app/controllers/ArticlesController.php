@@ -58,11 +58,18 @@ class ArticlesController extends ControllerBase
         $paginatorRender = $this->getPaginateRender($page->total_pages, $path);
         $page->paginatorRender = $paginatorRender;
 
+        //热门文章
+        $hotArticles = Articles::find([
+            "order" => "number_replies DESC, votes_up DESC, number_views DESC, id DESC",
+            "limit" => 10
+        ]);
+
         $title = '专栏 文章';
 
         $this->view->setVar("title", $title);
         $this->view->setVar("page", $page);
         $this->view->setVar("currentOrder", $order);
+        $this->view->setVar("hotArticles", $hotArticles);
     }
 
     /**

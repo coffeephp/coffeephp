@@ -146,10 +146,10 @@
         </div>
         <div class="panel-body text-center" style="padding-top: 5px;">
             <a href="http://golangtc.com/" target="_blank" rel="nofollow" title="Golang 中国" style="padding: 3px;">
-                <img src="/img/friends/golangcn.png" style="width:150px; margin: 3px 0;">
+                <img src="{{ static_url("img/friends/golangcn.png") }}" style="width:150px; margin: 3px 0;">
             </a>
             <a href="http://cnodejs.org/" target="_blank" rel="nofollow" title="CNode：Node.js 中文社区" style="padding: 3px;">
-                <img src="/img/friends/cnodejs.png" style="width:150px; margin: 3px 0;">
+                <img src="{{ static_url("img/friends/cnodejs.png") }}" style="width:150px; margin: 3px 0;">
             </a>
         </div>
     </div>

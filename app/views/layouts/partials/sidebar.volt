@@ -42,42 +42,42 @@
             <ul class="list list-group">
                 <li class="list-group-item">
                     <a href="http://php.net/manual/zh/" class="no-pjax" title="PHP 手册" target="_blank">
-                        <img class="media-object inline-block " src="{{ static_url("img/php-logo.jpg") }}">
+                        <img class="media-object inline-block " src="{{ static_url("img/php-logo.jpg") ~ '?imageView2/1/w/20/h/20'}}">
                         PHP 手册
                     </a>
                 </li>
 
                 <li class="list-group-item">
                     <a href="https://psr.phphub.org/" class="no-pjax" title="PHP PSR 标准规范" target="_blank">
-                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/sites/XmmZmLyBtdvRcxvzEj20hlHPOHB3k2hV.ico">
+                        <img class="media-object inline-block " src="{{ static_url("/img/php-fig.png") ~ '?imageView2/1/w/20/h/20' }}">
                         PSR PHP 标准规范
                     </a>
                 </li>
 
                 <li class="list-group-item">
                     <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读" target="_blank">
-                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/vA50AYuscu2RCMowq7ee.png">
+                        <img class="media-object inline-block " src="{{ static_url("/img/the-right-way.png") ~ '?imageView2/1/w/20/h/20'}}">
                         PHP 之道 - PHPer 必读
                     </a>
                 </li>
 
                 <li class="list-group-item">
                     <a href="http://php-internals.com/" class="no-pjax" title="深入理解PHP内核" target="_blank">
-                        <img class="media-object inline-block " src="{{ static_url("img/tipi-logo.png") }}">
+                        <img class="media-object inline-block " src="{{ static_url("img/tipi-logo.png") ~ '?imageView2/1/w/20/h/20'}}">
                         深入理解PHP内核
                     </a>
                 </li>
 
                 <li class="list-group-item">
                     <a href="https://olddocs.phalconphp.com/zh/latest/index.html" class="no-pjax" title="Phalcon 中文文档" target="_blank">
-                        <img class="media-object inline-block " src="{{ static_url("img/phalcon-logo.png") }}">
+                        <img class="media-object inline-block " src="{{ static_url("img/phalcon-logo.png") ~ '?imageView2/1/w/20/h/20'}}">
                         Phalcon 中文文档
                     </a>
                 </li>
 
                 <li class="list-group-item">
                     <a href="http://d.laravel-china.org/" class="no-pjax" title="Laravel 中文文档" target="_blank">
-                        <img class="media-object inline-block " src="https://dn-phphub.qbox.me/uploads/banners/ql9XtosRhTe4v8HVC3TV.jpg">
+                        <img class="media-object inline-block " src="{{ static_url("img/laravel-icon.jpg") ~ '?imageView2/1/w/20/h/20'}}">
                         Laravel 中文文档
                     </a>
                 </li>

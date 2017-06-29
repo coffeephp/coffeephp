@@ -343,6 +343,15 @@ $router->addGet(
     ]
 );
 
+//酷站
+$router->addGet(
+    '/sites',
+    [
+        'controller' => 'sites',
+        'action'     => 'index'
+    ]
+);
+
 $router->addGet(
     '/notifications/count',
     [

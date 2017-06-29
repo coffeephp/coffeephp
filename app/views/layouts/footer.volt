@@ -43,6 +43,7 @@
                     <div class="col-sm-4">
                         <h4>其他信息</h4>
                         <ul class="list-unstyled">
+                            <li><a href="/sites"><i class="fa fa-globe text-md"></i> 推荐网站</a></li>
                             <li><a href="/topics/2"><i class="fa fa-info-circle" aria-hidden="true"></i> 关于我们</a></li>
                             {#<li><a href="https://laravel-china.org/hall_of_fames"><i class="fa fa-star" aria-hidden="true"></i> 名人堂</a></li>#}
                             {#<li><a href="http://estgroupe.com/tickets/create"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 技术合作</a></li>#}

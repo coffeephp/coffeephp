@@ -95,7 +95,7 @@
 
         <div class="panel-body row">
             <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="http://blog.ihuxu.com" data-content="" data-original-title="" title="">
+                <a class="popover-with-html" target="_blank" href="http://blog.ihuxu.com" data-content="专注互联网人与技术的科技博客" data-original-title="" title="">
                     <img class="favicon" src="http://static.ihuxu.com/blog/images/avatar201701.jpeg">
                     胡小旭的博客
                 </a>

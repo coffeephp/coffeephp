@@ -12,6 +12,13 @@
 
         <div class="panel-body row">
             <div class="col-md-2 site">
+                <a class="popover-with-html" target="_blank" href="https://phalconphp.com/cn/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
+                    <img class="favicon" src="{{ static_url("img/phalcon-logo.png") ~ '?imageView2/1/w/20/h/20'}}">
+                    Phalcon 官网
+                </a>
+            </div>
+
+            <div class="col-md-2 site">
                 <a class="popover-with-html" target="_blank" href="http://laravel-china.org/?utm_source=coffeephp.com" data-content="Laravel 中文文档，精校版本的 Laravel 5.1 文档" data-original-title="" title="">
                     <img class="favicon" src="{{ static_url("img/laravel-icon.jpg") ~ '?imageView2/1/w/20/h/20'}}">
                     Laravel 中文文档
@@ -80,13 +87,6 @@
         </div>
 
         <div class="panel-body row">
-            <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="https://phalconphp.com/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
-                    <img class="favicon" src="{{ static_url("img/phalcon-logo.png") ~ '?imageView2/1/w/20/h/20'}}">
-                    Phalcon 官网
-                </a>
-            </div>
-
             <div class="col-md-2 site">
                 <a class="popover-with-html" target="_blank" href="https://laravel.com/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
                     <img class="favicon" src="{{ static_url("img/laravel-icon.jpg") ~ '?imageView2/1/w/20/h/20'}}">

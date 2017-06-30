@@ -95,7 +95,7 @@
 
         <div class="panel-body row">
             <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="http://blog.ihuxu.com" data-content="专注互联网人与技术的科技博客" data-original-title="" title="">
+                <a class="popover-with-html" target="_blank" href="http://blog.ihuxu.com/?utm_source=coffeephp.com" data-content="专注互联网人与技术的科技博客" data-original-title="" title="">
                     <img class="favicon" src="http://static.ihuxu.com/blog/images/avatar201701.jpeg">
                     胡小旭的博客
                 </a>
@@ -111,15 +111,16 @@
 
         <div class="panel-body row">
             <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="http://www.qiniu.com/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
-                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/MWW1mkWSricCf9kNaGhK2INRF3kKZ2z0.ico">
-                    七牛云
-                </a>
-            </div>
-            <div class="col-md-2 site">
                 <a class="popover-with-html" target="_blank" href="https://www.ucloud.cn/?utm_source=coffeephp.com" data-content="专业云计算服务商" data-original-title="" title="">
                     <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/Y80vWbK2EZY6QPQioHmzqyPu1CDMuHAK.ico">
                     UCloud
+                </a>
+            </div>
+
+            <div class="col-md-2 site">
+                <a class="popover-with-html" target="_blank" href="http://www.qiniu.com/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
+                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/MWW1mkWSricCf9kNaGhK2INRF3kKZ2z0.ico">
+                    七牛云
                 </a>
             </div>
         </div>

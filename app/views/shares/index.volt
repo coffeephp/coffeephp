@@ -13,7 +13,7 @@
                 {% for item in page.items %}
                     <li class="list-group-item">
 
-                        <a class="reply_count_area hidden-xs pull-right" href="{{ url("topics/" ~ item.id) }}">
+                        <a class="reply_count_area hidden-xs pull-right" href="{{ item.url }}" target="_blank">
                             <div class="count_set">
                                 <span class="count_of_visits" title="点击量">
                                    {{ item.clicks }}
@@ -35,7 +35,7 @@
 
                             <div class="media-heading">
                                 <span class="hidden-xs label label-primary">分享</span>
-                                <a href="{{ item.url }}" title="{{ item.title }}" class="shares_clicks" data-sharesId="{{ item.id }}" target="_blank">
+                                <a href="{{ item.url }}{% if strpos(item.url, '?') === false %}?utm_source=coffeephp.com{% else %}&utm_source=coffeephp.com{% endif %}" title="{{ item.title }}" class="shares_clicks" data-sharesId="{{ item.id }}" target="_blank">
                                     {{ item.title }}
                                 </a>
                             </div>

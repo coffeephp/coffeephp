@@ -26,13 +26,13 @@
             </div>
             <div class="col-md-2 site">
                 <a class="popover-with-html" target="_blank" href="https://psr.phphub.org/?utm_source=coffeephp.com" data-content="PSR 是 PHP Standard Recommendations 的简写，由 PHP FIG 组织制定的 PHP 规范，是 PHP 开发的实践标准。" data-original-title="" title="">
-                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/XmmZmLyBtdvRcxvzEj20hlHPOHB3k2hV.ico">
+                    <img class="favicon" src="{{ static_url("/img/php-fig.png") ~ '?imageView2/1/w/20/h/20' }}">
                     PHP PSR 标准规范
                 </a>
             </div>
             <div class="col-md-2 site">
                 <a class="popover-with-html" target="_blank" href="http://laravel-china.github.io/php-the-right-way/?utm_source=coffeephp.com" data-content="PHP 之道 收集了现有的 PHP 最佳实践、编码规范和权威学习指南，方便 PHP 开发者阅读和查找" data-original-title="" title="">
-                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/i8AcmfGNMHfO5q5IC3ooJ9QS0ZaV4Qzs.png?imageView2/1/w/40/h/40">
+                    <img class="favicon" src="{{ static_url("/img/the-right-way.png") ~ '?imageView2/1/w/20/h/20'}}">
                     PHP 之道
                 </a>
             </div>

@@ -15,9 +15,7 @@
                 <li class="{%  if controllerName == 'topics' %}active{% endif %}"><a href="{{ url('topics') }}">话题</a></li>
                 <li class="{%  if controllerName == 'articles' %}active{% endif %}"><a href="{{ url('articles') }}">专栏</a></li>
                 <li class="{%  if controllerName == 'resources' %}active{% endif %}"><a href="{{ url('resources') }}">资源</a></li>
-                <li><a href="http://www.imooc.com/course/list?c=php" target="_blank">课程</a></li>
-                <li><a href="https://www.lagou.com/zhaopin/PHP/" target="_blank">招聘</a></li>
-                {#<li><a href="/sites">酷站</a></li>#}
+                <li><a href="/sites">酷站</a></li>
             </ul>
 
             <div class="navbar-right">

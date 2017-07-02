@@ -108,9 +108,24 @@ class UsersController extends ControllerBase
 
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
-                $users = Users::findFirst($id);
-                $users->last_actived_at = date('Y-m-d H:i:s', time());
-                $users->update($_POST);
+                $post_data = $this->request->getPost();
+                $user = Users::findFirst($id);
+                $user->last_actived_at = date('Y-m-d H:i:s', time());
+                $old_name = $user->name;
+                $user->update($post_data);
+
+                if ($post_data['name'] != $old_name) {
+                    //设置用户的session
+                    $this->session->set(
+                        "auth",
+                        [
+                            "id"   => $user->id,
+                            "name" => $user->name,
+                            "avatar" => $user->avatar
+                        ]
+                    );
+                }
+
                 $this->flashSession->success("操作成功!");
                 $this->response->redirect("users/{$id}/edit");
                 return;

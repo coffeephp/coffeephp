@@ -106,36 +106,35 @@
     </div>
 
     <div class="panel-body">
-    <ul class="list-group row topic-list">
-    {% for share in hotShares %}
-    <li class="list-group-item media col-md-12" style="margin-top: 0px;">
-    <a class="reply_last_time hidden-xs meta" href="{{ share.url }}" target="_blank">
-    {{ share.clicks }} 点击
-    </a>
+        <ul class="list-group row topic-list">
+            {% for share in hotShares %}
+                <li class="list-group-item media col-md-12" style="margin-top: 0px;">
+                    <a class="reply_last_time hidden-xs meta" href="{{ share.url }}{% if strpos(share.url, '?') === false %}?{% else %}&{% endif %}utm_source=coffeephp.com" target="_blank">
+                        {{ share.clicks }} 点击
+                    </a>
 
-    <div class="avatar pull-left">
-    <a href="{{ url('users/') ~  share.users_id}}">
-    <img class="media-object img-thumbnail avatar avatar-middle" alt="phecho" src="{{ share.users.avatar }}"></a>
-    </div>
+                    <div class="avatar pull-left">
+                        <a href="{{ url('users/') ~  share.users_id}}">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="phecho" src="{{ share.users.avatar }}"></a>
+                    </div>
 
-    <div class="infos">
-    <div class="media-heading">
-    <span class="hidden-xs label label-primary">分享</span>
-
-    <a href="{{ share.url }}" title="{{ share.title }}" target="_blank">
-    {{ share.title }}
-    </a>
-    </div>
-    </div>
-    </li>
-    {% endfor %}
-    </ul>
+                    <div class="infos">
+                        <div class="media-heading">
+                            <span class="hidden-xs label label-primary">分享</span>
+                            <a href="{{ share.url }}" title="{{ share.title }}" target="_blank">
+                                {{ share.title }}
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 
     <div class="panel-footer text-right">
-    <a href="{{ url("shares/hot") }}" class="more-excellent-topic-link">
-    查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    </a>
+        <a href="{{ url("shares/hot") }}" class="more-excellent-topic-link">
+            查看更多 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </a>
     </div>
 </div>
 

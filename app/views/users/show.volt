@@ -11,6 +11,20 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
+                最近分享
+            </div>
+
+            <div class="panel-body">
+                {% if shares.count() %}
+                    {{ partial("users/partials/shares") }}
+                {% else %}
+                    <div class="empty-block">还没有推荐分享呢~~</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 最近话题
             </div>
 
@@ -23,20 +37,34 @@
             </div>
         </div>
 
-
         <div class="panel panel-default">
             <div class="panel-heading">
-                最新评论
+                最近文章
             </div>
 
             <div class="panel-body">
-                {% if replies.count() %}
-                    {{ partial("users/partials/replies") }}
+                {% if articles.count() %}
+                    {{ partial("users/partials/articles") }}
                 {% else %}
-                    <div class="empty-block">还没有评论过呢~~</div>
+                    <div class="empty-block">还没有发表文章呢~~</div>
                 {% endif %}
             </div>
         </div>
+
+
+        {#<div class="panel panel-default">#}
+            {#<div class="panel-heading">#}
+                {#最新评论#}
+            {#</div>#}
+
+            {#<div class="panel-body">#}
+                {#{% if replies.count() %}#}
+                    {#{{ partial("users/partials/replies") }}#}
+                {#{% else %}#}
+                    {#<div class="empty-block">还没有评论过呢~~</div>#}
+                {#{% endif %}#}
+            {#</div>#}
+        {#</div>#}
 
     </div>
 

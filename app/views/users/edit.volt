@@ -35,6 +35,16 @@
                 <form class="form-horizontal" method="POST" action="{{ url('users/') ~ user.id}}" accept-charset="UTF-8" enctype="multipart/form-data">
                     <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>
                     <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" name="name" type="text" value="{{ user.name }}">
+                        </div>
+                        <div class="col-sm-4 help-block">
+                            如：jsyzchen
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="" class="col-sm-2 control-label">GitHub Name</label>
                         <div class="col-sm-6">
                             <input class="form-control" name="github_name" type="text" value="{{ user.github_name }}">
@@ -46,7 +56,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">邮 箱</label>
+                        <label for="" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-6">
                             <input class="form-control" name="email" type="text" value="{{ user.email }}">
                         </div>
@@ -131,7 +141,7 @@
                             <input class="form-control" name="personal_website" type="text" value="{{ user.personal_website }}">
                         </div>
                         <div class="col-sm-4 help-block">
-                            如：jsyzchen.com，无需加前缀 http://和https://
+                            如：jsyzchen.com
                         </div>
                     </div>
 

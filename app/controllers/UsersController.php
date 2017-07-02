@@ -2,8 +2,9 @@
 namespace App\Controllers;
 
 use App\Models\Users;
+use App\Models\Shares;
 use App\Models\Topics;
-use App\Models\TopicsReplies;
+use App\Models\Articles;
 
 /**
  * 用户控制器
@@ -27,6 +28,16 @@ class UsersController extends ControllerBase
             return;
         }
 
+        $shares = Shares::find(
+            [
+                "users_id = :users_id:",
+                "order" => "id desc",
+                "bind" => [
+                    'users_id' => $id
+                ]
+            ]
+        );
+
         $topics = Topics::find(
             [
                 "users_id = :users_id:",
@@ -37,7 +48,7 @@ class UsersController extends ControllerBase
             ]
         );
 
-        $replies = TopicsReplies::find(
+        $articles = Articles::find(
             [
                 "users_id = :users_id:",
                 "order" => "id desc",
@@ -48,8 +59,9 @@ class UsersController extends ControllerBase
         );
 
         $this->view->setVar('user', $user);
+        $this->view->setVar('shares', $shares);
         $this->view->setVar('topics', $topics);
-        $this->view->setVar('replies', $replies);
+        $this->view->setVar('articles', $articles);
     }
 
 

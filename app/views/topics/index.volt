@@ -38,7 +38,7 @@
 
                         <div class="avatar pull-left">
                             <a href="{{ url('users/') ~  item.users.id}}" title="{{ item.users.name }}">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="{{ item.users.name }}" src="{{ item.users.avatar }}"></a>
+                                <img class="media-object img-thumbnail avatar avatar-middle" alt="{{ item.users.name }}" src="{{ item.users.avatar  ~ '&s=60'}}"></a>
                         </div>
 
 

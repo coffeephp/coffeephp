@@ -94,7 +94,7 @@
                 <div class="users-label">
                     {% for activeUser in activeUsers %}
                         <a class="popover-with-html users-label-item" href="{{ url('users/') ~  activeUser.id}}" data-content="{{ activeUser.name }}{% if activeUser.introduction %}-{{ activeUser.introduction }}{% endif %}">
-                            <img class="avatar-small inline-block" src="{{ activeUser.avatar }}"> {{ activeUser.name }}
+                            <img class="avatar-small inline-block" src="{{ activeUser.avatar ~ '&s=40'}}"> {{ activeUser.name }}
                         </a>
                     {% endfor %}
                 </div>

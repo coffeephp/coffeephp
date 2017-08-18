@@ -76,7 +76,7 @@ try {
     );
 
     $date = date('Ymd');
-    $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . "/app/logs/{$date}_error.log");
+    $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . "/logs/{$date}_error.log");
     $logger->error(json_encode($log));
 
     exit('发生错误!');

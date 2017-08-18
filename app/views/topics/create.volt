@@ -8,11 +8,11 @@
                 {#我们希望 Laravel China 能够成为拥有浓厚技术氛围的开发者社区，而实现这个目标，需要我们所有人的共同努力：友善，公平，尊重知识和事实。请严格遵守 - <a href="https://laravel-china.org/topics/3022">社区发帖和管理规范</a>#}
             {#</div>#}
 
-
             <form method="POST" action="{{ url("topics") }}" accept-charset="UTF-8" id="topic-create-form">
                 <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>
                 <div class="form-group">
-                    <select class="selectpicker form-control" name="category_id" id="category-select"><option value="" disabled="" selected="">请选择分类</option>
+                    <select class="selectpicker form-control" name="category_id" id="category-select">
+                        <option value="" disabled="" selected="">请选择分类</option>
                         {% for category in categories %}
                             {% if session.auth['id'] == 1 %}
                                 <option value="{{ category.id }}">{{ category.name }}</option>
@@ -23,21 +23,21 @@
                     </select>
                 </div>
 
-                <div class="category-hint alert alert-warning category-3 " style="display:none">
-                    社区公告，小朋友不要做坏事哦。
-                </div>
-                <div class="category-hint alert alert-warning category-4 " style="display:none">
-                    新手问答，请仔细阅读 <a href="https://laravel-china.org/topics/535">关于《提问的智慧》</a>，质量太低的问题，不遵循规范，会被视为对用户的不尊重，管理员会做沉贴操作，沉贴后用户基本上看不到帖子。排版清晰，信息完整的，我们会为话题加精，加精后的帖子将会被推荐到网站首页、手机端首页、精华帖周报邮件、<a href="http://weibo.com/phphub">微博官方账号</a>。
-                </div>
-                <div class="category-hint alert alert-warning category-5 " style="display:none">
-                    分享创造，分享知识，分享灵感，分享创意，分享美好的东西。排版清晰，内容精良的话，我们会为话题加精，加精后的帖子将会被推荐到网站首页、手机端首页、精华帖周报邮件、<a href="http://weibo.com/phphub">微博官方账号</a>。
-                </div>
-                <div class="category-hint alert alert-warning category-6 " style="display:none">
-                    教程文章请存放在此分类下，转载请在文章中注明「转载于xxx」。
-                </div>
-                <div class="category-hint alert alert-warning category-7 " style="display:none">
-                    管理员站务信息，此分类下帖子只有管理员和创始人可见
-                </div>
+                {#<div class="category-hint alert alert-warning category-3 " style="display:none">#}
+                    {#社区公告，小朋友不要做坏事哦。#}
+                {#</div>#}
+                {#<div class="category-hint alert alert-warning category-4 " style="display:none">#}
+                    {#新手问答，请仔细阅读 <a href="https://laravel-china.org/topics/535">关于《提问的智慧》</a>，质量太低的问题，不遵循规范，会被视为对用户的不尊重，管理员会做沉贴操作，沉贴后用户基本上看不到帖子。排版清晰，信息完整的，我们会为话题加精，加精后的帖子将会被推荐到网站首页、手机端首页、精华帖周报邮件、<a href="http://weibo.com/phphub">微博官方账号</a>。#}
+                {#</div>#}
+                {#<div class="category-hint alert alert-warning category-5 " style="display:none">#}
+                    {#分享创造，分享知识，分享灵感，分享创意，分享美好的东西。排版清晰，内容精良的话，我们会为话题加精，加精后的帖子将会被推荐到网站首页、手机端首页、精华帖周报邮件、<a href="http://weibo.com/phphub">微博官方账号</a>。#}
+                {#</div>#}
+                {#<div class="category-hint alert alert-warning category-6 " style="display:none">#}
+                    {#教程文章请存放在此分类下，转载请在文章中注明「转载于xxx」。#}
+                {#</div>#}
+                {#<div class="category-hint alert alert-warning category-7 " style="display:none">#}
+                    {#管理员站务信息，此分类下帖子只有管理员和创始人可见#}
+                {#</div>#}
 
                 <div class="form-group">
                     <input class="form-control" id="topic-title" placeholder="请填写标题" name="title" type="text" value="">

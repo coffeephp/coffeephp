@@ -7,7 +7,6 @@
     "overtrue/socialite": "~1.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.*"
   },
   "autoload": {
     "psr-4": {

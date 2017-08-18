@@ -11,6 +11,15 @@ Socialite is an OAuth2 Authentication tool. It is inspired by [laravel/socialite
 
 For Laravel 5: [overtrue/laravel-socialite](https://github.com/overtrue/laravel-socialite)
 
+<p align="center">
+  <br>
+  <b>创造不息，交付不止</b>
+  <br>
+  <a href="https://www.yousails.com">
+    <img src="https://yousails.com/banners/brand.png" width=350>
+  </a>
+</p>
+
 # Requirement
 
 ```
@@ -19,7 +28,7 @@ PHP >= 5.4
 # Installation
 
 ```shell
-$ composer require "overtrue/socialite:~1.0"
+$ composer require "overtrue/socialite:~1.1"
 ```
 
 # Usage
@@ -57,6 +66,7 @@ $user->getId();        // 1472352
 $user->getNickname();  // "overtrue"
 $user->getName();      // "安正超"
 $user->getEmail();     // "anzhengchao@gmail.com"
+$user->getProviderName(); // GitHub
 ...
 ```
 
@@ -176,6 +186,7 @@ $user->getEmail();
 $user->getAvatar();
 $user->getOriginal();
 $user->getToken();// or $user->getAccessToken()
+$user->getProviderName(); // GitHub/Google/Facebook...
 ```
 
 #### Get original response from OAuth API
@@ -197,7 +208,7 @@ $user = $socialite->user($accessToken);
 
 ### Custom Session or Request instance.
 
-You can set the request with your custom `Request` instance which instanceof `Symfony\Component\HttpFoundation\Request`.
+You can set the request with your custom `Request` instance which instanceof `Symfony\Component\HttpFoundation\Request` before you call `driver` method.
 
 
 ```php

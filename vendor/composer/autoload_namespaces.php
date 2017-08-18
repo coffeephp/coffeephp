@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'Fabfuel\\Prophiler\\' => array($vendorDir . '/fabfuel/prophiler/src'),
 );

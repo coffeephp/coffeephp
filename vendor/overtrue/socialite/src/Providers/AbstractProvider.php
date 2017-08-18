@@ -27,6 +27,13 @@ use Symfony\Component\HttpFoundation\Request;
 abstract class AbstractProvider implements ProviderInterface
 {
     /**
+     * Provider name.
+     *
+     * @var string
+     */
+    protected $name;
+
+    /**
      * The HTTP request instance.
      *
      * @var \Symfony\Component\HttpFoundation\Request
@@ -176,7 +183,7 @@ abstract class AbstractProvider implements ProviderInterface
 
         $user = $this->mapUserToObject($user)->merge(['original' => $user]);
 
-        return $user->setToken($token);
+        return $user->setToken($token)->setProviderName($this->getName());
     }
 
     /**
@@ -267,7 +274,7 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Get the request instance.
      *
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     public function getRequest()
     {
@@ -298,6 +305,18 @@ abstract class AbstractProvider implements ProviderInterface
         $this->parameters = $parameters;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        if (empty($this->name)) {
+            $this->name = strstr((new \ReflectionClass(get_class($this)))->getShortName(), 'Provider', true);
+        }
+
+        return $this->name;
     }
 
     /**
@@ -419,7 +438,7 @@ abstract class AbstractProvider implements ProviderInterface
      */
     protected function getHttpClient()
     {
-        return new Client();
+        return new Client(['http_errors' => false]);
     }
 
     /**

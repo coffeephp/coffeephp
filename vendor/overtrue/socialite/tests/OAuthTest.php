@@ -70,7 +70,7 @@ class OAuthTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Overtrue\Socialite\InvalidStateException
+     * @expectedException \Overtrue\Socialite\InvalidStateException
      */
     public function testExceptionIsThrownIfStateIsInvalid()
     {
@@ -82,7 +82,7 @@ class OAuthTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Overtrue\Socialite\AuthorizeFailedException
+     * @expectedException \Overtrue\Socialite\AuthorizeFailedException
      * @expectedExceptionMessage Authorize Failed: {"error":"scope is invalid"}
      */
     public function testExceptionisThrownIfAuthorizeFailed()
@@ -100,7 +100,7 @@ class OAuthTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Overtrue\Socialite\InvalidStateException
+     * @expectedException \Overtrue\Socialite\InvalidStateException
      */
     public function testExceptionIsThrownIfStateIsNotSet()
     {
@@ -109,6 +109,14 @@ class OAuthTest extends PHPUnit_Framework_TestCase
         $session->shouldReceive('get')->once()->with('state');
         $provider = new OAuthTwoTestProviderStub($request, 'client_id', 'client_secret', 'redirect');
         $user = $provider->user();
+    }
+
+    public function testDriverName()
+    {
+        $request = Request::create('foo', 'GET', ['state' => 'state', 'code' => 'code']);
+        $provider = new OAuthTwoTestProviderStub($request, 'client_id', 'client_secret', 'redirect');
+
+        $this->assertSame('OAuthTwoTest', $provider->getName());
     }
 }
 

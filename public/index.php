@@ -20,7 +20,7 @@ define('APP_PATH', BASE_PATH . '/app');
 $ua = $_SERVER['HTTP_USER_AGENT'];
 
 //将恶意USER_AGENT存入数组
-$malicious_ua = array('FeedDemon','CrawlDaddy','Java','Feedly','UniversalFeedParser','ApacheBench','Swiftbot','ZmEu','Indy Library','oBot','jaunty','YandexBot','AhrefsBot','MJ12bot','WinHttp','EasouSpider','HttpClient','Microsoft URL Control','YYSpider','jaunty','Python-urllib','lightDeckReports Bot');
+$maliciousUa = array('FeedDemon','CrawlDaddy','Java','Feedly','UniversalFeedParser','ApacheBench','Swiftbot','ZmEu','Indy Library','oBot','jaunty','YandexBot','AhrefsBot','MJ12bot','WinHttp','EasouSpider','HttpClient','Microsoft URL Control','YYSpider','jaunty','Python-urllib','lightDeckReports Bot');
 //禁止空USER_AGENT，dedecms等主流采集程序都是空USER_AGENT，部分sql注入工具也是空USER_AGENT
 if (!$ua) {
     header("http/1.1 403 Forbidden");
@@ -31,7 +31,7 @@ if (!$ua) {
         exit();
     }
 
-    foreach($malicious_ua as $value) {
+    foreach($maliciousUa as $value) {
         //判断是否是数组中存在的UA
         if (preg_match('/'.$value.'/i', $ua)) {
             header("http/1.1 403 Forbidden");
@@ -67,10 +67,17 @@ try {
     echo $application->handle()->getContent();
 
 } catch (\Exception $e) {
-    if (isset($_GET['dbg']) && $_GET['dbg'] == '1') {
-        echo $e->getMessage() . '<br>';
-        echo '<pre>' . $e->getTraceAsString() . '</pre>';
-    } else {
-        exit('发生错误,正在抢修ing!');
-    }
+    $log = array(
+        'file' => $e->getFile(),
+        'line' => $e->getLine(),
+        'code' => $e->getCode(),
+        'msg' => $e->getMessage(),
+        'trace' => $e->getTraceAsString(),
+    );
+
+    $date = date('Ymd');
+    $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . "/app/logs/{$date}_error.log");
+    $logger->error(json_encode($log));
+
+    exit('发生错误!');
 }

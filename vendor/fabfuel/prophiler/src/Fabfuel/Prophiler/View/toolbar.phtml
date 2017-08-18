@@ -1,0 +1,93 @@
+<?php
+/**
+ * @var \Fabfuel\Prophiler\ProfilerInterface $profiler
+ */
+
+use Fabfuel\Prophiler\Toolbar\Formatter\BenchmarkFormatter;
+
+?><style>
+    <?php echo file_get_contents(__DIR__ . '/css/screen.css'); ?>
+</style>
+
+<div id="prophiler">
+
+    <div class="toolbar">
+        <h1 class="logo">Prophiler</h1>
+
+        <nav>
+            <ul>
+                <li>
+                    <span class="label color-2"><i class="fa fa-clock-o"></i> <?php echo BenchmarkFormatter::formatDuration($profiler->getDuration()) ?></span>
+                </li>
+                <li>
+                    <span class="label color-3"><i class="fa fa-tasks"></i> <?php echo BenchmarkFormatter::formatMemoryUsage(memory_get_peak_usage()) ?></span>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="return $('#prophiler-benchmarks').slideToggle('fast');"><span class="label color-5"><i class="fa fa-tachometer"></i> Timeline</span></a>
+                </li>
+
+                <?php foreach ($aggregators as $aggregator): ?>
+                    <li>
+                        <?php if (count($aggregator)): ?>
+                            <a href="javascript:void(0);" onclick="return $('#prophiler-aggregator-<?= spl_object_hash($aggregator) ?>').slideToggle('fast');">
+                        <?php endif; ?>
+
+                        <span class="label severity-<?= $aggregator->getSeverity() ?>">
+                            <?= $aggregator->getIcon() ?> <?= $aggregator->getTitle() ?>
+                            <span class="badge"><?= count($aggregator) ?></span>
+                        </span>
+                        <?php if (count($aggregator)): ?>
+                            </a>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+
+                <?php if (count(new \Fabfuel\Prophiler\Iterator\ComponentFilteredIterator($profiler, 'Logger')) >= 1): ?>
+                    <li>
+                        <a href="javascript:void(0);" onclick="return $('#prophiler-logs').slideToggle('fast');">
+                            <span class="label <?= $alertCount ? 'color-0' : 'color-5' ?>">
+                                <i class="fa fa-align-left"></i> Logs
+                                <?php if ($alertCount): ?>
+                                    <span class="badge"><?= $alertCount ?></span>
+                                <?php endif; ?>
+                            </span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php foreach ($dataCollectors as $dataCollector): ?>
+                    <li>
+                        <a href="javascript:void(0);" onclick="return $('#prophiler-datacollector-<?= md5($dataCollector->getTitle()) ?>').slideToggle('fast');"><span class="label color-5"><?= $dataCollector->getIcon() ?> <?= $dataCollector->getTitle() ?></span></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="prophiler-benchmarks" class="benchmarks">
+        <?php $this->partial('partials/benchmarks', ['profiler' => $profiler, 'benchmarks' => $profiler, ]); ?>
+    </div>
+
+    <div id="prophiler-logs" class="logs">
+        <?php $this->partial('partials/logs', ['profiler' => $profiler]); ?>
+    </div>
+
+    <?php foreach ($dataCollectors as $dataCollector): ?>
+        <?php $this->partial('partials/datacollector', ['dataCollector' => $dataCollector]); ?>
+    <?php endforeach; ?>
+
+    <?php foreach ($aggregators as $aggregator): ?>
+        <?php $this->partial('partials/aggregator', ['profiler' => $profiler, 'aggregator' => $aggregator]); ?>
+    <?php endforeach; ?>
+</div>
+
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="//code.jquery.com/jquery-2.1.1.min.js"><\/script>');
+    }
+    window.addEventListener("load", function () {
+        $('json').each(function (index, el) {
+            el.innerHTML = JSON.stringify(JSON.parse(el.innerHTML), null, '    ');
+        });
+    });
+</script>

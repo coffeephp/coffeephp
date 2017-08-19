@@ -11,11 +11,12 @@
         {#</div>#}
         <div id="top-navbar-collapse" class="navbar-collapse">
             <ul class="nav navbar-nav">
+                <li class="{%  if controllerName == 'index' %}active{% endif %}"><a href="{{ url('/') }}">首页</a></li>
                 <li class="{%  if controllerName == 'shares' %}active{% endif %}"><a href="{{ url('shares') }}">分享</a></li>
                 <li class="{%  if controllerName == 'topics' %}active{% endif %}"><a href="{{ url('topics') }}">话题</a></li>
                 <li class="{%  if controllerName == 'articles' %}active{% endif %}"><a href="{{ url('articles') }}">文章</a></li>
                 <li class="{%  if controllerName == 'resources' %}active{% endif %}"><a href="{{ url('resources') }}">资源</a></li>
-                <li><a href="/sites">酷站</a></li>
+                <li class="{%  if controllerName == 'sites' %}active{% endif %}"><a href="{{ url('sites') }}">酷站</a></li>
             </ul>
 
             <div class="navbar-right">

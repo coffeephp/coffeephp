@@ -104,9 +104,29 @@ class SharesController extends ControllerBase
             return;
         }
 
+        if (filter_var($this->request->getPost('url', 'string'), FILTER_VALIDATE_URL) === false) {
+            $this->flashSession->error("分享的链接不符合标准，请核实！");
+            $this->response->redirect("shares");
+            return;
+        }
+
 
         if ($this->security->checkToken()) {
             $usersId = $auth['id'];
+
+            $isHas = Shares::findFirst([
+                'conditions' => 'title like :title: or url like :url:',
+                'bind'     => [
+                    'title' =>  "%" . $this->request->getPost('title', 'string') . "%",
+                    'url'   =>  "%" . $this->request->getPost('url', 'string') . "%"
+                ],
+            ]);
+
+            if ($isHas) {
+                $this->flashSession->error("该分享已被分享！");
+                $this->response->redirect("shares/create");
+                return;
+            }
 
             $shares = new Shares();
             $shares->users_id = $usersId;

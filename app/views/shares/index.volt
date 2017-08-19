@@ -32,7 +32,7 @@
 
                         <div class="infos">
                             <div class="media-heading">
-                                <span class="hidden-xs label label-primary"></span>
+                                <span class="hidden-xs label label-primary">分享</span>
                                 <a href="{{ item.url }}{% if strpos(item.url, '?') === false %}?{% else %}&{% endif %}utm_source=coffeephp.com" title="{{ item.title }}" class="shares_clicks" data-sharesId="{{ item.id }}" target="_blank">
                                     {{ item.title }}
                                 </a>

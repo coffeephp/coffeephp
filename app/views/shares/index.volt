@@ -30,16 +30,13 @@
                                 <img class="media-object img-thumbnail avatar avatar-middle" alt="{{ item.users.name }}" src="{{ item.users.avatar ~ '&s=60'}}"></a>
                         </div>
 
-
                         <div class="infos">
-
                             <div class="media-heading">
-                                <span class="hidden-xs label label-primary">头条</span>
+                                <span class="hidden-xs label label-primary"></span>
                                 <a href="{{ item.url }}{% if strpos(item.url, '?') === false %}?{% else %}&{% endif %}utm_source=coffeephp.com" title="{{ item.title }}" class="shares_clicks" data-sharesId="{{ item.id }}" target="_blank">
                                     {{ item.title }}
                                 </a>
                             </div>
-
                         </div>
 
                     </li>

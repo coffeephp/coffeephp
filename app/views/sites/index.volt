@@ -68,6 +68,13 @@
                     胡小旭
                 </a>
             </div>
+
+            <div class="col-md-2 site">
+                <a class="popover-with-html" target="_blank" href="https://www.zerojia.com/?utm_source=coffeephp.com" data-content="IT搬砖猿" data-original-title="" title="">
+                    <img class="favicon" src="https://www.zerojia.com/usr/uploads/2017/09/1761761247.png">
+                    IT搬砖猿
+                </a>
+            </div>
         </div>
     </div>
 

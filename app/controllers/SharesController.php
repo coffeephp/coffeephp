@@ -117,8 +117,8 @@ class SharesController extends ControllerBase
             $isHas = Shares::findFirst([
                 'conditions' => 'title like :title: or url like :url:',
                 'bind'     => [
-                    'title' =>  "%" . $this->request->getPost('title', 'string') . "%",
-                    'url'   =>  "%" . $this->request->getPost('url', 'string') . "%"
+                    'title' =>  $this->request->getPost('title', 'string') . "%",
+                    'url'   =>  $this->request->getPost('url', 'string') . "%"
                 ],
             ]);
 

@@ -23,7 +23,7 @@
                     </h2>
                     <div class="info">
                         <span class="url">
-                            <a href="{{  item.url }}">{ item.url }}</a>
+                            <a href="{{  item.url }}">{{  item.url }}</a>
                         </span>
                         <span class="date" title="Last Updated At">
                             {{ item.created_at }}

@@ -78,7 +78,11 @@ class ControllerBase extends Controller
 
         $str .= '<ul class="pagination">';
 
-        $urlPrefix = $path . '?page=';
+        if (!empty($_GET)) {
+            $urlPrefix = $path . '&page=';
+        } else {
+            $urlPrefix = $path . '?page=';
+        }
 
         $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 

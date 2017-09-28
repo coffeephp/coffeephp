@@ -41,7 +41,7 @@ class SearchController extends ControllerBase
 
         // Get the paginated results
         $page = $paginator->getPaginate();
-        $path = '/search';
+        $path = '/search?q=' . $query;
         $paginatorRender = $this->getPaginateRender($page->total_pages, $path);
         $page->paginatorRender = $paginatorRender;
 

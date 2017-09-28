@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 /**
  * 搜索控制器
  * @package App\Controllers
@@ -18,7 +19,33 @@ class SearchController extends ControllerBase
     {
         $query = $this->request->getQuery('q');
 
-        $this->response->redirect('https://www.bing.com/search?q=site:coffeephp.com ' . $query, true, 301);
-        return;
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+        if (empty($query)) {
+            $query = 'PHP';
+        }
+
+
+        $builder = $this->modelsManager->createBuilder()
+            ->from("App\\Models\\Shares")
+            ->where('title like :query:', ['query' => '%' . $query . '%'])
+            ->orderBy("clicks desc, id desc");
+
+        $paginator = new PaginatorQueryBuilder(
+            [
+                "builder" => $builder,
+                "limit"   => 20,
+                "page"    => $currentPage,
+            ]
+        );
+
+        // Get the paginated results
+        $page = $paginator->getPaginate();
+        $path = '/search';
+        $paginatorRender = $this->getPaginateRender($page->total_pages, $path);
+        $page->paginatorRender = $paginatorRender;
+
+        $this->view->setVar('query', $query);
+        $this->view->setVar('page', $page);
     }
 }

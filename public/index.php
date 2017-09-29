@@ -58,14 +58,13 @@ try {
      */
     include APP_PATH . "/config/services.php";
 
-
     /**
      * Handle the request
      */
     $application = new \Phalcon\Mvc\Application($di);
 
     echo $application->handle()->getContent();
-
+    
 } catch (\Exception $e) {
     $log = array(
         'file' => $e->getFile(),
@@ -79,5 +78,5 @@ try {
     $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . "/logs/{$date}_error.log");
     $logger->error(json_encode($log));
 
-    exit('发生错误!');
+    exit('咦，竟然发生错误了!');
 }

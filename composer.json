@@ -1,12 +1,9 @@
 {
   "require": {
-    "fabfuel/prophiler": "~1.0",
     "vlucas/phpdotenv": "^2.4",
     "erusev/parsedown": "^1.6",
     "nesbot/carbon": "~1.21",
-    "overtrue/socialite": "~1.0"
-  },
-  "require-dev": {
+    "overtrue/socialite": "~1.0",
   },
   "autoload": {
     "psr-4": {

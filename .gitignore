@@ -1,4 +1,3 @@
-coffeephp.sql
 cache/
 logs/
 public/files/
@@ -6,3 +5,4 @@ public/files/
 .DS_Store
 */.DS_Store
 .env
+composer.lock

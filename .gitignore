@@ -5,3 +5,4 @@ public/files/
 .idea/
 .DS_Store
 */.DS_Store
+.env

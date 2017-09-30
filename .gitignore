@@ -1,8 +1,8 @@
+vendor/
 cache/
 logs/
 public/files/
 .idea/
 .DS_Store
 */.DS_Store
-.env
 composer.lock

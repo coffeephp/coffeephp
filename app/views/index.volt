@@ -57,7 +57,7 @@
                 var _hmt = _hmt || [];
                 (function() {
                     var hm = document.createElement("script");
-                    hm.src = "https://hm.baidu.com/hm.js?{{ env('BAIDU_ANALYTICS') }}";
+                    hm.src = "https://hm.baidu.com/hm.js?8cb350b9a5523174fcd0d5f514daf292";
                     var s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(hm, s);
                 })();

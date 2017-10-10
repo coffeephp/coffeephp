@@ -49,14 +49,14 @@
         <div class="panel-body row">
 
             <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="http://blog.ihuxu.com/?utm_source=coffeephp.com" data-content="美团点评技术团队" data-original-title="" title="">
+                <a class="popover-with-html" target="_blank" href="https://tech.meituan.com/?utm_source=coffeephp.com" data-content="美团点评技术团队" data-original-title="" title="">
                     <img class="favicon" src="http://p0.meituan.net/tuanpic/3df525af5a3f7fe04077567d2a6caf794904.png">
                     美团点评技术团队
                 </a>
             </div>
 
             <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="http://blog.ihuxu.com/?utm_source=coffeephp.com" data-content="有赞技术团队" data-original-title="" title="">
+                <a class="popover-with-html" target="_blank" href="https://tech.youzan.com/?utm_source=coffeephp.com" data-content="有赞技术团队" data-original-title="" title="">
                     <img class="favicon" src="http://tech.youzan.com/content/images/2017/07/logo.png">
                     有赞技术团队
                 </a>

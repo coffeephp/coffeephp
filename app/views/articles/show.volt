@@ -105,7 +105,7 @@
 
                                 <div class="avatar pull-left">
                                     <a href="{{ url('users/') ~ reply.users_id }}">
-                                        <img class="media-object img-thumbnail avatar avatar-middle" alt="xcaptain" src="{{ reply.users.avatar  ~ '&s=60'}}" style="width:48px;height:48px;">
+                                        <img class="media-object img-thumbnail avatar avatar-middle" alt="xcaptain" src="{{ reply.users.avatar}}" style="width:48px;height:48px;">
                                     </a>
                                 </div>
 

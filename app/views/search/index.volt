@@ -16,7 +16,7 @@
                         <small>by</small>
 
                         <a href="{{ url('users/') ~  item.users.id}}" title="{{ item.users.name }}">
-                            <img class="avatar avatar-small" alt="{{ item.users.name }}" src="{{ item.users.avatar ~ '&s=60'}}"/>
+                            <img class="avatar avatar-small" alt="{{ item.users.name }}" src="{{ item.users.avatar}}"/>
                             <small>{{ item.users.name }}</small>
                         </a>
 

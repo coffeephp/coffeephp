@@ -142,19 +142,20 @@ class UsersController extends ControllerBase
     {
         $users = Users::find();
 
+
+        // 需要填写你的 Access Key 和 Secret Key
+        $accessKey = env('QINIU_ACCESS_KEY');
+        $secretKey = env('QINIU_SECRET_KEY');
+        $bucket = env('QINIU_AVATAR_BUCKET');
+
+        // 构建鉴权对象
+        $auth = new Auth($accessKey, $secretKey);
+
+        // 生成上传 Token
+        $token = $auth->uploadToken($bucket);
+
         foreach ($users as $user) {
             $avatar = $user->avatar;
-
-            // 需要填写你的 Access Key 和 Secret Key
-            $accessKey = env('QINIU_ACCESS_KEY');
-            $secretKey = env('QINIU_SECRET_KEY');
-            $bucket = env('QINIU_AVATAR_BUCKET');
-
-            // 构建鉴权对象
-            $auth = new Auth($accessKey, $secretKey);
-
-            // 生成上传 Token
-            $token = $auth->uploadToken($bucket);
 
             if (strpos($avatar, 'github') !== false) {
 
@@ -178,7 +179,7 @@ class UsersController extends ControllerBase
 
                     if (isset($ret['key']) && $ret['key']) {
                         //更新头像地址
-                        $user->update(['avatar' => 'http://avatar.coffeephp.com/' . $ret['key']]);
+                        //$user->update(['avatar' => 'http://avatar.coffeephp.com/' . $ret['key']]);
                     }
                 }
             }

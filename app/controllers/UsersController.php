@@ -5,6 +5,9 @@ use App\Models\Users;
 use App\Models\Shares;
 use App\Models\Topics;
 use App\Models\Articles;
+use Phalcon\Http\Response;
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
 
 /**
  * 用户控制器
@@ -133,6 +136,61 @@ class UsersController extends ControllerBase
                 $this->flashSession->error("The info was failed to save!");
             }
         }
+    }
+
+    public function updateUserAvatarAction()
+    {
+        $users = Users::find();
+
+        foreach ($users as $user) {
+            $avatar = $user->avatar;
+
+            // 需要填写你的 Access Key 和 Secret Key
+            $accessKey = env('QINIU_ACCESS_KEY');
+            $secretKey = env('QINIU_SECRET_KEY');
+            $bucket = env('QINIU_AVATAR_BUCKET');
+
+            // 构建鉴权对象
+            $auth = new Auth($accessKey, $secretKey);
+
+            // 生成上传 Token
+            $token = $auth->uploadToken($bucket);
+
+            if (strpos($avatar, 'github') !== false) {
+
+                $handle = fopen($avatar, "rb");
+
+                $contents = stream_get_contents($handle);
+
+                // 上传到七牛后保存的文件名
+                $key = $user->id . '.jpg';
+
+                // 初始化 UploadManager 对象并进行文件的上传。
+                $uploadMgr = new UploadManager();
+
+                // 调用 UploadManager 的 put 方法进行文件的上传。
+                list($ret, $err) = $uploadMgr->put($token, $key, $contents);
+
+                if ($err !== null) {
+                    //var_dump($err);
+                } else {
+                    //var_dump($ret);
+
+                    if (isset($ret['key']) && $ret['key']) {
+                        //更新头像地址
+                        $user->update(['avatar' => 'http://avatar.coffeephp.com/' . $ret['key']]);
+                    }
+                }
+            }
+        }
+
+
+        // Getting a response instance
+        $response = new Response();
+        // Setting a raw header
+        $response->setRawHeader("HTTP/1.1 200 OK");
+        // Return the response
+        return $response;
     }
 }
 

@@ -187,9 +187,9 @@ class UsersController extends ControllerBase
                         $user->update(['avatar' => 'http://avatar.coffeephp.com/' . $ret['key']]);
                     }
                 }
-            }
 
-            $i++;
+                $i++;
+            }
         }
 
 

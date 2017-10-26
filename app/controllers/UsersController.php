@@ -179,7 +179,7 @@ class UsersController extends ControllerBase
 
                     if (isset($ret['key']) && $ret['key']) {
                         //更新头像地址
-                        //$user->update(['avatar' => 'http://avatar.coffeephp.com/' . $ret['key']]);
+                        $user->update(['avatar' => 'http://avatar.coffeephp.com/' . $ret['key']]);
                     }
                 }
             }

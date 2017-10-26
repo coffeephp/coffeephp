@@ -2,5 +2,6 @@ cache/
 logs/
 public/files/
 .idea/
+coffeephp.sql
 .DS_Store
 */.DS_Store

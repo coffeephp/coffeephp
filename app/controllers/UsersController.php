@@ -154,7 +154,12 @@ class UsersController extends ControllerBase
         // 生成上传 Token
         $token = $auth->uploadToken($bucket);
 
+        $i = 0;
         foreach ($users as $user) {
+            if ($i >= 10) {
+                break;
+            }
+
             $avatar = $user->avatar;
 
             if (strpos($avatar, 'github') !== false) {
@@ -183,6 +188,8 @@ class UsersController extends ControllerBase
                     }
                 }
             }
+
+            $i++;
         }
 
 

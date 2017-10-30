@@ -3,6 +3,8 @@ namespace App\Controllers;
 
 use Overtrue\Socialite\SocialiteManager;
 use App\Models\Users;
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
 
 /**
  * 权限控制器
@@ -82,6 +84,9 @@ class AuthController extends ControllerBase
             time() + 15 * 86400
         );
 
+        //更新用户头像
+        $this->updateUserAvatar($users->id);
+
         $this->response->redirect("/");
         return;
     }
@@ -102,5 +107,58 @@ class AuthController extends ControllerBase
 
         $this->response->redirect("/");
         return;
+    }
+
+
+    /**
+     * 更新用户的头像到七牛
+     * @param $id
+     * @return bool
+     * @author jsyzchenchen@gmail.com
+     * @date 2017/10/30
+     */
+    public function updateUserAvatar($id)
+    {
+        $user = Users::findFirst($id);
+
+        $avatar = $user->avatar;
+
+        if (strpos($avatar, 'github') !== false) {
+            // 需要填写你的 Access Key 和 Secret Key
+            $accessKey = env('QINIU_ACCESS_KEY');
+            $secretKey = env('QINIU_SECRET_KEY');
+            $bucket = env('QINIU_AVATAR_BUCKET');
+
+            // 构建鉴权对象
+            $auth = new Auth($accessKey, $secretKey);
+            // 生成上传 Token
+            $token = $auth->uploadToken($bucket);
+
+            $handle = fopen($avatar, "rb");
+
+            $contents = stream_get_contents($handle);
+
+            // 上传到七牛后保存的文件名
+            $key = $user->id . '.jpg';
+
+            // 初始化 UploadManager 对象并进行文件的上传。
+            $uploadMgr = new UploadManager();
+
+            // 调用 UploadManager 的 put 方法进行文件的上传。
+            list($ret, $err) = $uploadMgr->put($token, $key, $contents);
+
+            if ($err !== null) {
+                //var_dump($err);
+            } else {
+                //var_dump($ret);
+
+                if (isset($ret['key']) && $ret['key']) {
+                    //更新头像地址
+                    $user->update(['avatar' => 'http://avatar.coffeephp.com/' . $ret['key']]);
+                }
+            }
+        }
+
+        return true;
     }
 }

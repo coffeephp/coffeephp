@@ -159,15 +159,6 @@ $router->addPost(
     ]
 );
 
-//用户修改资料
-$router->addGet(
-    '/users/avatar_update',
-    [
-        'controller' => 'users',
-        'action'     => 'updateUserAvatar'
-    ]
-);
-
 //专栏详情页
 $router->addGet(
     '/blogs/{slug:[a-z_-]+}',

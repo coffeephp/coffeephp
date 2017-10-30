@@ -27,7 +27,7 @@
 
                         <div class="avatar pull-left">
                             <a href="{{ url('users/') ~  item.users.id}}" title="{{ item.users.name }}">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="{{ item.users.name }}" src="{{ item.users.avatar}} ~ '?imageView2/1/w/60/h/60'"></a>
+                                <img class="media-object img-thumbnail avatar avatar-middle" alt="{{ item.users.name }}" src="{{ item.users.avatar ~ '?imageView2/1/w/60/h/60'}}"></a>
                         </div>
 
                         <div class="infos">

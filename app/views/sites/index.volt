@@ -19,6 +19,13 @@
             </div>
 
             <div class="col-md-2 site">
+                <a class="popover-with-html" target="_blank" href="https://phalcon.fastgoo.net/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
+                    <img class="favicon" src="{{ static_url("img/phalcon-logo.png") ~ '?imageView2/1/w/20/h/20'}}">
+                    Phalcon中文社区
+                </a>
+            </div>
+
+            <div class="col-md-2 site">
                 <a class="popover-with-html" target="_blank" href="http://laravel-china.org/?utm_source=coffeephp.com" data-content="Laravel 中文文档，精校版本的 Laravel 5.1 文档" data-original-title="" title="">
                     <img class="favicon" src="{{ static_url("img/laravel-icon.jpg") ~ '?imageView2/1/w/20/h/20'}}">
                     Laravel 中文文档

@@ -1,6 +1,7 @@
 cache
 logs
 public/files
+vendor
 .idea
 .env
 .DS_Store

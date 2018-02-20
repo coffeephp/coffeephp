@@ -1,7 +1,6 @@
-cache/
-logs/
-public/files/
-.idea/
-coffeephp.sql
+cache
+logs
+public/files
+.idea
+.env
 .DS_Store
-*/.DS_Store

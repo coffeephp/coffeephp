@@ -16,7 +16,10 @@ RUN apk update --no-cache  \
 
 ADD . /var/www/website/
 
-ADD ./deploy/nginx-phalcon.conf /etc/nginx/conf.d/default.conf
+ADD ./deploy/nginx-phalcon.conf /etc/nginx/sites-available/default.conf
+
+WORKDIR /var/www/website/
+RUN composer install
 
 CMD ["/start.sh"]
 

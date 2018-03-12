@@ -14,12 +14,10 @@ RUN apk update --no-cache  \
   && docker-php-ext-enable phalcon \
   && cd /tmp && rm -r /tmp/cphalcon-${PHALCON_VERSION} 
 
-ADD . /var/www/website/
-
-ADD ./deploy/nginx-phalcon.conf /etc/nginx/sites-available/default.conf
+#ADD . /var/www/website/
+#ADD ./deploy/nginx-phalcon.conf /etc/nginx/sites-available/default.conf
 
 WORKDIR /var/www/website/
-RUN composer install
 
 CMD ["/start.sh"]
 

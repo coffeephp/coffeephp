@@ -1,0 +1,11 @@
+version: "2"
+services:
+  web:
+    image: jiangjianyong/coffeephp:latest
+    ports:
+      - 8080:8080 
+    volumes:
+      - "./:/var/www/website/"
+      - "./deploy/nginx-phalcon.conf:/etc/nginx/sites-available/default.conf"
+    command: sh -c "composer install && mkdir -p cache logs && chmod -R 777 cache logs && /start.sh"
+    restart: always

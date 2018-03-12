@@ -8,7 +8,7 @@ RUN echo 'date.timezone = "Asia/Shanghai"' > /usr/local/etc/php/conf.d/docker-va
 
 ADD . /var/www/website/
 
-echo "" > /etc/nginx/conf.d/default.conf
+ADD ./deploy/nginx-phalcon.conf /etc/nginx/conf.d/default.conf
 
 CMD ["/start.sh"]
 

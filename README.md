@@ -6,11 +6,13 @@ CoffeePHP社区是一个 PHP 开发者社区，致力于为 PHP 开发者提供�
 CoffeePHP社区QQ群：415183844，欢迎入群。
 QQ群二维码：
 
-![QQ群](http://ot0pxr5cd.bkt.clouddn.com/WechatIMG54.jpeg?imageView2/0/w/300)
+QQ群二维码：  
 
-微信群（先加我微信，我拉你进群）：
+![QQ群](http://upload.coffeephp.com/WechatIMG54.jpeg?imageView2/0/w/300) 
 
-![微信群](http://ot0pxr5cd.bkt.clouddn.com/WechatIMG3.jpeg?imageView2/0/w/300)
+微信群（先加我微信，我拉你进群）：  
+
+![微信群](http://upload.coffeephp.com/WechatIMG3.jpeg?imageView2/0/w/300)  
 
 有什么问题或建议可以在[http://coffeephp.com/topics/2](http://coffeephp.com/topics/2)话题下面评论或在QQ群/微信群中@群主。
 

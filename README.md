@@ -14,7 +14,7 @@ QQ群二维码：
 
 ![微信群](http://upload.coffeephp.com/WechatIMG3.jpeg?imageView2/0/w/300)  
 
-有什么问题或建议可以在[http://coffeephp.com/topics/2](http://coffeephp.com/topics/2)话题下面评论或在QQ群/微信群中@群主。
+有什么问题或建议可以在[https://coffeephp.com/topics/2](http://coffeephp.com/topics/2)话题下面评论或在QQ群/微信群中@群主。
 
 ## 安装
 1. 安装phalcon扩展, [https://docs.phalconphp.com/en/3.4/installation](https://docs.phalconphp.com/en/3.4/installation)

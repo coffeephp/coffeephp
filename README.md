@@ -16,8 +16,9 @@ QQ群二维码：
 
 有什么问题或建议可以在[https://coffeephp.com/topics/2](http://coffeephp.com/topics/2)话题下面评论或在QQ群/微信群中@群主。
 
+
 ## 安装
-1. 安装phalcon扩展, [https://docs.phalconphp.com/en/3.4/installation](https://docs.phalconphp.com/en/3.4/installation)
+1. 安装phalcon扩展, [https://docs.phalconphp.com/3.4/zh-cn/introduction](https://docs.phalconphp.com/3.4/zh-cn/introduction)
 
 2. 克隆源代码
     > git clone git@github.com:jsyzchen/coffeephp.git

@@ -11,7 +11,7 @@
                 <div class="result">
                     <h2 class="title">
 
-                        <a href="{{ item.url }}">{{ item.title }}</a>
+                        <a href="{{ url("topics/" ~ item.id) }}" target="_blank">{{ item.title }}</a>
 
                         <small>by</small>
 
@@ -19,20 +19,16 @@
                             <img class="avatar avatar-small" alt="{{ item.users.name }}" src="{{ item.users.avatar}}"/>
                             <small>{{ item.users.name }}</small>
                         </a>
-
                     </h2>
                     <div class="info">
-                        <span class="url">
-                            <a href="{{  item.url }}">{{  item.url }}</a>
-                        </span>
                         <span class="date" title="Last Updated At">
                             {{ item.created_at }}
                               ⋅
-                            <i class="fa fa-eye"></i> {{  item.clicks }}
+                            <i class="fa fa-eye"></i> {{ item.number_views }}
+                            <i class="fa fa-thumbs-up"></i> {{ item.votes_up }}
+                            <i class="fa fa fa-reply"></i> {{ item.number_replies }}
                         </span>
-
                     </div>
-
                     <hr>
                 </div>
             {% endfor %}

@@ -12,25 +12,12 @@
 
         <div class="panel-body row">
             <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="https://phalconphp.com/cn/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
+                <a class="popover-with-html" target="_blank" href="https://phalcon.io/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
                     <img class="favicon" src="{{ static_url("img/phalcon-logo.png") ~ '?imageView2/1/w/20/h/20'}}">
                     Phalcon 官网
                 </a>
             </div>
 
-            <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="https://phalcon.fastgoo.net/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
-                    <img class="favicon" src="{{ static_url("img/phalcon-logo.png") ~ '?imageView2/1/w/20/h/20'}}">
-                    Phalcon中文社区
-                </a>
-            </div>
-
-            <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="http://laravel-china.org/?utm_source=coffeephp.com" data-content="Laravel 中文文档，精校版本的 Laravel 5.1 文档" data-original-title="" title="">
-                    <img class="favicon" src="{{ static_url("img/laravel-icon.jpg") ~ '?imageView2/1/w/20/h/20'}}">
-                    Laravel 中文文档
-                </a>
-            </div>
             <div class="col-md-2 site">
                 <a class="popover-with-html" target="_blank" href="https://psr.phphub.org/?utm_source=coffeephp.com" data-content="PSR 是 PHP Standard Recommendations 的简写，由 PHP FIG 组织制定的 PHP 规范，是 PHP 开发的实践标准。" data-original-title="" title="">
                     <img class="favicon" src="{{ static_url("/img/php-fig.png") ~ '?imageView2/1/w/20/h/20' }}">
@@ -41,6 +28,12 @@
                 <a class="popover-with-html" target="_blank" href="http://laravel-china.github.io/php-the-right-way/?utm_source=coffeephp.com" data-content="PHP 之道 收集了现有的 PHP 最佳实践、编码规范和权威学习指南，方便 PHP 开发者阅读和查找" data-original-title="" title="">
                     <img class="favicon" src="{{ static_url("/img/the-right-way.png") ~ '?imageView2/1/w/20/h/20'}}">
                     PHP 之道
+                </a>
+            </div>
+            <div class="col-md-2 site">
+                <a class="popover-with-html" target="_blank" href="http://laravel-china.org/?utm_source=coffeephp.com" data-content="Laravel 中文文档，精校版本的 Laravel 5.1 文档" data-original-title="" title="">
+                    <img class="favicon" src="{{ static_url("img/laravel-icon.jpg") ~ '?imageView2/1/w/20/h/20'}}">
+                    Laravel 中文文档
                 </a>
             </div>
         </div>
@@ -85,29 +78,29 @@
         </div>
     </div>
 
-    <div class="panel panel-default">
+{#    <div class="panel panel-default">#}
 
-        <div class="panel-heading">
-            <i class="fa fa-cloud text-md"></i> 开发者服务推荐
-        </div>
+{#        <div class="panel-heading">#}
+{#            <i class="fa fa-cloud text-md"></i> 开发者服务推荐#}
+{#        </div>#}
 
-        <div class="panel-body row">
-            <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="https://www.ucloud.cn/?utm_source=coffeephp.com" data-content="专业云计算服务商" data-original-title="" title="">
-                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/Y80vWbK2EZY6QPQioHmzqyPu1CDMuHAK.ico">
-                    UCloud
-                </a>
-            </div>
+{#        <div class="panel-body row">#}
+{#            <div class="col-md-2 site">#}
+{#                <a class="popover-with-html" target="_blank" href="https://www.ucloud.cn/?utm_source=coffeephp.com" data-content="专业云计算服务商" data-original-title="" title="">#}
+{#                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/Y80vWbK2EZY6QPQioHmzqyPu1CDMuHAK.ico">#}
+{#                    UCloud#}
+{#                </a>#}
+{#            </div>#}
 
-            <div class="col-md-2 site">
-                <a class="popover-with-html" target="_blank" href="http://www.qiniu.com/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">
-                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/MWW1mkWSricCf9kNaGhK2INRF3kKZ2z0.ico">
-                    七牛云
-                </a>
-            </div>
-        </div>
+{#            <div class="col-md-2 site">#}
+{#                <a class="popover-with-html" target="_blank" href="http://www.qiniu.com/?utm_source=coffeephp.com" data-content="" data-original-title="" title="">#}
+{#                    <img class="favicon" src="https://dn-phphub.qbox.me/uploads/sites/MWW1mkWSricCf9kNaGhK2INRF3kKZ2z0.ico">#}
+{#                    七牛云#}
+{#                </a>#}
+{#            </div>#}
+{#        </div>#}
 
-    </div>
+{#    </div>#}
 
     <div class="panel panel-default">
 

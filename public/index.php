@@ -66,6 +66,9 @@ try {
     echo $application->handle()->getContent();
 
 } catch (\Exception $e) {
+    //echo $e->getMessage() . '<br>';
+    //echo '<pre>' . $e->getTraceAsString() . '</pre>';
+
     $log = array(
         'file' => $e->getFile(),
         'line' => $e->getLine(),
@@ -75,7 +78,7 @@ try {
     );
 
     $date = date('Ymd');
-    $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . "/logs/{$date}_error.log");
+    $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . "/log/{$date}_error.log");
     $logger->error(json_encode($log));
 
     exit('咦，竟然发生错误了!');

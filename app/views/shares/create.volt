@@ -6,11 +6,11 @@
             <form method="POST" action="{{ url('shares') }}" accept-charset="UTF-8">
                 <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>
                 <div class="form-group">
-                    <input class="form-control" placeholder="分享网址 http://coffeephp.com/resources" name="url" type="text"  required="require">
+                    <input class="form-control" placeholder="标题" name="title" type="text" required="require">
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" placeholder="标题" name="title" type="text" required="require">
+                    <input class="form-control" placeholder="分享网址 http://coffeephp.com/resources" name="url" type="text"  required="require">
                 </div>
 
                 <div class="form-group status-post-submit">

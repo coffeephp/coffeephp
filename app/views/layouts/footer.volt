@@ -13,33 +13,33 @@
                     {#<a class="popover-with-html" data-content="扫码关注微信订阅号：「Laravel资讯」" target="_blank" style="padding-right:8px" href="https://dn-phphub.qbox.me/uploads/images/201612/15/1/MGig6IACCQ.png" data-original-title="" title=""><i class="fa fa-weixin" aria-hidden="true"></i></a>#}
                     {#<a class="popover-with-html" data-content="下载 Chrome 消息通知插件" target="_blank" style="padding-right:8px" href="https://chrome.google.com/webstore/detail/phphub-notifier/fcopfkdgikhodlcjkjdppdfkbhmehdon" data-original-title="" title=""><i class="fa fa-chrome" aria-hidden="true"></i></a>#}
                 {#</div>#}
-                <br>
-                <span style="font-size:0.9em">
-                  Powered by <a href="https://laravel-china.org" target="_blank" style="color:inherit">PHPHub</a>
-              </span>
+                {#<br>#}
+                {#<span style="font-size:0.9em">#}
+                  {#Powered by <a href="https://laravel-china.org" target="_blank" style="color:inherit">PHPHub</a>#}
+                {#</span>#}
             </div>
 
             <div class="col-sm-6 col-lg-6 col-lg-offset-1">
 
                 <div class="row">
-                    <div class="col-sm-4">
-                        <h4>赞助商</h4>
-                        <ul class="list-unstyled">
-                            <a href="https://www.ucloud.cn/" target="_blank">
-                                <img src="{{ static_url("img/ucloud.png") }}" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站服务器由 UCloud 赞助" data-original-title="" title="">
-                            </a>
-                        </ul>
-                    </div>
+{#                    <div class="col-sm-4">#}
+{#                        <h4>赞助商</h4>#}
+{#                        <ul class="list-unstyled">#}
+{#                            <a href="https://www.ucloud.cn/" target="_blank">#}
+{#                                <img src="{{ static_url("img/ucloud.png") }}" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站服务器由 UCloud 赞助" data-original-title="" title="">#}
+{#                            </a>#}
+{#                        </ul>#}
+{#                    </div>#}
 
-                    <div class="col-sm-4">
-                        <h4>统计信息</h4>
-                        <ul class="list-unstyled">
-                            <li>社区会员: {{ numberUsers }} </li>
-                            <li>分享数: {{ numberShares }} </li>
-                            <li>话题数: {{ numberTopics }} </li>
-                            <li>文章数: {{ numberArticles }} </li>
-                        </ul>
-                    </div>
+{#                    <div class="col-sm-4">#}
+{#                        <h4>统计信息</h4>#}
+{#                        <ul class="list-unstyled">#}
+{#                            <li>社区会员: {{ numberUsers }} </li>#}
+{#                            <li>分享数: {{ numberShares }} </li>#}
+{#                            <li>话题数: {{ numberTopics }} </li>#}
+{#                            <li>文章数: {{ numberArticles }} </li>#}
+{#                        </ul>#}
+{#                    </div>#}
                     <div class="col-sm-4">
                         <h4>其他信息</h4>
                         <ul class="list-unstyled">

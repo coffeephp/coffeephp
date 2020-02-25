@@ -2,8 +2,10 @@
 namespace App\Controllers;
 
 use App\Models\Shares;
+use App\Models\Topics;
 use App\Models\Users;
 use Carbon\Carbon;
+use Parsedown;
 use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 /**
  * 分享控制器
@@ -24,8 +26,10 @@ class SharesController extends ControllerBase
 
         switch ($order) {
             case 'hot':
+                $startDateTime = Carbon::parse('-1 months')->toDateTimeString();
                 $builder = $this->modelsManager->createBuilder()
                     ->from("App\\Models\\Shares")
+                    ->where('created_at >= :startDateTime:', ["startDateTime" => $startDateTime])
                     ->orderBy("clicks desc, id desc");
                 break;
             default:
@@ -40,7 +44,7 @@ class SharesController extends ControllerBase
         $paginator = new PaginatorQueryBuilder(
             [
                 "builder" => $builder,
-                "limit"   => 20,
+                "limit"   => 40,
                 "page"    => $currentPage,
             ]
         );
@@ -55,10 +59,20 @@ class SharesController extends ControllerBase
         $paginatorRender = $this->getPaginateRender($page->total_pages, $path);
         $page->paginatorRender = $paginatorRender;
 
+        $sharesDomain = array();
+        foreach ($page->items as $item) {
+            $sharesDomain[$item->id] = parse_url($item->url, PHP_URL_HOST);
+        }
+
         //热门分享
+        $startDateTime = Carbon::parse('-1 months')->toDateTimeString();
         $hotShares = Shares::find([
+            "conditions" => "created_at >= :startDateTime:",
             "order" => "clicks DESC, id DESC",
-            "limit" => 10
+            "limit" => 10,
+            "bind"  => [
+                "startDateTime" => $startDateTime,
+            ]
         ]);
 
         $title = '分享';
@@ -67,6 +81,7 @@ class SharesController extends ControllerBase
         $this->view->setVar("title", $title);
         $this->view->setVar("hotShares", $hotShares);
         $this->view->setVar("currentOrder", $order);
+        $this->view->setVar("sharesDomain", $sharesDomain);
     }
 
     /**
@@ -100,13 +115,19 @@ class SharesController extends ControllerBase
 
         if (!$this->request->isPost()) {
             $this->flashSession->error('You must use post!');
-            $this->response->redirect("blogs/create");
+            $this->response->redirect("shares/create");
             return;
         }
 
         if (filter_var($this->request->getPost('url', 'string'), FILTER_VALIDATE_URL) === false) {
             $this->flashSession->error("分享的链接不符合标准，请核实！");
-            $this->response->redirect("shares");
+            $this->response->redirect("shares/create");
+            return;
+        }
+
+        if (mb_strlen($this->request->getPost('url', 'string')) > 500) {
+            $this->flashSession->error("分享的链接太长啦！");
+            $this->response->redirect("shares/create");
             return;
         }
 
@@ -114,11 +135,14 @@ class SharesController extends ControllerBase
         if ($this->security->checkToken()) {
             $usersId = $auth['id'];
 
+            $title = $this->request->getPost('title', 'string');
+            $url = $this->request->getPost('url', 'string');
+
             $isHas = Shares::findFirst([
                 'conditions' => 'title like :title: or url like :url:',
                 'bind'     => [
-                    'title' =>  $this->request->getPost('title', 'string') . "%",
-                    'url'   =>  $this->request->getPost('url', 'string') . "%"
+                    'title' =>  $title . "%",
+                    'url'   =>  $url . "%"
                 ],
             ]);
 
@@ -130,8 +154,8 @@ class SharesController extends ControllerBase
 
             $shares = new Shares();
             $shares->users_id = $usersId;
-            $shares->title = $this->request->getPost('title', 'string');
-            $shares->url = $this->request->getPost('url', 'string');
+            $shares->title = $title;
+            $shares->url = $url;
 
             $res = $shares->save();
 
@@ -147,17 +171,133 @@ class SharesController extends ControllerBase
                 return;
             }
 
+            $bodyOriginal = "分享链接 [{$url}]({$url})";
+
+            $parsedown = new Parsedown();
+            $body = $parsedown->text($bodyOriginal);
+
+            $topics = new Topics([
+                'users_id'      => $usersId,
+                'categories_id' => 2,//分类2为分享
+                'title'         => $title,
+                'body_original' => $bodyOriginal,
+                'body'          => $body,
+            ]);
+
+            $topics->save();
+
             //更新用户的活跃时间
             $users = Users::findFirst($usersId);
             $users->last_actived_at = Carbon::now()->toDateTimeString();
             $users->save();
 
             $this->flashSession->success('创建成功!');
-            $this->response->redirect("shares");
+            $this->response->redirect("topics");
             return;
         } else {
             $this->flashSession->error("The token is error!");
             $this->response->redirect("shares/create");
+            return;
+        }
+    }
+
+    /**
+     * 分享修改页
+     * @param  int  $id
+     * @author jsyzchenchen@gmail.com
+     * @date 2018/07/26
+     */
+    public function editAction($id)
+    {
+        if (!$auth = $this->session->get('auth')) {
+            $this->flashSession->error('You must be logged first');
+            $this->response->redirect('/login');
+            return;
+        }
+
+        $usersId = $auth['id'];
+
+        $share = Shares::findFirst($id);
+
+        if ($share->users_id != $usersId) {
+            // Getting a response instance
+            $response = new Response();
+            // Setting a raw header
+            $response->setRawHeader("HTTP/1.1 403 Forbidden");
+            // Return the response
+            return $response;
+        }
+
+        $this->view->setVar("title", '分享编辑');
+        $this->view->setVar("share", $share);
+    }
+
+    /**
+     * 分享更新
+     * @param  int  $id
+     * @author jsyzchenchen@gmail.com
+     * @date 2018/07/26
+     */
+    public function updateAction($id)
+    {
+        if (!$auth = $this->session->get('auth')) {
+            $this->flashSession->error('You must be logged first');
+            $this->response->redirect('/login');
+            return;
+        }
+
+        if (!$this->request->isPost()) {
+            $this->flashSession->error('You must use post!');
+            $this->response->redirect("shares/" . $id . "/edit");
+            return;
+        }
+
+        if (filter_var($this->request->getPost('url', 'string'), FILTER_VALIDATE_URL) === false) {
+            $this->flashSession->error("分享的链接不符合标准，请核实！");
+            $this->response->redirect("shares/" . $id . "/edit");
+            return;
+        }
+
+        if (mb_strlen($this->request->getPost('url', 'string')) > 500) {
+            $this->flashSession->error("分享的链接太长啦！");
+            $this->response->redirect("shares/" . $id . "/edit");
+            return;
+        }
+
+        $share = Shares::findFirst($id);
+
+        if ($this->security->checkToken()) {
+            $userId = $auth['id'];
+
+
+            $share->title = $this->request->getPost('title', 'string');
+            $share->url = $this->request->getPost('url', 'string');
+
+            $res = $share->save();
+
+            if ($res === false) {
+                $messages = $share->getMessages();
+
+                foreach ($messages as $message) {
+                    //echo $message, "\n";
+                }
+
+                $this->flashSession->error("The topic was failed to save!");
+                $this->response->redirect("shares/" . $id . "/edit");
+                return;
+            }
+
+            //更新用户的活跃时间
+            $user = Users::findFirst($userId);
+            $user->last_actived_at = Carbon::now()->toDateTimeString();
+            $user->save();
+
+            $this->flashSession->success('修改成功!');
+            $this->response->redirect("shares");
+            return;
+        } else {
+            $this->flashSession->error("The token is error!");
+            $this->response->redirect("shares/" . $id . "/edit");
             return;
         }
     }

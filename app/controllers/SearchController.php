@@ -27,14 +27,14 @@ class SearchController extends ControllerBase
 
 
         $builder = $this->modelsManager->createBuilder()
-            ->from("App\\Models\\Shares")
+            ->from("App\\Models\\Topics")
             ->where('title like :query:', ['query' => '%' . $query . '%'])
-            ->orderBy("clicks desc, id desc");
+            ->orderBy("votes_up desc, id desc");
 
         $paginator = new PaginatorQueryBuilder(
             [
                 "builder" => $builder,
-                "limit"   => 20,
+                "limit"   => 30,
                 "page"    => $currentPage,
             ]
         );

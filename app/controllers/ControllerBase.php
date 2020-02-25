@@ -18,17 +18,17 @@ class ControllerBase extends Controller
     {
         $this->checkLogin();
 
-        $numberUsers = Users::count();
-        $numberShares = Shares::count();
-        $numberTopics = Topics::count();
-        $numberArticles = Articles::count();
+//        $numberUsers = Users::count();
+//        $numberShares = Shares::count();
+//        $numberTopics = Topics::count();
+//        $numberArticles = Articles::count();
         $controllerName = $this->dispatcher->getControllerName();
         $appEnv = env('APP_ENV');
 
-        $this->view->setVar("numberUsers", $numberUsers);
-        $this->view->setVar("numberShares", $numberShares);
-        $this->view->setVar("numberTopics", $numberTopics);
-        $this->view->setVar("numberArticles", $numberArticles);
+//        $this->view->setVar("numberUsers", $numberUsers);
+//        $this->view->setVar("numberShares", $numberShares);
+//        $this->view->setVar("numberTopics", $numberTopics);
+//        $this->view->setVar("numberArticles", $numberArticles);
         $this->view->setVar("title", '');
         $this->view->setVar("controllerName", $controllerName);
         $this->view->setVar("appEnv", $appEnv);
@@ -78,11 +78,7 @@ class ControllerBase extends Controller
 
         $str .= '<ul class="pagination">';
 
-        if (!empty($_GET)) {
-            $urlPrefix = $path . '&page=';
-        } else {
-            $urlPrefix = $path . '?page=';
-        }
+        $urlPrefix = $path . '?page=';
 
         $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
@@ -103,34 +99,48 @@ class ControllerBase extends Controller
             $str .= '<li><a href="' . $urlPrefix . $prePage  . '" rel="prev">«</a></li>';
         }
 
-        for ($i = 1; $i <= $totalPage; $i++) {
-            if ($i == $currentPage) {
-                $str .= '<li class="active"><span>' . $i . '</span></li>';
-            } else {
-                if ($totalPage > 10) {
-                    if ($currentPage <= 5) {
-                        if ($i >= 10) {
-                            $str .= '<li class="disabled"><span>...</span></li>';
-                            break;
+        if ($currentPage == 1) {
+            $str .= '<li class="active"><span>' . 1 . '</span></li>';
+        } else {
+            $str .= '<li><a href="' . $urlPrefix . 1 . '">' . 1 . '</a></li>';
+        }
+
+        if ($totalPage > 1) {
+            for ($i = 2; $i < $totalPage; $i++) {
+                if ($i == $currentPage) {
+                    $str .= '<li class="active"><span>' . $i . '</span></li>';
+                } else {
+                    if ($totalPage > 10) {
+                        if ($currentPage <= 5) {
+                            if ($i >= 10) {
+                                $str .= '<li class="disabled"><span>...</span></li>';
+                                break;
+                            } else {
+                                $str .= '<li><a href="' . $urlPrefix . $i . '">' . $i . '</a></li>';
+                            }
                         } else {
-                            $str .= '<li><a href="' . $urlPrefix . $i . '">' . $i . '</a></li>';
+                            if (abs($i - $currentPage) == 5) {
+                                $str .= '<li class="disabled"><span>...</span></li>';
+                            }
+
+                            if (abs($i - $currentPage) < 5) {
+                                $str .= '<li><a href="' . $urlPrefix . $i . '">' . $i . '</a></li>';
+                            }
+
+                            if ($i - $currentPage > 4) {
+                                break;
+                            }
                         }
                     } else {
-                        if (abs($i - $currentPage) == 5) {
-                            $str .= '<li class="disabled"><span>...</span></li>';
-                        }
-
-                        if (abs($i - $currentPage) < 5) {
-                            $str .= '<li><a href="' . $urlPrefix . $i . '">' . $i . '</a></li>';
-                        }
-
-                        if ($i - $currentPage > 4) {
-                            break;
-                        }
+                        $str .= '<li><a href="' . $urlPrefix . $i . '">' . $i . '</a></li>';
                     }
-                } else {
-                    $str .= '<li><a href="' . $urlPrefix . $i . '">' . $i . '</a></li>';
                 }
+            }
+
+            if ($currentPage == $totalPage) {
+                $str .= '<li class="active"><span>' . $totalPage . '</span></li>';
+            } else {
+                $str .= '<li><a href="' . $urlPrefix . $totalPage . '">' . $totalPage . '</a></li>';
             }
         }
 

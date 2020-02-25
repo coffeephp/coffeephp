@@ -10,11 +10,11 @@ return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
         'host'     => env('DB_HOST', '127.0.0.1'),
-        'dbname'   => env('DB_DATABASE', 'coffeephp'),
         'port'     => env('DB_PORT', 3306),
-        'username' => env('DB_USERNAME', 'coffeephp'),
-        'password' => env('DB_PASSWORD', 'secret'),
-        'charset'  => env('DB_CHARSET', 'utf8'),
+        'dbname'   => env('DB_DATABASE', 'coffeephp'),
+        'username' => env('DB_USERNAME', 'mysql'),
+        'password' => env('DB_PASSWORD', 'password'),
+        'charset'  => env('DB_CHARSET', 'utf8mb4'),
     ],
     'application' => [
         'appDir'         => APP_PATH . '/',
@@ -32,7 +32,7 @@ return new \Phalcon\Config([
     'socialite' => [
         'github' => [
             'client_id' => env('GITHUB_CLIENT_ID'),
-            'client_secret' => env('GITHUB_SECRET'),
+            'client_secret' => env('GITHUB_CLIENT_SECRET'),
             'redirect' => env('GITHUB_REDIRECT_URI'),
         ]
     ]

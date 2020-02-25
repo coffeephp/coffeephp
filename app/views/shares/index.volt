@@ -33,12 +33,17 @@
                         <div class="infos">
                             <div class="media-heading">
                                 <span class="hidden-xs label label-primary">分享</span>
-                                <a href="{{ item.url }}{% if strpos(item.url, '?') === false %}?{% else %}&{% endif %}utm_source=coffeephp.com" title="{{ item.title }}" class="shares_clicks" data-sharesId="{{ item.id }}" target="_blank">
-                                    {{ item.title }}
+                                <a href="{{ item.url }}{% if strpos(item.url, '?') === false %}?{% else %}&{% endif %}hmsr=coffeephp.com&utm_medium=coffeephp.com&utm_source=coffeephp.com" title="{{ item.title }}" class="shares_clicks" data-sharesId="{{ item.id }}" target="_blank">
+                                    {{ item.title }} ({{ sharesDomain[item.id] }})
                                 </a>
                             </div>
                         </div>
 
+                        <div>
+                            {% if item.users_id == session.auth['id'] %}
+                                <a id="topic-edit-button" href="/shares/{{ item.id }}/edit" data-content="编辑"><i class="fa fa-pencil-square-o"></i></a>
+                            {% endif %}
+                        </div>
                     </li>
                 {% endfor %}
 

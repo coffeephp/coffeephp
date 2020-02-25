@@ -8,6 +8,7 @@ use Parsedown;
 use App\Models\Users;
 use App\Models\Topics;
 use App\Models\Categories;
+use App\Models\Tags;
 use App\Models\TopicsViews;
 use App\Models\TopicsVotes;
 
@@ -26,10 +27,12 @@ class TopicsController extends ControllerBase
     public function indexAction($order = null)
     {
         $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $startDateTime = Carbon::parse('-1 months')->toDateTimeString();
 
         switch ($order) {
             case 'hot':
                 $builder = $this->modelsManager->createBuilder()
+                    ->where('created_at >= :startDateTime:', ['startDateTime' => $startDateTime])
                     ->from("App\\Models\\Topics")
                     ->orderBy("sticked DESC, number_replies DESC, votes_up DESC, number_views DESC, id DESC");
                 break;
@@ -70,8 +73,12 @@ class TopicsController extends ControllerBase
 
         //获取热门话题
         $hotTopics = Topics::find([
+            "conditions" => "created_at >= :startDateTime:",
             "order" => "number_replies DESC, votes_up DESC, number_views DESC, id DESC",
-            "limit" => 10
+            "limit" => 10,
+            "bind"  => [
+                "startDateTime" => $startDateTime,
+            ]
         ]);
 
         $title = '话题';
@@ -99,8 +106,13 @@ class TopicsController extends ControllerBase
         //获取所有分类
         $categories = Categories::find();
 
+        //获取所有标签
+        $tags = Tags::find();
+
         $this->view->setVar("title", '话题创建');
         $this->view->setVar("categories", $categories);
+        $this->view->setVar("tags", $tags);
+
     }
 
     /**
@@ -222,7 +234,7 @@ class TopicsController extends ControllerBase
         $userTopics = Topics::find([
             'conditions' => 'users_id = :users_id: AND id != :topics_id:',
             'order'    => "id DESC",
-            'limit'    => 3,
+            'limit'    => 5,
             'bind'     => [
                 'users_id' => $topic->users_id,
                 'topics_id' => $topic->id
@@ -233,7 +245,7 @@ class TopicsController extends ControllerBase
         $categoryTopics = Topics::find([
             'conditions' => 'categories_id = :categories_id: AND id != :topics_id:',
             'order'    => "id DESC",
-            'limit'    => 3,
+            'limit'    => 5,
             'bind'     => [
                 'categories_id' => $topic->categories_id,
                 'topics_id' => $topic->id

@@ -94,7 +94,7 @@
 
                     </div>
                     <div class="vote-hint">
-                        成为第一个点赞的人吧 <img title=":bowtie:" alt=":bowtie:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/bowtie.png" align="absmiddle"></img>
+                        成为第一个点赞的人吧 <img title=":bowtie:" alt=":bowtie:" class="emoji" src="{{ static_url("img/emoji/bowtie.png") }}" align="absmiddle"></img>
                     </div>
                 {% endif %}
                 <a class="voted-template" href="" data-userid="" style="display:none">

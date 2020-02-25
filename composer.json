@@ -3,7 +3,7 @@
     "vlucas/phpdotenv": "^2.4",
     "erusev/parsedown": "^1.6",
     "nesbot/carbon": "~1.21",
-    "overtrue/socialite": "~1.0",
+    "overtrue/socialite": "~2.0",
     "qiniu/php-sdk": "^7.2"
   },
   "autoload": {

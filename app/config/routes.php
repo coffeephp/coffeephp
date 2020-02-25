@@ -313,6 +313,24 @@ $router->addPost(
     ]
 );
 
+//分享编辑页
+$router->addGet(
+    '/shares/{id:[0-9]+}/edit',
+    [
+        'controller' => 'shares',
+        'action'     => 'edit'
+    ]
+);
+
+//分享修改
+$router->addPost(
+    '/shares/{id:[0-9]+}',
+    [
+        'controller' => 'shares',
+        'action'     => 'update'
+    ]
+);
+
 //分享点击量添加
 $router->addPost(
     '/shares/clicks',
@@ -382,7 +400,7 @@ $router->addGet(
 $router->addGet(
     '/',
     [
-        'controller' => 'index',
+        'controller' => 'topics',
         'action'     => 'index'
     ]
 );

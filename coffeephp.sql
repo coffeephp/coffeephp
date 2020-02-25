@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX (`github_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户表';
 
 CREATE TABLE IF NOT EXISTS `topics` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `topics` (
   PRIMARY KEY (`id`),
   INDEX (`categories_id`),
   INDEX (`users_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='话题表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='话题表';
 
 CREATE TABLE IF NOT EXISTS `topics_replies` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `topics_replies` (
   PRIMARY KEY (`id`),
   INDEX (`users_id`),
   INDEX (`topics_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='话题回复表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='话题回复表';
 
 CREATE TABLE IF NOT EXISTS `topics_replies_votes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `topics_replies_votes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='话题回复的投票表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='话题回复的投票表';
 
 CREATE TABLE IF NOT EXISTS `topics_views` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `topics_views` (
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX (`topics_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='话题浏览表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='话题浏览表';
 
 CREATE TABLE IF NOT EXISTS `topics_votes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -92,16 +92,19 @@ CREATE TABLE IF NOT EXISTS `topics_votes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='话题投票表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='话题投票表';
 
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) UNIQUE NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `type` char(20) NOT NULL COMMENT '类型',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='分类表';
+  PRIMARY KEY (`id`),
+  INDEX (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='分类表';
 
 CREATE TABLE IF NOT EXISTS `shares` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -113,13 +116,13 @@ CREATE TABLE IF NOT EXISTS `shares` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX (`users_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='分享表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='分享表';
 
 CREATE TABLE IF NOT EXISTS `blogs` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `users_id` int unsigned NOT NULL COMMENT '用户id',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT '专栏名称',
-  `slug` varchar(255) NOT NULL DEFAULT '' COMMENT '专栏别名',
+  `slug` varchar(255) NOT NULL DEFAULT '',
   `description` text COMMENT '专栏介绍',
   `cover` varchar(255) NOT NULL DEFAULT '' COMMENT '封面',
   `number_articles` int unsigned NOT NULL DEFAULT 0 COMMENT '文章数量',
@@ -127,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX (`users_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='专栏表';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='专栏表';
 
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -144,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX (`users_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章表';
 
 CREATE TABLE IF NOT EXISTS `articles_votes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -155,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `articles_votes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章投票表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章投票表';
 
 CREATE TABLE IF NOT EXISTS `articles_replies` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -168,11 +171,10 @@ CREATE TABLE IF NOT EXISTS `articles_replies` (
   `votes_down` int unsigned NOT NULL DEFAULT 0 COMMENT 'down投票数',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX (`users_id`),
   INDEX (`articles_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章回复表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章回复表';
 
 CREATE TABLE IF NOT EXISTS `articles_replies_votes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -183,25 +185,41 @@ CREATE TABLE IF NOT EXISTS `articles_replies_votes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章回复的投票表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章回复的投票表';
 
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) UNIQUE NOT NULL COMMENT '标签名称',
   `slug` varchar(100) NOT NULL COMMENT '内链',
   `description` text COMMENT '描述',
-  `color` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='标签表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='标签表';
+
+CREATE TABLE IF NOT EXISTS `shares_tags` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `shares_id` int unsigned NOT NULL COMMENT '分享id',
+  `tags_id` int unsigned NOT NULL COMMENT '标签id',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  INDEX (`shares_id`),
+  INDEX (`tags_id`),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='分享标签表';
 
 CREATE TABLE IF NOT EXISTS `topics_tags` (
   `topics_id` int unsigned NOT NULL COMMENT '话题id',
   `tags_id` int unsigned NOT NULL COMMENT '标签id',
   INDEX (`topics_id`),
   INDEX (`tags_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='话题标签表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='话题标签表';
 
-
+CREATE TABLE IF NOT EXISTS `feeds` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `categories_id` int unsigned NOT NULL COMMENT '分类id',
+  `common_id` int unsigned NOT NULL COMMENT '具体内容的id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='feed表';
 

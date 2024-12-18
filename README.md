@@ -11,7 +11,7 @@ CoffeePHP社区QQ群：415183844，欢迎入群，有什么问题可以在QQ群@
 1. 安装phalcon扩展, [https://docs.phalcon.io/3.4/zh-cn/introduction](https://docs.phalcon.io/3.4/zh-cn/introduction)
 
 2. 克隆源代码
-    > git clone git@github.com:coffeephp/coffeephp.git
+    > git clone git@github.com:jsyzchen/coffeephp.git
 
 3. 安装扩展包依赖
     > composer install
